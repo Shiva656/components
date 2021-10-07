@@ -1,0 +1,51 @@
+/*------------------------------------*/
+/*--------- PRICING TABLE ------------*/
+/*------------------------------------*/
+.pricing-table{
+	.pricing-table-item{
+		float: left;
+    	text-align: center;
+    	color: $rock_blue;
+    	border: 1px solid $light_gray;
+		width: 20%;
+		&:last-child{
+			border-right:1px solid $light_gray ;
+		}
+		.price-item-title{
+		    background: $alice_blue;
+    		border-bottom: 1px solid $light_gray;
+   	 		padding: 0.9rem 0;
+		}
+		.price-item-content {
+	        padding: 2.12rem 0 1.8rem;
+		    span.count {
+			    font-size: 1.5rem;
+			    display:  block;
+			    margin-bottom: 1.3rem;
+			}
+		}
+		&:hover, &.active{
+			color: $blue_bg;
+			border-color: #A9D3FF;
+			.price-item-title{
+				background: $alice_blue;
+			}
+			.price-item-content{
+				background: rgba(26, 140, 255, 0.03);
+			}
+			h5{
+				color: $blue_bg;
+			}
+		}
+	}
+}
+@media(max-width: 767px){
+	.pricing-table .pricing-table-item{
+	    width: 100%;
+	    margin-bottom: 0.5rem;
+	}
+}
+
+/*------------------------------------*/
+/*--------- /PRICING TABLE -----------*/
+/*------------------------------------*/

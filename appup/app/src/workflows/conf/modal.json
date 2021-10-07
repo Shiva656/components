@@ -1,0 +1,58 @@
+[
+  
+    {
+        "id": "modal",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<appup-form  preload='pre_load_entity'  submit='post_entity' :workflow_params=\"{'entity': 'triggers'}\"/>  ",
+                "next": {
+                    "success": "ajax"
+                },
+                "name": "mymodal",
+                "modal-title": "Do want you to delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "OK",
+                "modal-cancel-title": "Cancel2"
+            }
+        ]
+    },
+    {
+        "id": "delete-modal",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<div>Are you sure you want to delete {{route.params.entity}}?</div>",
+                "next": {
+                    "success": "ok",
+                    "failure": "failure"
+                },
+                "name": "mymodal",
+                "modal-title": "Delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "Delete",
+                "modal-ok-variant": "danger",
+                "modal-cancel-title": "Cancel"
+            }
+        ]
+    }
+    
+]

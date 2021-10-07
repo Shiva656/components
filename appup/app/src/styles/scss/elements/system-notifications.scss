@@ -1,0 +1,57 @@
+/*------------------------------------*/
+/*-------- SYSTEM NOTIFICATIONS ------*/
+/*------------------------------------*/
+// .alert{
+//     position: absolute;
+//     right: 1rem;
+//     top: 4.5rem;
+//     background: #fff;
+//     box-shadow: 6px 10px 20px 0 rgba(210, 222, 237, 0.6);
+//     z-index: 100;
+//     padding: 0.55rem 0.65rem 0.95rem 1.05rem;
+//     max-width: 350px;
+//     border: none;
+//     border-left: 3px solid transparent;
+//     h4{
+// 	    margin-bottom: 0.3rem;
+// 	    font-size: 0.75rem;
+// 	    letter-spacing: 0.65px;
+// 	    font-weight: 600;
+//     }
+//     p{
+// 	    font-size: 0.75rem;
+// 	    letter-spacing: 0.45px;
+// 	    margin-bottom: 0;
+// 	    color: $fiord;
+// 	    padding-right: 2rem;
+//     }
+//     .close{
+//     	font-size: 0.7rem;
+//     	margin-top: 0.2rem;
+//     }
+//     &.alert-success{
+//     	border-left-color: $conifer;
+//     }
+//     &.alert-danger{
+//     	border-left-color: $bittersweet;
+//     }
+//     &.alert-warning{
+//     	border-left-color: $neon_carrot;
+//     }
+//     &.alert-light{
+//     	border-left-color: $spindle;
+//     }
+// }
+// @media(max-width: 767px){
+// 	.alert{
+// 	    right: 0;
+// 	    top: 4.1rem;
+// 	    left: 0;
+// 	    margin: 0 auto;
+// 	    max-width: 100%;
+// 	}
+// }
+
+/*------------------------------------*/
+/*-------- /SYSTEM NOTIFICATIONS -----*/
+/*------------------------------------*/

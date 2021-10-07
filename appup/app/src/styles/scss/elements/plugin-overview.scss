@@ -1,0 +1,202 @@
+/*------------------------------------*/
+/*---------- PLUGIN OVERVIEW ---------*/
+/*------------------------------------*/
+.modal.plugin-modal {
+	background: rgba(0, 32, 62, 0.32);
+	.modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 488px;
+		height: 100vh;
+		-webkit-transform: translateX(0%, 0, 0);
+		    -ms-transform: translateX(0%, 0, 0);
+		     -o-transform: translateX(0%, 0, 0);
+		        transform: translateX(0%, 0, 0);
+		box-shadow: -15px 0 20px 0 rgba(0, 34, 117, 0.1);
+	}
+	&.fade.show .modal-dialog{
+		right: 0;
+	}
+	.modal-content {
+		height: 100%;
+		overflow-y: auto;
+		border-radius: 0;
+		border: none;
+	}
+	.modal-header{
+        padding: 1.5rem 1.5rem 1.2rem;
+	    display: block;
+	    img{
+	    	margin-right: 0.7rem;
+	    }
+	    .title{
+        	max-width: 190px;
+		    vertical-align: middle;
+		    h3{
+	    	    color: $blue;
+		        letter-spacing: 0.35px;
+			    line-height: 26px;
+			    margin-bottom: 0.1rem;
+			    font-size: 1.1rem;
+		    }
+		    p.category{
+    	        font-size: 0.75rem;
+			    display: block;
+			    color: $rock_blue;
+		    }
+	    }
+	    .voting{
+    	    margin-right: 0.1rem;
+    	    margin-bottom: 1.6rem;
+	    	.stars span{
+    		    font-size: 0.8rem;
+    			margin-left: 0.16rem;
+	    	}
+	    	span{
+    		    font-size: 0.6rem;
+    			letter-spacing: -0.35px;
+    			color: $ship_cove;
+	    	}
+	    }
+	    
+	}
+	.modal-body {
+		padding: 1.6rem;
+		h4{
+			font-size: 1.1rem;
+		    margin-bottom: 1.1rem;
+		    display: block;
+		    letter-spacing: 0.25px;
+		}
+		p{
+	        font-size: 0.85rem;
+		    letter-spacing: -0.3px;
+		    line-height: 21px;
+		    margin-bottom: 1.5rem;
+		    color: $ship_cove;
+		}
+	}  
+	.plugin-info{
+		border-bottom: 1px solid $lavender_gray;
+		margin: 0 -1.6rem;
+		padding: 0 1.5rem 1.6rem;
+		.plugin-info-item{
+		    position: relative;
+		    border-bottom: 1px solid $light_gray;
+	        margin-bottom: 1.24rem;
+	        h5{
+        	    background: $white;
+	            margin-bottom: -0.3rem;
+			    display: block;
+			    z-index: 10;
+			    line-height: 19px;
+			    letter-spacing: 0.25px;
+			    font-size: 0.85rem;
+			    &.title{
+			    	padding-right: 0.8rem;
+			    }
+			    &.description{
+			    	padding-left: 0.4rem;
+			    	color: $rock_blue;
+			    }
+	        }
+		}
+	}
+	.rating-block {
+		border-bottom: 1px solid $light_gray;
+	    margin: 0 -1.6rem;
+	    padding: 1.7rem 1.6rem 0.7rem;
+		h4{
+		    margin-bottom: 1.6rem;
+		}
+    	.rating-info{
+        	padding-top: 0.1rem;
+    		margin-left: -0.2rem;
+		    p{
+	    	    font-size: 0.55rem;
+			    padding-right: 1rem;
+			    letter-spacing: 0.35px;
+			    margin-left: 0.1rem;
+			    line-height: 14px;
+			    margin-top: 0.3rem;
+			    color: $rock_blue;
+		        margin-bottom: 0;
+		        max-width: 110px;
+		    }
+    	}
+	    .rating{
+    	    font-size: 2.35rem;
+		    color:  $fiord;
+	        letter-spacing: 0.85px;
+    		line-height: 41px;
+	    }
+	    .stars span{
+	    	font-size: 0.8rem;
+    		margin-right: 0.15rem;
+	    }
+
+	}
+	.reviews{
+	    margin: 0 -1.6rem;
+	    padding: 1.7rem 1.6rem 0;
+	}
+
+	&.fade{
+		.modal-dialog {
+			right: -488px;
+			-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+			   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+			     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+			        transition: opacity 0.3s linear, right 0.3s ease-out;
+		}
+		&.in{
+			.modal-dialog {
+				right: 0;
+			}
+		}
+	}  
+}
+
+@media(max-width: 767px){
+	.modal.plugin-modal{
+		&.fade.show .modal-dialog{
+			width: 100%;
+		}
+		.modal-header{
+			img{
+				margin-bottom: 1rem;
+			}
+			.voting{
+				margin-bottom: 1rem;
+			}
+		} 
+		.plugin-info .plugin-info-item h5.description{
+			font-size: 0.7rem;
+		}
+		.rating-block .rating-info{
+			text-align: center;
+			margin-bottom: 1rem;
+			p{
+				max-width: 100%;
+			    margin: 0 auto;
+			    padding-right: 0;
+			}
+		}
+	}
+}
+@media(max-width: 374px){
+	.modal.plugin-modal{
+		.modal-header .title{
+    		max-width: 100%
+		}
+		.plugin-info .plugin-info-item h5.description{
+			font-size: 0.6rem;
+		}
+	} 
+	
+}
+
+
+/*------------------------------------*/
+/*---------- /PLUGIN OVERVIEW --------*/
+/*------------------------------------*/

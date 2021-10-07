@@ -1,0 +1,373 @@
+    {
+        "component": "appup-filter",
+        "description": null,
+        "category": "component",
+        "fields": [
+            {
+                "type": "html",
+                "html": "<h4>GENERAL</h4>",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true"
+            },
+            {
+                "id": "id_field",
+                "name": "id",
+                "label": "Id",
+                "description": "Id for the filter",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true",
+                "category-name": "1_General",
+                "type": "text"
+            },
+            {
+                "id": "filter-json_field",
+                "name": "filter-json",
+                "label": "Filter JSON",
+                "description": "filterJson is an object with fields array with filter-type,filter-name, field-json.",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "type": "textarea"
+            },
+            {
+                "id": "filter-data_field",
+                "name": "filter-data",
+                "label": "Filter Data",
+                "description": "To prefill the selected filters.",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "type": "textarea"
+            },
+            {
+                "id": "filterWidth_field",
+                "name": "filterWidth",
+                "label": "filter Width",
+                "description": "Width for the filter",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true",
+                "category-name": "3_General",
+                "type": "text"
+            },
+            {
+                "id": "filterHeight_field",
+                "name": "filterHeight",
+                "label": "filter Height",
+                "description": "Height for the filter",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true",
+                "category-name": "3_General",
+                "type": "text"
+            },
+            {
+                "id": "on-apply-close_field",
+                "name": "on-apply-close",
+                "label": "On-Apply-Close",
+                "description": "onApplyClose if it is true filters dropdown will close on click Apply button.",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "on-save-close_field",
+                "name": "on-save-close",
+                "label": "On-Save-Close",
+                "description": "onSaveClose if it is true filters dropdown will close on click Save button.",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "direction",
+                "name": "direction",
+                "label": "Direction",
+                "type": "dropdown",
+                "option": [
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    },
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    }
+                ],
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "description": "Filters Direction."
+            },
+            {
+                "type": "html",
+                "html": "<h4>ADVANCED</h4>",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a"
+            },
+            {
+                "id": "config_field",
+                "name": "config",
+                "label": "Config",
+                "description": "Config is an object for DB App, Ex: {\"data\":{\"fields\":\"\", \"tables\":[], join:[]}}",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "3_Advanced",
+                "type": "textarea"
+            },
+            {
+                "id": "toggle_field",
+                "name": "toggle",
+                "label": "Toggle",
+                "description": "If toggle is true filters dropdown will close only on click button",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "3_Advanced",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "show-buttons_field",
+                "name": "show-buttons",
+                "label": "Show Buttons",
+                "description": "Show Buttons is an object with three props. prop(button) with value as true, respective button will be visible.\nEx: {\"apply\": true,\"save\":true,\"clear\":true}",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "3_Advanced",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "Component reference",
+                "type": "text",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a"
+            },
+            {
+                "id": "__slot__filterButton_field",
+                "name": "__slot__filterButton",
+                "label": "filterButton",
+                "description": "Use this slot for Filter Button content",
+                "type": "textarea",
+                "container": "settings",
+                "container-name": "slots",
+                "tab-order": "b"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header",
+                "description": "Use this slot for filter header",
+                "type": "textarea",
+                "container": "settings",
+                "container-name": "slots",
+                "tab-order": "b"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer",
+                "description": "Use this slot for filter footer",
+                "type": "textarea",
+                "container": "settings",
+                "container-name": "slots",
+                "tab-order": "b"
+            },
+            {
+                "id": "__event__clear_field",
+                "type": "grid",
+                "label": "clear",
+                "name": "__event__clear",
+                "columns": [
+                    {
+                        "key": "name",
+                        "label": "Handler name",
+                        "sortable": true
+                    },
+                    {
+                        "key": "params",
+                        "label": "Handler params"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "name",
+                            "label": "Handler",
+                            "type": "dropdown",
+                            "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                            "option": [
+                                {
+                                    "value": "",
+                                    "label": "No Handler"
+                                }
+                            ],
+                            "key_value": "NAME",
+                            "key_label": "NAME"
+                        },
+                        {
+                            "id": "params",
+                            "name": "params",
+                            "label": "Handler Params",
+                            "type": "textarea"
+                        }
+                    ]
+                },
+                "container": "settings",
+                "container-name": "events",
+                "tab-order": "c"
+            },
+            {
+                "id": "__event__save_field",
+                "type": "grid",
+                "label": "Save",
+                "name": "__event__save",
+                "columns": [
+                    {
+                        "key": "name",
+                        "label": "Handler name",
+                        "sortable": true
+                    },
+                    {
+                        "key": "params",
+                        "label": "Handler params"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "name",
+                            "label": "Handler",
+                            "type": "dropdown",
+                            "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                            "option": [
+                                {
+                                    "value": "",
+                                    "label": "No Handler"
+                                }
+                            ],
+                            "key_value": "NAME",
+                            "key_label": "NAME"
+                        },
+                        {
+                            "id": "params",
+                            "name": "params",
+                            "label": "Handler Params",
+                            "type": "textarea"
+                        }
+                    ]
+                },
+                "container": "settings",
+                "container-name": "events",
+                "tab-order": "c"
+            },
+            {
+                "id": "__event__apply_field",
+                "type": "grid",
+                "label": "Apply",
+                "name": "__event__apply",
+                "columns": [
+                    {
+                        "key": "name",
+                        "label": "Handler name",
+                        "sortable": true
+                    },
+                    {
+                        "key": "params",
+                        "label": "Handler params"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "name",
+                            "label": "Handler",
+                            "type": "dropdown",
+                            "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                            "option": [
+                                {
+                                    "value": "",
+                                    "label": "No Handler"
+                                }
+                            ],
+                            "key_value": "NAME",
+                            "key_label": "NAME"
+                        },
+                        {
+                            "id": "params",
+                            "name": "params",
+                            "label": "Handler Params",
+                            "type": "textarea"
+                        }
+                    ]
+                },
+                "container": "settings",
+                "container-name": "events",
+                "tab-order": "c"
+            }
+        ]
+    }

@@ -1,0 +1,52 @@
+/*------------------------------------*/
+/*----------- SOCIAL ICONS -----------*/
+/*------------------------------------*/
+.social-icons{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3.8rem;
+    border-top: 1px solid $lavender_gray;
+    margin: 3.8rem -1.4rem 0;
+    padding: 3.1rem 5.2rem 0;
+    position: relative;
+    &:before{
+    	content: "OR";
+    	color: $lavender_gray;
+	    position: absolute;
+	    top: -0.7rem;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    background: #fff;
+	    width: 38px;
+	    font-size: 0.8rem;
+	    margin: 0 auto;
+    }
+	a{
+		@include border-radius(50%);
+		width: 40px;
+	    height: 40px;
+	    display: inline-block;
+	    line-height: 40px;
+	    text-align: center;
+	    font-size: 1.3rem;
+	    &:hover{
+	    	text-decoration: none;
+	    }
+	    &.icon-google{
+	    	font-size: 1rem;
+	    }
+	    &.icon-linkedin{
+	    	font-size: 1.35rem;
+	    }
+	}
+}
+@media(max-width: 374px){
+	.social-icons{
+	    padding: 3.1rem 4rem 0;
+	}
+}
+/*------------------------------------*/
+/*----------- /SOCIAL ICONS ----------*/
+/*------------------------------------*/
+/**/

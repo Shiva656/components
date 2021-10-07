@@ -1,0 +1,22 @@
+/*------------------------------------*/
+/*------------- CIRCLES --------------*/
+/*------------------------------------*/
+.circle{
+	display: inline-block;
+	vertical-align: middle;
+	width: 11px;
+    height: 11px;
+	border: 2px solid transparent;
+	@include border-radius(50%);
+	&.green-circle{
+		border-color: $green;
+	}
+	&.gray-circle{
+		border-color: $lavender_gray;
+	}
+}
+
+/*------------------------------------*/
+/*------------- /CIRCLES -------------*/
+/*------------------------------------*/
+/**/

@@ -1,0 +1,124 @@
+/*------------------------------------*/
+/*--------------- APPS ---------------*/
+/*------------------------------------*/
+.title-apps {
+    position:  relative;
+    margin-left: -0.6rem;
+    margin-right: -0.4rem;
+    &:after {
+	    content:  '';
+	    background: #F5FAFF;
+        height: 1px;
+    	left: -14px;
+    	right: -16px;
+    	display: block;
+    	position: absolute;
+    	bottom: -17px;
+	}
+	.dropdown{
+	    line-height: 11px;
+		button{
+	    	background: transparent;
+		    border: none;
+		    color: $hawkes_blue;
+        	font-size: 26px;
+		    line-height: 1px;
+		    display: inline-block;
+		    vertical-align: middle;
+		    padding: 0;
+		    width: auto;
+	        letter-spacing: -0.45px;
+	        min-width: 1px;
+		}
+		button:after{
+			display: none;
+		}
+	}
+	.show > .btn-secondary.dropdown-toggle,
+	.btn-secondary:focus, .btn-secondary.focus{
+ 	 	color: $hawkes_blue; 
+	 	background-color: transparent; 
+	 	//border: none;
+	 	box-shadow: none;
+	 	outline: none;
+	}
+}
+.apps{
+	margin-top: 3.1rem;
+	.app{
+		text-align: center;
+    	border: 1px solid $solitude_gray;
+	    padding: 0.4rem 0.4rem 0.6rem;
+        margin-bottom: 1rem;
+        min-height: 203px;
+    	@include border-radius(4px);
+    	&.workplace img{
+			margin-top: -1rem
+    	}
+		.app-image{
+    		height: 148px;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		@include border-radius(2px);
+    		position:  relative;
+    		.hover{
+    			visibility: hidden;
+    			position:  absolute;
+			    top: 0;
+			    left:  0;
+			    right:  0;
+			    bottom:  0;
+			    a.outline-more {
+				    right: 11px;
+				    position:  absolute;
+				    top: -15px;
+				    font-size: 2.1rem;
+				    text-decoration:  none;
+				    letter-spacing: -2.85px;
+				}
+			    .stars {
+			        position: absolute;
+				    bottom: 0.7rem;
+				    left: 0;
+				    right: 0;
+				    .star{
+				    	padding: 0 0.05rem;
+				    	font-size: 0.8rem;
+				    }
+				}
+    		}
+		}
+		.description{
+		    display: inline-block;
+    		vertical-align: middle;
+    		padding-top: 0.7rem;
+		}
+		&.new-app{
+			border-style: dashed;
+			span{
+			    color: $lavender;
+			    font-family: HelveticaNeue;
+			    font-size: 3.8rem;
+			}
+			.description h4{
+				color: $hawkes_blue;
+			}
+		}
+		&:hover{
+			box-shadow: 5px 10px 10px 0 rgba(228,237,249,0.5);
+			.hover{
+				visibility: visible;
+			}
+		}
+	}
+}
+@media(max-width: 767px){
+	.title-apps .dropdown{
+		margin-top: -3.1rem;
+	}
+}
+/*------------------------------------*/
+/*--------------- /APPS --------------*/
+/*------------------------------------*/
+/**/

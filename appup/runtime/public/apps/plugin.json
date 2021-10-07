@@ -1,0 +1,89 @@
+{
+    "pages": [
+        {
+            "ID": 6246,
+            "NAME": "CurrentLocation",
+            "TITTLE": null,
+            "URL": "/currentlocation",
+            "DESCRIPTION": null,
+            "TEMPLATE": " <div>\n        <h6>GeoApplication through our.appup.com. Click on Show location to get your cordinates</h6><br>\n        <button  @click.prevent=\"start('GeoHandler',{})\"> Show Location </button>\n</div>",
+            "APPLICATION_ID": 2621,
+            "CATEGORY_ID": 4980,
+            "JS_CODE": "null",
+            "CSS_CODE": "null",
+            "JSON": "null",
+            "OWNER_ID": 541,
+            "CATEGORY_NAME": "GeoPage"
+        }
+    ],
+    "blocks": [],
+    "globalJs": [],
+    "globalCss": [],
+    "handlers": [
+        {
+            "id": "GeoHandler",
+            "triggerName": "GeoTrigger",
+            "workflow": [
+                {
+                    "id": "1",
+                    "type": "start",
+                    "next": {
+                        "success": "PBXF56TINHDfq"
+                    }
+                },
+                {
+                    "id": "PBXF56TINHDfq",
+                    "type": "get_current_position",
+                    "next": {
+                        "failure": "PBXTWLZUqlSuC",
+                        "success": "PBXh0b4KP0w1U"
+                    },
+                    "nodename": "GetCurrentPosition",
+                    "latitude": "lat",
+                    "longitude": "long"
+                },
+                {
+                    "id": "PBXTWLZUqlSuC",
+                    "type": "alert",
+                    "next": {
+                        "success": "hangup"
+                    },
+                    "nodename": "Alert",
+                    "title": "Alert",
+                    "message": "Geolocation not supported"
+                },
+                {
+                    "id": "PBXh0b4KP0w1U",
+                    "type": "alert",
+                    "next": {
+                        "success": "hangup"
+                    },
+                    "nodename": "Alert",
+                    "title": "Alert",
+                    "message": "Geolocation Success"
+                },
+                {
+                    "id": "PBXoLPVMpWZQT",
+                    "type": "js",
+                    "next": {
+                        "success": "hangup"
+                    },
+                    "nodename": "JS code",
+                    "code": "function getLocation() {\r\n  alert(\"Hello\");\r\n}\r\n"
+                }
+            ]
+        }
+    ],
+    "plugins": [
+        {
+            "ID": 23,
+            "APPLICATION_ID": 2621,
+            "CONFIG_NAME": "TestHello",
+            "PLUGIN_ID": 2,
+            "OWNER_ID": 541,
+            "FIELDS": "{\"event_sayHello\":\"Hello\",\"event_sayHelloWorld\":\"Hello World\"}",
+            "IS_WRITABLE": 1,
+            "IS_SECURE": 0
+        }
+    ]
+}

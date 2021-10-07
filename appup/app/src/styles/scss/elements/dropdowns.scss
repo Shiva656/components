@@ -1,0 +1,106 @@
+/*------------------------------------*/
+/*-------------- DROPDOWNS -----------*/
+/*------------------------------------*/
+.dropdown{
+	.dropdown-divider {
+    	margin: 0.9rem 0;
+	    border-color: $alice_blue;
+	}
+	.dropdown-toggle:after{
+		//display: none;
+	}
+	.dropdown-item{
+	    padding: 0.85rem 1.4rem 0.55rem;
+		white-space: normal;
+	    line-height: 18px;
+	    position: relative;
+	    @include transition(0.01s);
+		h4{
+			display: block;
+			margin-bottom: 0.2rem;
+		}
+		p{
+ 	        font-size: 0.74rem;
+		    margin-top: 0.1rem;
+		    color: $periwinkle;
+		    letter-spacing: 0.05px;
+		    display: inline;
+		    margin-bottom: 0;
+		}
+		.notification-date{
+	    	font-size: 0.7rem;
+			color: $rock_blue;
+			letter-spacing: 0.65px;
+		}
+		&:hover{
+			background: rgba(26, 140, 255, 0.05);;
+		}
+		&:hover:after{
+			content: '';
+		    left: 0;
+		    top: 0;
+		    position: absolute;
+		    height: 100%;
+		    width: 3px;
+		    background: $blue;
+		}
+		&.show-all-button{
+    	    background: transparent;
+		    font-size: 0.7rem;
+		    padding: 0.6rem 0 0.3rem;
+		    letter-spacing: 0.05px;
+		    line-height: 1px;
+		    color: $blue;
+	    	&:hover{
+	    		color: $blue;
+	    	}
+	    	&:hover:after{
+	    		display: none;
+	    	}
+		}
+	}
+	&.show{
+		.title-dropdown{
+			margin-bottom: 0.5rem;
+		}
+		.dropdown-menu{
+			display: block;
+		    left: -287px;
+		    top: 51px;
+		    right: -14px;
+		    border-color: $lavender_gray;
+            padding: 1rem 0;
+            box-shadow: 0 10px 14px 0 rgba(48, 106, 178, 0.08);
+		    &:before {
+			    content: '';
+			    border-left: 5px solid transparent;
+			    border-right: 5px solid transparent;
+			    border-bottom: 7px solid #fff;
+			    position:  absolute;
+			    top: -7px;right: 21px;
+			}
+			&:after{
+				content: '';
+			    border-color: $lavender_gray;
+			    position: absolute;
+			    top: -8px;
+			    right: 19px;
+			    border-left: 7px solid transparent;
+			    border-right: 7px solid transparent;
+			    border-bottom: 8px solid $lavender_gray;
+			    z-index: -1;
+			}
+
+		}
+	}
+	.btn-danger:not(:disabled):not(.disabled):active:focus, 
+	.btn-danger:not(:disabled):not(.disabled).active:focus, 
+	&.show > .btn-danger.dropdown-toggle:focus{
+		background: transparent;
+		outline: none;
+	}
+	
+}
+/*------------------------------------*/
+/*-------------- /DROPDOWNS ----------*/
+/*------------------------------------*/

@@ -1,0 +1,38 @@
+/*------------------------------------*/
+/*---------------  STEPS -------------*/
+/*------------------------------------*/
+.step{
+	border: 1px solid $lavender_gray;
+	@include border-radius(4px);
+	background: $white;
+    padding: 1.3rem 1rem 1.1rem;
+    margin-bottom: 1rem;
+    @include transition(0.3s);
+    cursor: pointer;
+    &:hover{
+    	border-color: $blue_bg;
+    }
+	span {
+	    font-size: 1.2rem;
+	    display:  block;
+        margin-bottom: 0.8rem;
+        color: $blue_bg;
+	}
+	h5{
+	    color: $blue_bg;
+	    font-size: 0.75rem;
+	    margin-bottom: 0.35rem;
+	}
+	p{
+		font-size: 0.625rem;
+    	letter-spacing: -0.05px;
+	    line-height: 16px;
+	    margin-bottom: 0;
+	    color: $ship_cove;
+	}
+}
+
+/*------------------------------------*/
+/*--------------- STEPS  -------------*/
+/*------------------------------------*/
+/**/

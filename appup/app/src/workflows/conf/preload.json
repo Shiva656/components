@@ -1,0 +1,378 @@
+[
+    {
+        "id": "pre_load",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){if(data.route.params.entity && data.route.params.entity == 'swagger'){window.UIJSON.swagger.fields[4].url ='';} if(data.response_data.data == null) {data.response_data.data=''} if(data.response_data.data.PLUGIN_FIELDS){var dynamic_data=window.UIJSON.{{route.params.entity}}.fields.concat(JSON.parse(data.response_data.data.PLUGIN_FIELDS)); ui.formFields=dynamic_data; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons;}else{ui.formFields = window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons;};document.getElementById('input_cloud_url').value='' }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_page_cms",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/BLOCKS?where=APPLICATION_ID={{route.params.appId}} and IS_SECURE=0 and REF_TYPE='system_helper'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui) {var response = data.response_data.data;  data.response_length=response.length; if(response.length){var temp = window.UIJSON.page_cms.template_value;for (var item in response) {if (response[item].NAME.includes('_navbar')) {if (response[item].NAME.includes('portal')) {temp = temp.replace(/portal_app_navbar/g, response[item].NAME);}else {temp = temp.replace(/app_navbar/g, response[item].NAME)}} if (response[item].NAME.includes('_footer')) {temp = temp.replace(/app_footer/g, response[item].NAME)}} data.temp=temp; return data;} else{return data;}}",
+                "next": {
+                    "success": "formfields"
+                }
+            },
+            {
+                "id": "formfields",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields = window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons;ui.formFields[3]['value']=''; if(data.response_length && ui.formFields[3].value == ''){ui.formFields[3]['value']=data.temp;}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){if(window.UIJSON[ui.workflow_params.entity].submit){ui.submit=window.UIJSON[ui.workflow_params.entity].submit } ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "js_data"
+                }
+            },
+            {
+                "id": "js_data",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){if(data.route.params.entity == 'swagger'){window.UIJSON.swagger.fields[4].url = window.UIJSON.swagger.fields[4].url = '/appdb/_db/SWAGGER_TRIGGER_PARAM?where=TRIGGER_ID={{route.params.trigId}} and ID NOT IN ({{route.params.id}}) and PARENT_ID=0' + ' and PARAM_SOURCE=\\''+data.response_data.data.PARAM_SOURCE+'\\''}; if(data.route.params.entity == 'page_cms'){data.response_data.data.JSON = JSON.parse(data.response_data.data.JSON);}data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_trigger_event_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data1",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "ajax2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get2}}}{{/with}}{{route.params.id}}",
+                "var": "response_data2",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.form.trigger_params_id=[]; var filter_response_data = {}; for(let i=0;i<data.response_data2.data.length;i++){ data.form.trigger_params_id.push(data.response_data2.data[i]['ID']); filter_response_data[data.response_data2.data[i]['KEY']] = data.response_data2.data[i]['VALUE'];}; var response_data = Object.assign(data.response_data1.data, filter_response_data); data.response_data=response_data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "cms_pre_load_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){  data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ var formJson = JSON.parse(data.response_data.JSON); if(data.route.params.entity == 'usercmsitems'){ui.formFields= formJson}else{ui.formFields= formJson.fields}; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons; var parseitemjs = JSON.parse(data.response_data.ITEM_JSON); parseitemjs.name = data.response_data.NAME; parseitemjs.route = data.response_data.URL; parseitemjs.item = data.response_data.TITTLE;  data.response_data = parseitemjs }",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "pre_load_edit_type",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields;ui.buttons = window.UIJSON.{{route.params.entity}}.buttons;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "js2"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "disable_button",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

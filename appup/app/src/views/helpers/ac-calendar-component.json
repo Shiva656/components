@@ -1,0 +1,432 @@
+{
+    "component": "ac-calendar",
+    "description": null,
+    "category": "ac-calendar",
+    "fields": [
+        {
+            "type": "html",
+            "html": "<h4>GENERAL</h4>",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true"
+        },
+        {
+            "id": "events_field",
+            "name": "events",
+            "label": "events",
+            "description": "events object for calender",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "textarea"
+        },
+        {
+            "id": "config_field",
+            "name": "config",
+            "label": "config",
+            "description": "config object for calender",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "textarea"
+        },
+        {
+            "id": "url_field",
+            "name": "url",
+            "label": "URL",
+            "description": "Fetch data with given url",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "category-name": "1_General",
+            "type": "text"
+        },
+        {
+            "id": "method",
+            "name": "method",
+            "label": "method",
+            "description": "Fetch data with given Method",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "dropdown",
+            "option": [
+                {
+                    "value": "GET",
+                    "label": "GET"
+                },
+                {
+                    "value": "POST",
+                    "label": "POST"
+                },
+                {
+                    "value": "DELETE",
+                    "label": "DELETE"
+                },
+                {
+                    "value": "PUT",
+                    "label": "PUT"
+                }
+            ]
+        },
+        {
+            "id": "params_field",
+            "name": "params",
+            "label": "Params",
+            "description": "Fetch data with given parameters",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "textarea"
+        },
+        {
+            "id": "ac_cursor_field",
+            "name": "ac_cursor",
+            "label": "Ac Cursor",
+            "description": "Object for generating url query params params",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "textarea"
+        },
+        {
+            "id": "response_key_field",
+            "name": "response_key",
+            "label": "Response Key",
+            "description": "This key will be used in response to set data",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "text"
+        },
+        {
+            "type": "html",
+            "html": "<h4>ADVANCED</h4>",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a"
+        },
+        {
+            "id": "sort_key_field",
+            "name": "sort_key",
+            "label": "Sort Key",
+            "description": "This key will be used in each object to sort data",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "3_Advanced",
+            "type": "text"
+        },
+        {
+            "id": "refs_field",
+            "name": "refs",
+            "label": "refs",
+            "description": "Component reference",
+            "type": "text",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a"
+        },
+        {
+            "id": "preload_field",
+            "name": "preload",
+            "label": "preload",
+            "type": "grid",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__calendar-ready_field",
+            "type": "grid",
+            "label": "calendar-ready",
+            "name": "__event__calendar-ready",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__event-selected_field",
+            "type": "grid",
+            "label": "event-selected",
+            "name": "__event__event-selected",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__event-drop_field",
+            "type": "grid",
+            "label": "event-drop",
+            "name": "__event__event-drop",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__event-resize_field",
+            "type": "grid",
+            "label": "event-resize",
+            "name": "__event__event-resize",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__day-click_field",
+            "type": "grid",
+            "label": "day-click",
+            "name": "__event__day-click",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+/*------------------------------------*/
+/*------------- HEADER ---------------*/
+/*------------------------------------*/
+header{
+	box-shadow: 0 0 1px 0 $hawkes_blue;
+	padding: 0 1.2rem;
+    width: 100%;
+    background: $white;
+    position: relative;
+    top: 0;
+    .logo{
+	    margin-left: 0.3rem;
+    	margin-top: 0.7rem;
+    	font-size: 1.6rem;
+    	&:hover{
+    		text-decoration: none;
+    	}
+    }
+
+	.menu-nav{
+   		margin-left: 1.2rem;
+    	margin-top: 0.95rem;
+		a.menu-btn{
+    		font-size: 0.75rem;
+    	}
+	}
+	.user-info{
+	    padding: 0.5rem 1rem;
+	    margin-left: 0.8rem;
+	    border: 1px solid $light_gray;
+	    border-top: none;
+	    border-bottom: none;
+		h4{
+		    vertical-align: text-bottom; 	
+		}
+		.user-avatar{
+		    margin-left: 0.4rem;
+		}
+	}
+	.notification{
+    	font-size: 1.55rem;
+		position: relative;
+	    margin-top: -0.3rem;
+	    background: transparent;
+		&.new-notice:after{
+			content: '';
+	        width: 10px;
+			height: 10px;
+		    background: $orange_peel;
+		    position: absolute;
+		    border-radius: 50%;
+		    border: 2px solid $white;
+		    top: 3px;
+		    right: -1px;
+		    display: block;
+		}
+		&:hover, &:focus{
+			text-decoration: none;
+		}
+	}
+	&.header-home{
+		background: transparent;
+		box-shadow: none;
+    	padding-top: 0.5rem;
+	    position: absolute;
+		.nav{
+	     	padding-top: 0.9rem;
+	    	margin-right: -0.3rem;
+			.nav-link{
+				color: $fiord;	
+			    font-size: 0.7rem;
+			    text-transform: uppercase;
+		        padding: 0.7rem 1.1rem;
+		        font-weight: bold;
+			}
+		}
+		a.logo{
+		    margin-left: -0.3rem;
+			span, span:before{
+				color: $rock_blue;
+			}
+			span{
+			    font-size: 1rem;
+				font-weight: bold;
+				letter-spacing: 0.75px;
+			}
+			span.icon-logo{
+			    font-size: 1.55rem;
+    			margin-right: 0.3rem;
+			}
+		}
+	}
+}
+@media (max-width: 767px){
+	.header{
+	    padding-bottom: 1rem;
+	    .logo{
+	    	margin-left: 0;
+	    }
+	    &.header-home{
+	    	.nav{
+	    		display: none;
+	    	}
+	    	.menu-btn{
+	    		line-height: 60px;
+	    	}
+	    }
+	}
+
+}
+/*------------------------------------*/
+/*------------- /HEADER --------------*/
+/*------------------------------------*/
+/**/

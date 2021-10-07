@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Inter-UI-Black';
+    src: url('Inter-ui/inter-ui-black-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-BlackItalic';
+    src: url('Inter-ui/inter-ui-blackitalic-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-Bold';
+    src: url('Inter-ui/inter-ui-bold-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-BoldItalic';
+    src: url('Inter-ui/inter-ui-bolditalic-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-Italic';
+    src: url('Inter-ui/inter-ui-italic-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-Medium';
+    src: url('Inter-ui/inter-ui-medium-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-MediumItalic';
+    src: url('Inter-ui/inter-ui-mediumitalic-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter-UI-Regular';
+    src: url('Inter-ui/inter-ui-regular-webfont.woff2') format('woff2'),
+         url('Inter-ui/inter-ui-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

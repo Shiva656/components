@@ -1,0 +1,678 @@
+[
+    {
+        "id": "preload_grid",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "user_cms_preload_grid",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{user_filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data); return ui.data;}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "python_editor_preload_grid",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get_python}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_theme",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "pageajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = {pages: data.response_URL.data, themes:data.response_data.data }}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "pageajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{getURL}}}?{{{filterURL}}}{{/with}}",
+                "var": "response_URL",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "grid_delete",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<div>Are you sure you want to delete {{route.params.entity}}?</div>",
+                "next": {
+                    "success": "delete_grid",
+                    "failure": "failure"
+                },
+                "name": "mymodal",
+                "modal-title": "Delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "Delete",
+                "modal-ok-variant": "danger",
+                "modal-cancel-title": "Cancel"
+            },
+            {
+                "id": "delete_grid",
+                "type": "js",
+                "code": "function(data, ui){ console.log(ui); console.log(ui.data); console.log('Delete ' + {{key}});  ui.data = ui.data.filter(item => item.ID !== {{key}});}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "delete",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{delete}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Deleted Successfully ID {{key}}",
+                "variant": "success",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "grid_delete_theme",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<div>Are you sure you want to delete {{route.params.entity}}?</div>",
+                "next": {
+                    "success": "delete_grid",
+                    "failure": "failure"
+                },
+                "name": "mymodal",
+                "modal-title": "Delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "Delete",
+                "modal-ok-variant": "danger",
+                "modal-cancel-title": "Cancel"
+            },
+            {
+                "id": "delete_grid",
+                "type": "js",
+                "code": "function(data, ui){ console.log(ui); console.log(ui.data.themes); console.log('Delete ' + {{key}});  ui.data = ui.data.themes.filter(item => item.ID !== {{key}});}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "delete",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{delete}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Deleted Successfully ID {{key}}",
+                "variant": "success",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "grid_delete_app",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<div>Are you sure you want to delete App?</div>",
+                "next": {
+                    "success": "delete_grid",
+                    "failure": "failure"
+                },
+                "name": "mymodal",
+                "modal-title": "Delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "Delete",
+                "modal-ok-variant": "danger",
+                "modal-cancel-title": "Cancel"
+            },
+            {
+                "id": "delete_grid",
+                "type": "js",
+                "code": "function(data, ui){ console.log(ui); console.log(ui.data); console.log('Delete ' + {{key}});  ui.data = ui.data.filter(item => item.ID !== {{key}});}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "delete",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{delete}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Deleted Successfully ID {{key}}",
+                "variant": "success",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "bad-alert",
+                "type": "alert",
+                "message": "Please delete Pages, Blocks, etc before deleting the app",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "log",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){console.log('logging');var form= {}; form.q=document.getElementById('data_type').value; form.size=document.getElementById('recordsPerPage').value;form.from=(parseInt(document.getElementById('recordsPerPage').value)*(parseInt(document.getElementById('pageNumber').value)-1)); data.form=form;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{post}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert_success",
+                    "failure": "alert_failure"
+                }
+            },
+            {
+                "id": "alert_success",
+                "type": "alert",
+                "message": "logginglist displays successfully.",
+                "next": {
+                    "success": "js-bind"
+                }
+            },
+            {
+                "id": "alert_failure",
+                "type": "alert",
+                "message": "Unable to Fetch Logs, Please check whether logs is enabled to your cloud or not, Please contact support@appup.com",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "js-bind",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data.data); ui.$parent.records=data.response_data.data.total;}",
+                "next": {
+                    "success": "exit",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "duplicate-app",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{duplicate_app}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Created a duplicate App Successfully with in cloud {{{key}}}",
+                "next": {
+                    "success": "ajax_update"
+                }
+            },
+            {
+                "id": "ajax_update",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/DASHBOARD",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "copy-app",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{copy_app}}}{{/with}}/{{{form.NAME}}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert2",
+                "type": "alert",
+                "message": "Copied App Successfully to cloud {{{form.NAME}}}",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_entity_cloud",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_param",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{post}}{{/with}}/{{{form.NAME}}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Shared App Successfully to user cloud id {{{form.NAME}}}",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "prop_grid_delete",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "modal"
+                }
+            },
+            {
+                "id": "modal",
+                "type": "modal",
+                "body": "<div>Are you sure you want to delete {{keytwo}}?</div>",
+                "next": {
+                    "success": "delete_grid",
+                    "failure": "failure"
+                },
+                "name": "mymodal",
+                "modal-title": "Delete",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "Delete",
+                "modal-ok-variant": "danger",
+                "modal-cancel-title": "Cancel"
+            },
+            {
+                "id": "delete_grid",
+                "type": "js",
+                "code": "function(data, ui){ console.log(ui); console.log(ui.data); console.log('Delete ' + {{key}});  ui.data = ui.data.filter(item => item.ID !== {{key}});}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "delete",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{delete}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Deleted Successfully ID {{key}}",
+                "variant": "success",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

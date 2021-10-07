@@ -1,0 +1,88 @@
+/*------------------------------------*/
+/*---------- WORKFLOW ELEMENTS -------*/
+/*------------------------------------*/
+.workflow-item{
+	text-align: center;
+	border: 1px solid $light_gray;
+	color: $ship_cove;
+    padding: 1.6rem 0.4rem 0;
+    background: $white;
+    @include border-radius(4px);
+    margin-bottom: 0.9rem;
+    max-width: 120px;
+    cursor: pointer;
+    @include transition(0.3s);
+    width: 98px;
+ 	span{
+ 		font-size: 1.2rem;
+	    display:  block;
+	    margin-bottom: 1.4rem;
+ 	}
+ 	h6{
+ 		letter-spacing: -0.35px;
+	    margin-bottom: 1.1rem;
+ 	}
+ 	&:hover{
+ 		box-shadow: 6px 10px 20px 0 rgba(210, 222, 237, 0.6);
+ 	}
+ 	.result{
+		border-top: 1px solid $lavender_gray;
+        margin: 0 -0.4rem;
+        display: block;
+        span{
+        	font-size: 0.6rem;
+		    margin-bottom: 0;
+		    display: inline-block;
+		    text-align: center;
+		    line-height: 29px;
+		    width: 50%;
+        }
+        span.success{
+        	color: $emerald;
+        	border-right: 1px solid $lavender_gray;
+        	float: left;
+        }
+        span.failure{
+        	color: $brink_pink;
+        	float: right;
+        }
+ 	}
+}
+
+.steps{
+	position: relative;
+	.workflow-item{
+		position: absolute;
+    	width: 111px;
+	}
+	.countries .workflow-item{
+		width: 71px;
+	    padding: 0rem 0.4rem 0.2rem;
+	    h6{
+	    	margin-bottom: 0;
+	    	display: inline-block;
+	    }
+	    &:after{
+	    	content: '';
+	    	width: 5px;
+	    	height: 5px;
+	    	position: absolute;
+	    	background: $hawkes_blue;
+    	    bottom: -4px;
+		    right: 0;
+		    left: 0;
+		    margin: 0 auto;
+	    	@include border-radius(50%);
+	    }
+	}
+}
+@media(max-width: 991px){
+	.workflow-item{
+		position: relative;
+		display: inline-block;
+		left: 0;
+	}
+}
+/*------------------------------------*/
+/*---------- /WORKFLOW ELEMENTS ------*/
+/*------------------------------------*/

@@ -1,0 +1,84 @@
+/*------------------------------------*/
+/*------------ FILTERS ---------------*/
+/*------------------------------------*/
+.filter{
+	button{
+	    background: $white;
+	    color: $fiord;
+	    border-color: $light_gray;
+	    width: 199px;
+	    text-align: left;
+	    padding: 1.15rem 0.7rem;
+	    margin-top: -0.4rem;
+	    font-size: 0.9rem;
+    	letter-spacing: -0.65px;
+	    font-weight: 300;
+        margin-right: 0;
+	    border: 1px solid $light_gray;
+	    text-transform: none;
+    	&:hover, &:focus, &:active{
+    		background: $white;
+    		color: $blue;
+    		border-color: $light_gray;
+    		box-shadow: 0 0 1px 0 $hawkes_blue;
+    	}
+	}
+	.dropdown-toggle{
+		&:before {
+		    content: '';
+		    background: $solitude;
+		    width: 1px;
+		    height: 100%;
+		    position: absolute;
+		    right: 39px;
+		    top: 0;
+		}
+		&:after{
+        	position: absolute;
+	    	right: 15px;
+			border-width: 0.4em;
+	    	top: calc( 100% - 55% );
+		}
+	}	
+
+}
+
+@media (max-width: 1199px){ 
+	.filter{
+		.dropdown-toggle{
+			width: 150px;
+		}
+	}
+}
+@media (max-width: 991px){
+	.filter{
+		.dropdown-toggle{
+			width: 200px;
+			margin-right: 0.3rem;
+		}
+	}
+	.filters{
+		margin-top: 2.2rem;
+	}
+}
+@media (max-width: 767px){
+	.filters{
+		width: 100%;
+		margin-top: 0;
+	}
+	.filter{
+		.dropdown-toggle{
+			width: 100%;
+			margin-bottom: 1rem;		
+			display: inline-block;
+			margin-right: 0;
+		}
+		&.btn-group{
+			width: 100%;
+		}
+	}
+}
+/*------------------------------------*/
+/*------------ /FILTERS --------------*/
+/*------------------------------------*/
+/**/

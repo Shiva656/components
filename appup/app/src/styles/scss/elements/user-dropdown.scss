@@ -1,0 +1,43 @@
+/*------------------------------------*/
+/*----------- USER DROPDOWN ----------*/
+/*------------------------------------*/
+.user-info{
+	.dropdown{
+		.dropdown-divider{
+		    margin: 0.4rem 0;
+		}
+		.dropdown-toggle{
+			text-decoration: none;
+		}
+		.dropdown-item:hover:after{
+			display: none;
+		}
+		.dropdown-menu{
+    	    top: 58px;
+    		left: -100px;
+    		right: -8px;
+    		padding: 0.65rem 0;
+		    .dropdown-item{
+    	        padding: 0.68rem 1.4rem;
+	    	    h4{
+	    	    	font-size: 0.8rem;
+    				letter-spacing: -0.05px;
+	    	    }
+	    	    &:hover{
+	    	    	h4{
+    	    			color: $blue;
+	    	    	}
+	    	    }
+	    	    &.show-all-button{
+    	    	    padding: 1.1rem 0 0.6rem;
+	    	    }
+		    }
+		}
+	}
+	
+}
+
+
+/*------------------------------------*/
+/*----------- /USER DROPDOWN ---------*/
+/*------------------------------------*/

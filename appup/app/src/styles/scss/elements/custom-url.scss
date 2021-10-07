@@ -1,0 +1,59 @@
+/*------------------------------------*/
+/*----------- CUSTOM URLS ------------*/
+/*------------------------------------*/
+.custom-urls{
+	.urls{
+		border: 1px solid #E4EDF9;
+    	padding: 0.4rem 0.3rem 0.5rem 0.5rem;
+    	@include border-radius(3px);
+		kbd.url{
+			background: $alice_blue_bg;
+			color: $periwinkle;
+			border-color: $light_gray;
+			padding: 0.35rem 0.5rem;
+		    text-align: left;
+		    display: inline-block;
+		    padding: 0.15rem 0.45rem 0.35rem;
+		    line-height: 14px;
+		    float: left;
+		    margin-right: 0.6rem;
+			span{
+				display: inline-block;
+    			vertical-align: -webkit-baseline-middle;
+			}
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		.url.active{
+			background: $dodger_blue_translucent;
+			color: $blue_bg;
+			border: 1px solid $light_blue_border_color;
+		}
+		.more{
+	        font-size: 1rem;
+		    margin-left: 0.4rem;
+		    display: inline-block;
+		    vertical-align: middle;
+		    letter-spacing: 0.55px;
+		    color: $periwinkle;
+		}
+	}
+}
+@media(max-width: 767px){
+	.custom-urls .urls kbd.url{
+	    width: 100%;
+    	margin-bottom: 0.5rem;
+    	font-size: 0.7rem;
+	}
+ 	.custom-urls .add-url.gray-outline-button{
+        display: block;
+        margin: 0 auto;
+    }
+    .custom-urls .urls .more{
+    	float: right;
+    }
+}
+/*------------------------------------*/
+/*----------- /CUSTOM URLS -----------*/
+/*------------------------------------*/

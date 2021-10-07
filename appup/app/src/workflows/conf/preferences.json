@@ -1,0 +1,198 @@
+[
+    {
+        "id": "pre_setting",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "get_id"
+                }
+            },
+            {
+                "id": "get_id",
+                "type": "get_cookie",
+                "method": "get",
+                "key": "profileId",
+                "var": "current_setting_id",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "https://our.appup.com/userdb/_db/DEVELOPER_PROFILE/{{current_setting_id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "deserialize_form",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "{{{json response_data.data}}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_setting",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{json form}}}",
+                "url": "https://our.appup.com/userdb/_db/DEVELOPER_PROFILE",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = {{{json response_data.data.responseText}}} }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_password",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "get_id"
+                }
+            },
+            {
+                "id": "get_id",
+                "type": "get_cookie",
+                "method": "get",
+                "key": "profileId",
+                "var": "current_setting_id",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "https://our.appup.com/userdb/_db/V_DEVELOPERS/{{current_setting_id}}?fields=ID",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "deserialize_form",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "{{{json response_data.data}}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_password",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{json form}}}",
+                "url": "https://our.appup.com/userdb/_db/DEVELOPERS",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = {{{json response_data.data.responseText}}} }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,35 @@
+/*------------------------------------*/
+/*---------- DELETE MODAL ------------*/
+/*------------------------------------*/
+.modal-delete{
+	h2{
+		font-size: 1.2rem;
+	    letter-spacing: 0.45px;
+	    margin-bottom: 0.4rem;
+	    font-family: 'Inter-UI-Medium';
+	}
+	.modal-dialog{
+	    max-width: 525px;
+	}
+	.modal-header{
+        padding: 1.8rem 2rem 1rem;
+    	border-bottom: 0;
+	    p{
+		    font-size: 0.75rem;
+		    color: $periwinkle;
+		    letter-spacing: 0.05px;
+	    }
+	    .close{
+		    padding:  0;
+		    font-size: 0.9rem;
+		    margin: 0.3rem 0 0;
+		}
+	}
+	.modal-body{
+	    padding: 0 1.7rem 1rem;
+	}
+}
+
+/*------------------------------------*/
+/*---------- /DELETE MODAL -----------*/
+/*------------------------------------*/

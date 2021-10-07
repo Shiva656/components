@@ -1,0 +1,29 @@
+[
+    {
+        "id": "__slot__emptyState_field",
+        "name": "__slot__emptyState",
+        "label": "emptyState slot",
+        "description": "",
+        "type": "textarea",
+        "container": "settings",
+        "container-name": "slots"
+      },
+      {
+        "id": "__slot__defaultCard_field",
+        "name": "__slot__defaultCard",
+        "label": "defaultCard slot",
+        "description": "",
+        "type": "textarea",
+        "container": "settings",
+        "container-name": "slots"
+      },
+      {
+        "id": "__slot__load_more_button_field",
+        "name": "__slot__load_more_button",
+        "label": "load_more_button slot",
+        "description": "",
+        "type": "textarea",
+        "container": "settings",
+        "container-name": "slots"
+    }
+]

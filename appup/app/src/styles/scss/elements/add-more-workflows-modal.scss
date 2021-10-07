@@ -1,0 +1,42 @@
+/*------------------------------------*/
+/*---------- ADD MORE WORKFLOWS ------*/
+/*------------------------------------*/
+.add-more-workflows{
+	&.modal .modal-dialog{
+		max-width: 780px;
+		padding-right: 0;
+	}
+	.modal-header{
+        padding: 1.9rem 1.9rem 0rem;
+    	border-bottom: none;
+    	display: block;
+		h2{
+		 	font-size: 1.25rem;
+		    margin-left: 0.1rem;
+		    font-weight: 500;
+		    letter-spacing: 0.25px;
+		}
+		.close{
+			padding: 1.2rem 1rem;
+    		font-size: 0.9rem;
+		}
+		.title{
+			display: flex;
+	    	margin-bottom: 0.8rem;
+		}
+	}
+	.modal-body{
+	    background: rgba(26, 140, 255, 0.04);
+        padding-top: 2rem;
+    	padding: 2rem 1.9rem 0.9rem;
+	}
+	.modal-footer{
+		border-top: none;
+	    padding: 1rem 1.9rem;
+	}
+}
+
+
+/*------------------------------------*/
+/*---------- /ADD MORE WORKFLOWS -----*/
+/*------------------------------------*/

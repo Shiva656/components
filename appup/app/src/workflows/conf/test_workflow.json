@@ -1,0 +1,5375 @@
+[
+    {
+        "id": 4,
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.description=window.UIJSON.{{route.params.entity}}.grid.description;ui.rereference=window.UIJSON.{{route.params.entity}}.grid.rereference;ui.image=window.UIJSON.{{route.params.entity}}.grid.image;ui.buttonLabel=window.UIJSON.{{route.params.entity}}.grid.buttonLabel;ui.navigateTo=window.UIJSON.{{route.params.entity}}.grid.navigateTo; ui.sortKey=window.UIJSON.{{route.params.entity}}.grid.sortKey; ui.edit=window.UIJSON.{{route.params.entity}}.grid.edit_detail; grid.description;ui.rereference=window.UIJSON.{{route.params.entity}}.grid.rereference;ui.image=window.UIJSON.{{route.params.entity}}.grid.image;ui.buttonLabel=window.UIJSON.{{route.params.entity}}.grid.buttonLabel;ui.navigateTo=window.UIJSON.{{route.params.entity}}.grid.navigateTo; ui.sortKey=window.UIJSON.{{route.params.entity}}.grid.sortKey; ui.edit=window.UIJSON.{{route.params.entity}}.grid.edit_detail;  ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "test-js-alert",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ console.log('ui');console.log(ui); console.log('uijson');console.log(window.UIJSON.{{route.params.userdetails}}.fields); ui.formFields = window.UIJSON.{{route.params.userdetails}}.fields; ui.buttons = window.UIJSON.{{route.params.userdetails}}.buttons}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "upload",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.uploadCongif={buttonClass:'btn-primary',divClass:'mid-center',buttonName:'Upload File', url:'https://tracklyapp.appup.cloud/trackly/presign?file_name=',id:'file_id',name:'file_name'} }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "home",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.items = window.UIJSON.home.items;}",
+                "next": {
+                    "success": "ajax"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_plugin_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var dynamic_data=window.UIJSON.{{route.params.entity}}.fields.concat(JSON.parse(data.response_data.data.PLUGIN_FIELDS)); ui.formFields=dynamic_data; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "{{{json response_data.data}}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_plugin_config_edit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get_plugin}}{{/with}}/{{route.params.pluginId}}",
+                "var": "plugin_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var dynamic_data=window.UIJSON.{{route.params.entity}}.fields.concat(JSON.parse(data.plugin_data.data.PLUGIN_FIELDS)); ui.formFields=dynamic_data; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "get_pluginconfig_data"
+                }
+            },
+            {
+                "id": "get_pluginconfig_data",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js_config",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js_config",
+                "type": "js",
+                "code": "function(data, ui){console.log('************',data.response_data.data);data.response_data.data=Object.assign(data.response_data.data, JSON.parse(data.response_data.data.FIELDS)); delete data.response_data.data.FIELDS;  console.log('************',data.response_data.data);}",
+                "next": {
+                    "success": "js2"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_publish",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.CLOUD_ID= {{route.params.id}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "navigate",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_app",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.cloud_id= {{route.params.id}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_create_publish",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){ui.form.app_id= {{route.params.appId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ui.buttons[0].label='Publishing...'; document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "{{response_data.data.responseText}}",
+                "next": {
+                    "success": "setresponseid"
+                }
+            },
+            {
+                "id": "setresponseid",
+                "type": "js",
+                "code": "function(data, ui){document.getElementById('res').value = data.response_data.data.requestId;console.log('hiiiiiiiiiiiiii'+document.getElementById('res').value)}",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "alert",
+                "message": "{{response_data.data.response_text}}",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){ui.buttons[0].label='Publish'; document.getElementsByClassName('submit-button')[0].removeAttribute('disabled'); }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_appId",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id",
+                    "failure": "alert_failute"
+                }
+            },
+            {
+                "id": "alert_failute",
+                "type": "alert",
+                "message": "Please enter all fields in tabs.",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){ui.form.APPLICATION_ID= {{route.params.appId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigation_url"
+                }
+            },
+            {
+                "id": "navigation_url",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.entity == 'block'){data.nextUrl=''}else{data.nextUrl=UIJSON[data.route.params.entity].nextUrl} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_theme",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.formFields=window.UIJSON.theme.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_create_page_handler",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){ if('{{route.params.entity}}'=='pagehandler') ui.form.PAGE_ID= {{route.params.id}}; else ui.form.BLOCK_ID= {{route.params.id}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_create_page_cloud",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.form.OWNER_ID= window.UIJSON.login.profileId; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_plugin_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{/with}}where=PLUGIN_CATEGORY='{{route.params.type}}' and PLUGIN_STATUS='A'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_dashboard",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/DASHBOARD?fields=ID,URL,NAME,CLOUD_ID,CLOUD_NAME,CLOUD_TYPE,CNAME,LEGACY_NAME,OWNER_ID",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.plugins.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/clouddb/_db/PLUGINS",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_handler",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/HANDLER/PAGE_ID/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_block_handler",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/HANDLER/BLOCK_ID/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit_cloud",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var formFields=window.UIJSON.{{route.params.entity}}.fields; for(var i=0;i<formFields.length;i++){if(!formFields[i].hasOwnProperty('disabled')){ formFields[i].disabled=true; } }; ui.formFields=formFields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_cms_success",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/page_cms/{{route.params.cloudId}}/{{route.params.appId}}/extentions",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "retrieve_cms_success",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/app/cmslist/{{route.params.cloudId}}/{{route.params.appId}}/cmsitems/{{route.params.templateId}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_page",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id",
+                    "failure": "alert_failute"
+                }
+            },
+            {
+                "id": "alert_failute",
+                "type": "alert",
+                "message": "Please enter all fields in tabs.",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){ui.form.APPLICATION_ID= {{route.params.appId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigation_url"
+                }
+            },
+            {
+                "id": "navigation_url",
+                "type": "js",
+                "code": "function(data, ui){ data.nextUrl=(data.route.params.entity != 'pages')?UIJSON[data.route.params.entity].nextUrl:'' }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_cms_page",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id",
+                    "failure": "alert_failute"
+                }
+            },
+            {
+                "id": "alert_failute",
+                "type": "alert",
+                "message": "Please enter all fields in tabs.",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.APPLICATION_ID= {{route.params.appId}}; ui.form.TYPE='ALL_CMS_TEMPLATES'; if(ui.form.JSON){ui.form.JSON = JSON.stringify(ui.form.JSON);}else{ui.form.JSON = '[]';}   }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity_edit_prefences",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "js_data"
+                }
+            },
+            {
+                "id": "js_data",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity; data.profileId = ui.$cookies.get('_p_id');}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/userdb/_db/DEVELOPER_PROFILE/{{profileId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_handler_event",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){ data.trigger_object = {}; data.trigger_object.APPLICATION_ID = data.route.params.appId; data.trigger_object.CATEGORY_ID = data.form.CATEGORY_ID; data.trigger_object.NAME = data.form.NAME; data.trigger_object.TRIGGER_TYPE = data.form.TRIGGER_TYPE; data.trigger_object.WORKFLOW_ID = data.form.WORKFLOW_ID; data.trigger_object.EXECUTE_CONTINUES = data.form.EXECUTE_CONTINUES; data.trigger_params=[]; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded trigger_object}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "set_trigger_id",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "set_trigger_id",
+                "type": "js",
+                "code": "function(data, ui){ data.trigger_params.TRIGGER_ID = data.response_data.data.GENERATED_KEY;}",
+                "next": {
+                    "success": "set_app_id2"
+                }
+            },
+            {
+                "id": "set_app_id2",
+                "type": "js",
+                "code": "function(data, ui){ if(data.form.event_type == 'activemq') { var trigger_params_activemq_list=['broker_url', 'username', 'password', 'queue_name','message_variable']; var trigger_params = {}; for(let i = 0; i<trigger_params_activemq_list.length; i++) { trigger_params.TRIGGER_ID= JSON.stringify(data.trigger_params.TRIGGER_ID); trigger_params['`KEY`'] = trigger_params_activemq_list[i]; trigger_params.VALUE = data.form[trigger_params_activemq_list[i]]; trigger_params.APPLICATION_ID = data.route.params.appId; data.trigger_params.push(trigger_params); trigger_params={}; } } else{ var trigger_params_sqs_list=['access_key', 'secret_key', 'region', 'queue_name','message_variable']; var trigger_params = {}; for(let i = 0; i<trigger_params_sqs_list.length; i++) { trigger_params.TRIGGER_ID= JSON.stringify(data.trigger_params.TRIGGER_ID); trigger_params['`KEY`'] = trigger_params_sqs_list[i]; trigger_params.VALUE = data.form[trigger_params_sqs_list[i]]; trigger_params.APPLICATION_ID = data.route.params.appId; data.trigger_params.push(trigger_params); trigger_params={}; } } let event_object = {}; event_object.TRIGGER_ID= JSON.stringify(data.trigger_params.TRIGGER_ID); event_object['`KEY`'] = 'event_type'; event_object.VALUE = data.form.event_type; event_object.APPLICATION_ID = data.route.params.appId; data.trigger_params.push(event_object); data.trigger_params_object = {'data':data.trigger_params}; }",
+                "next": {
+                    "success": "set_app_id3"
+                }
+            },
+            {
+                "id": "set_app_id3",
+                "type": "js",
+                "code": "function(data, ui){ data.trigger_params_object = JSON.stringify(data.trigger_params_object);}",
+                "next": {
+                    "success": "ajax2"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{ trigger_params_object }}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post2}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "Content-Type": "application/json"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "next_url"
+                }
+            },
+            {
+                "id": "next_url",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.templateId){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateId}}';}else{data.nextUrl=data.nextUrl=UIJSON[data.route.params.entity].nextUrl} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_handler",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){if(data.route.params.templateId){debugger; data.form['REF_ID']=data.route.params.templateId;data.form['REF_TYPE']='CMS_handler'} ui.form.APPLICATION_ID= {{route.params.appId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "next_url"
+                }
+            },
+            {
+                "id": "next_url",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.templateId){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateId}}';}else{data.nextUrl=data.nextUrl=(data.route.params.entity != 'appjs')?UIJSON[data.route.params.entity].nextUrl:''} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var keys = []; for(var k in ui.form){keys.push(k);} console.log(keys);var FIELDS={}; for(var i=0; i<keys.length;i++){  if(keys[i]!=='CONFIG_NAME'){ FIELDS[keys[i]]=ui.form[keys[i]]; delete ui.form[keys[i]]; } } ui.form.FIELDS=JSON.stringify(FIELDS); ui.form.APPLICATION_ID={{route.params.appId}}; ui.form.PLUGIN_ID={{route.params.id}} ;}",
+                "next": {
+                    "success": "disable_button",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "logout",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "/sso/logout",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "navigate",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/login",
+                "next": {
+                    "success": "set_cookie"
+                }
+            },
+            {
+                "id": "set_cookie",
+                "type": "js",
+                "code": "function(data, ui){ document.cookie.split(\";\").forEach(function(c) { document.cookie = c.replace(/^ +/, \" \").replace(/=.*/, \"=;expires=\" + new Date().toUTCString() + \";path=/\"); });}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "plugin_delete",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "delete_grid"
+                }
+            },
+            {
+                "id": "delete_grid",
+                "type": "js",
+                "code": "function(data, ui){ console.log(ui); console.log(ui.data); console.log('Delete ' + {{key}});  ui.data = ui.data.filter(item => item.ID !== {{key}});}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "delete",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{key}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Deleted Successfully",
+                "next": {
+                    "success": "navigate"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var keys = []; for(var k in ui.form){keys.push(k);} console.log(keys);var FIELDS={}; for(var i=0; i<keys.length;i++){  if(keys[i]!=='CONFIG_NAME' && keys[i]!='ID'){ FIELDS[keys[i]]=ui.form[keys[i]]; delete ui.form[keys[i]]; } } ui.form.FIELDS=JSON.stringify(FIELDS);}",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_join",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{filter}}}{{/with}}where=APPLICATION_ID={{route.params.appId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit_workflow",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}?fields=UI_STEPS_JSON&target_table=CATEGORIES&join_column=NAME&req_join_column_name=CATEGORY_NAME&table_join_column=CATEGORY_ID&target_table_join_column=ID",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit_workflow",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_log",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_grid_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "js2"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ui.sortKey=window.UIJSON[ui.workflow_params.entity].sortKey}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js3",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js3",
+                "type": "js",
+                "code": "function(data, ui){ ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_entity_filter",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_param",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){console.log({{route.params.id}}); data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{post}}{{/with}}?workflow_id={{route.params.id}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Copied workflow successfully.",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_share",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax_url",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax_url",
+                "type": "js",
+                "code": "function(data, ui){ data.hash=window.location.hash.replace('#/shareapp/cloud/share/shareapp?q=',''); data.url='app/api/copy-app-cloud'; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{url}}?q={{hash}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully saved.",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "ajax_update"
+                }
+            },
+            {
+                "id": "ajax_update",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/DASHBOARD",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_nofilter",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{/with}}where=APPLICATION_ID='{{route.params.appId}}'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_workflow_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{/with}}where=CATEGORY_NAME='{{route.params.type}}'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_edit_rename",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}?fields=ID,NAME,OWNER_ID,CLOUD_ID,URL,JS_CODE,CSS_CODE",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){var check_data = JSON.stringify(data.response_data.data);if(check_data.indexOf('LEGACY_NAME') == -1){ var res_data = data.response_data.data; res_data['LEGACY_NAME'] = res_data.NAME; data.response_data.data = res_data;}data.response_data = data.response_data.data; return data; }",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_sentemail",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "{{response_data.data.responseText}}",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity_edit_id",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "js_data"
+                }
+            },
+            {
+                "id": "js_data",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{get}}{{/with}}?where=cloud_id='{{route.params.id}}'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){var check_data = JSON.stringify(data.response_data.data[0]);if(check_data.indexOf('id') != -1){var res_data =data.response_data.data[0];res_data['ID'] = res_data.id;data.response_data.data = res_data;}data.response_data =data.response_data.data;console.log('*********'+data.response_data);return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_newcloud",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "disable_button",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "setcloud",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "setcloud",
+                "type": "js",
+                "code": "function(data, ui){console.log(data.response_data.data.GENERATED_KEY); var newKey = data.response_data.data.GENERATED_KEY; data.newcloud = newKey}",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}/{{newcloud}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_newcloudid",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "setcloud",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "setcloud",
+                "type": "js",
+                "code": "function(data, ui){ console.log('*********route.params.id*************'+data.route.params.id); ui.form.cloud_id = data.route.params.id;console.log('*********data.form*************'+JSON.stringify(data.form) )}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "setcloudid",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "setcloudid",
+                "type": "js",
+                "code": "function(data, ui){console.log(data.response_data.data.GENERATED_KEY); var newKey = data.response_data.data.GENERATED_KEY; data.newcloud = newKey}",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_collaborator",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "alert2"
+                }
+            },
+            {
+                "id": "alert2",
+                "type": "alert",
+                "message": "this email already exists",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_publish",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/publish_info_new?fields=id,cluster_name,published_on,status,remarks&where=application_id={{route.params.appId}}&limit=10&order_by=published_on&order_type=desc",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_prefilter",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/FILTERS_VIEW?fields=ID,IS_SECURE,IS_WRITABLE,NAME,TYPE,EXPRESSIONS,WORKFLOW_ID,IS_ACTIVE,APPLICATION_ID,OWNER_ID,CATEGORY_ID,CATEGORY_NAME&where=APPLICATION_ID={{route.params.appId}} and TYPE='pre-filter' and IS_SECURE=0",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "navigate",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_postfilter",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/FILTERS_VIEW?fields=ID,IS_SECURE,IS_WRITABLE,NAME,TYPE,EXPRESSIONS,WORKFLOW_ID,IS_ACTIVE,APPLICATION_ID,OWNER_ID,CATEGORY_ID,CATEGORY_NAME&where=APPLICATION_ID={{route.params.appId}} and TYPE='post-filter' and IS_SECURE=0",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "navigate",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity_publish",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "First publish the app in general tab.",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){if(window.UIJSON[ui.workflow_params.entity].submit){ui.submit=window.UIJSON[ui.workflow_params.entity].submit }  ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/clouddb/_db/CLOUD?fields=ID,CLOUD_TYPE,SERVER_URL&where=ID={{route.params.cloudId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){var result = data.response_data.data[0]; var type = result.CLOUD_TYPE;if(type!='Appup'){for(var i=0;i< window.UIJSON[ui.workflow_params.entity].fields.length;i++){var n = window.UIJSON[ui.workflow_params.entity].fields[i].id; if(n == 'cluster_region'||n == 'cluster_region_server'|| n == 'cluster_region_replication' ){window.UIJSON[ui.workflow_params.entity].fields.splice(i,1);  }}}ui.formFields = window.UIJSON[ui.workflow_params.entity].fields;ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_marketapp",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/clouddb/_db/marketapp",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_social",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementById('google').href='https://qa.appup.com/oauth_handler/google' }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/login",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "social links",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "set_ids",
+                "type": "js",
+                "code": "function(data, ui){ window.UIJSON.login.profileId=data.response_data.data.profile_id; window.UIJSON.login.firstname=data.response_data.data.firstname }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert =data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/home/cloud",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_count",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/DEVELOPER?where=APPLICATION_ID={{route.params.appId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "js"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ var result = data.response_data.data[0]; document.getElementById('w_count').innerHTML=result.WORKFLOW_COUNT;document.getElementById('t_count').innerHTML=result.TRIGGER_COUNT;document.getElementById('f_count').innerHTML=result.FILTER_COUNT;document.getElementById('p_count').innerHTML=result.PLUGIN_COUNT; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_trigcount",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey ;}",
+                "next": {
+                    "success": "ajax_wf_data"
+                }
+            },
+            {
+                "id": "ajax_wf_count",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/COUNT_TRIGGER",
+                "var": "count_response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "convertCountArrayToJSON",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "convertCountArrayToJSON",
+                "type": "js",
+                "code": "function(data, ui){  var resultJson = {};  var workflowCountArray = data.count_response_data.data; for(var wfCountObject in workflowCountArray){ resultJson[workflowCountArray[wfCountObject]['workflow_id']] = workflowCountArray[wfCountObject];} data.triggerCount = resultJson }",
+                "next": {
+                    "success": "ajax_wf_data"
+                }
+            },
+            {
+                "id": "ajax_wf_data",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{get}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = data.response_data.data;}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_entity_forgotpassword",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_param",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully sent email.",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/login",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "s3upload",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){var form={};var file_input = data.event.currentTarget;var file = file_input.files[0];data.file=file;data.name=file.name;var exttype =(data.name).split('.');exttype = exttype[exttype.length-1];form.exttype = exttype;ui.form= form;ui.$data.fileName=file.name;var file_name='file_name';var final=file.name;data.final=final;var upload=file.name;return data; }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "POST",
+                "data": "{{{form-encoded form}}}",
+                "url": "https://qa.appup.com/publish/generate-presigned-url/user_profile",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "afterajaxjs",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "afterajaxjs",
+                "type": "js",
+                "code": "function(data,UI){data.file_name=data.response_data.data.s3_url;document.getElementById('input_url').value=data.file_name;document.getElementById('image_url').src =data.file_name;var file_pre=data.file;var oReq = new XMLHttpRequest();oReq.open('PUT', data.response_data.data.s3_presign_url, true);oReq.onload = function(oEvent) {console.log('upload sucess');};var blob = new Blob([file_pre], {type: 'image/jpeg'});oReq.send(blob);}   ",
+                "next": {
+                    "success": "picUploadAjax"
+                }
+            },
+            {
+                "id": "picUploadAjax",
+                "type": "alert",
+                "message": "{{{response_data.data}}}",
+                "next": {
+                    "success": "enable_button"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fileEdit",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "save_img"
+                }
+            },
+            {
+                "id": "save_img",
+                "type": "js",
+                "code": "function(data, UI){ UI.form.FULL_PHOTO_URL = document.getElementById('input_url').value;console.log('*****UI.form.FULL_PHOTO_URL*********'+UI.form.FULL_PHOTO_URL);}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{put}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "edit_prefences",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "js_data"
+                }
+            },
+            {
+                "id": "js_data",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity; data.profileId = ui.$cookies.get('_p_id');}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/userdb/_db/DEVELOPER_PROFILE/{{profileId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; ui.$parent.image_url=data.response_data.FULL_PHOTO_URL; document.getElementById('image_url').src=data.response_data.FULL_PHOTO_URL;return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "Category_related_apps",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/marketplacedb/mp/_db/MARKET_PRODUCT_CATEGORY?fields=PRODUCT_ID&where=CATEGORY_ID='{{route.params.id}}'",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "afterAjax1",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "afterAjax1",
+                "type": "js",
+                "code": "function(data, ui){ var pid =  data.response_data.data.map(a => a.PRODUCT_ID);data.pid = pid;}",
+                "next": {
+                    "success": "ajax2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{product}}}?{{{filterPro}}}{{/with}}&where=(LISTABLE=true) and ID in ({{{pid}}})",
+                "var": "response_data1",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data1.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_marketapp",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "getCategoryJs",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "getCategoryJs",
+                "type": "js",
+                "code": "function(data, ui){ui.form.SOURCE_ENTITY_ID = {{route.params.appId}};  data.categoryId = ui.form.DIPLAY_NAME;delete ui.form.DIPLAY_NAME}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/marketplacedb/_db/MARKET_PRODUCT",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "set_categoryid",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "set_categoryid",
+                "type": "js",
+                "code": "function(data, ui){ui.form={};ui.form['CATEGORY_ID']= data.categoryId; data.PRODUCT_ID=data.response_data.data.GENERATED_KEY; ui.form['PRODUCT_ID'] = data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "ajax2"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/marketplacedb/_db/MARKET_PRODUCT_CATEGORY",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "set_prodid",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "set_prodid",
+                "type": "js",
+                "code": "function(data, ui){ui.form={};ui.form['prodId']= data.PRODUCT_ID;ui.form['appId'] = {{route.params.appId}} }",
+                "next": {
+                    "success": "ajax3"
+                }
+            },
+            {
+                "id": "ajax3",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "/marketplace/copy/_app/cloud_to_marketplace",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert2",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert2",
+                "type": "alert",
+                "message": "Product Published to Marketplace Successfully",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            }
+        ]
+    },
+    {
+        "id": "marketplaceCopy",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_param"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){var isSecure=ui.form.IS_SECURE; var isWritable=ui.form.IS_WRITABLE; ui.form={}; ui.form.isSecure=isSecure; ui.form.isWritable=isWritable; ui.form.prodId = {{route.params.id}}; ui.form.cloudId={{route.params.cloudId}} }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/marketplace/copy/_app/marketplace_to_cloud",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Product Copied to Cloud Successfully",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_grid_marketplace",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_group_id"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  console.log('from preload_grid_marketplace');ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;console.log('*********data.workflow_params*****'+data.workflow_params);return data;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{product}}}?{{{filterPro}}}{{/with}}&where=LISTABLE=true",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ui.data = (data.response_data.data);console.log('******');}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_properties",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_app_id"
+                }
+            },
+            {
+                "id": "set_app_id",
+                "type": "js",
+                "code": "function(data, ui){ui.form.CLOUD_ID= {{route.params.cloudId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "pre_load_plugin_config_edit_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get_plugin}}{{/with}}/{{route.params.pluginId}}",
+                "var": "plugin_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){var dynamic_data=window.UIJSON.{{route.params.entity}}.fields.concat(JSON.parse(data.plugin_data.data.PLUGIN_FIELDS)); ui.formFields=dynamic_data; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "get_pluginconfig_data"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "js2"
+                }
+            },
+            {
+                "id": "get_pluginconfig_data",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js_config",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js_config",
+                "type": "js",
+                "code": "function(data, ui){console.log('************',data.response_data.data);data.response_data.data=Object.assign(data.response_data.data, JSON.parse(data.response_data.data.FIELDS)); delete data.response_data.data.FIELDS;  console.log('************',data.response_data.data);}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "edit_market_product",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ ui.formFields=window.UIJSON.{{route.params.entity}}.fields; ui.buttons = window.UIJSON.{{route.params.entity}}.buttons}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{get}}{{/with}}?where=ID={{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js2",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js2",
+                "type": "js",
+                "code": "function(data, ui){ data.response_data = data.response_data.data[0]; return data;}",
+                "next": {
+                    "success": "deserialize_form"
+                }
+            },
+            {
+                "id": "deserialize_form",
+                "type": "deserialize_form",
+                "data": "response_data",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_handler_cloud",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_cloud_id"
+                }
+            },
+            {
+                "id": "set_cloud_id",
+                "type": "js",
+                "code": "function(data, ui){ui.form.CLOUD_ID= {{route.params.cloudId}}; }",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "publishstatus",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "JSTWO"
+                }
+            },
+            {
+                "id": "JSTWO",
+                "type": "js",
+                "code": "function(data, ui){console.log('linkid ' + '{{{linkid}}}');}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/publish/get-pod-status/{{linkid}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "modal",
+                "body": "<div>{{response_data.data.message}} <br> status :{{response_data.data.status}}</div>",
+                "next": {
+                    "success": "delete_grid",
+                    "failure": "show_error"
+                },
+                "name": "mymodal",
+                "modal-title": "Publish Status",
+                "modal-no-close-on-esc": "false",
+                "modal-no-close-on-backdrop": "false",
+                "modal-ok-title": "OK",
+                "modal-ok-variant": "primary",
+                "modal-cancel-title": "Cancel"
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){ui.showError = true; ui.messageAlert =  data.response_data.data.responseText; }",
+                "next": {
+                    "success": "alerttext"
+                }
+            },
+            {
+                "id": "alerttext",
+                "type": "alert",
+                "message": "{{response_data.data.responseText}}",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl2}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "publish_details",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/publish_info_steps?fields=id,step_type,status,remarks,request_id,start_time,end_time&where=publish_info_id={{route.params.clusterID}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){console.log('res',data.response_data.data);ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "publish_details_name",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "set_group_id",
+                "type": "js",
+                "code": "function(data, ui){  ui.sortKey=window.UIJSON.{{route.params.entity}}.sortKey }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/appdb/_db/publish_info_new?fields=cluster_name,published_on&where=id={{route.params.clusterID}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){console.log('res',data.response_data.data);ui.data = (data.response_data.data)}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_block_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "jscode"
+                }
+            },
+            {
+                "id": "jscode",
+                "type": "js",
+                "code": "function(data, ui){ debugger; data.savejson['APPLICATION_ID']={{route.params.appId}} }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded savejson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/BLOCKS",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "next_url"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ console.log('test'); ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "next_url"
+                }
+            },
+            {
+                "id": "next_url",
+                "type": "js",
+                "code": "function(data, ui){ debugger; if(data.route.params.templateID){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateID}}';}else{data.nextUrl='/app/helperslist/{{route.params.cloudId}}/{{route.params.appId}}/helper'} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_block_helpers",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "jscode"
+                }
+            },
+            {
+                "id": "jscode",
+                "type": "js",
+                "code": "function(data, ui){ data.savejson['APPLICATION_ID']={{route.params.appId}} }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded savejson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/BLOCKS",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/{{route.params.iswritable}}/{{route.params.id}}",
+                "next": {
+                    "success": "successjs"
+                }
+            },
+            {
+                "id": "successjs",
+                "type": "js",
+                "code": "function(data, ui){ debugger;  if(data.getData){ data.getData(data.response_data.data);}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; if(data.getData){ data.getData( data.response_data.data);} }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "save_plugin_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded savejson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/CODE_EDITOR",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "js",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveEditorData){ data.saveEditorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "save_python_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded savejson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/PYTHON_CODE_EDITOR",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "js",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveEditorData){ data.saveEditorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "save_s3",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded savejson}}}",
+                "url": "{{ui_json.server}}/pyeditor/py_obj_upload",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "js",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveEditorData){ data.saveEditorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "save_cms_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded cmsjson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/page_items",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "js",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveEditorData){ data.saveEditorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "save_entity_data",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded entityjson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/APP_CODE_EDITOR_PROP",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "exit",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data){ data(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "update_entity_data",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded entityjson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/APP_CODE_EDITOR_PROP",
+                "var": "response_data",
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "js",
+                "code": "function(data, ui){ if(data){ data.response_data.data, 200}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "compile_java_code",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded code}}}",
+                "url": "{{ui_json.server}}/javacodeeditor/compile/java-code",
+                "var": "response_data",
+                "next": {
+                    "success": "show_success",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_success",
+                "type": "js",
+                "code": "function(data, ui){ if(data.compileResponse){ data.compileResponse(data.response_data.data)}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){ if(data.compileResponse){ data.compileResponse(data.response_data.data)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "java_IDE_get_success",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/app/editorlist/{{route.params.cloudId}}/{{route.params.appId}}/java_compiler",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "python_IDE_get_success",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/app/editorlist/{{route.params.cloudId}}/{{route.params.appId}}/python_IDE",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_category",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.categories){ data.categories(data.response_data.data, 200)} if(data.blockData){data.blockData(data.response_data.data,200)} if(data.handlers){data.handlers(data.response_data.data,200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_python_category",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.categories){ data.categories(data.response_data.data, 200)} if(data.blockData){data.blockData(data.response_data.data,200)} if(data.handlers){data.handlers(data.response_data.data,200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_python_editor",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.editorData){ data.editorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_code_editor",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.editorData){ data.editorData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_code_editor_prop",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/appdb/_db/APP_CODE_EDITOR_PROP?where=CODE_ID={{code_id}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.editorPropData){ data.editorPropData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.plugins){ data.plugins(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_python_plugin",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.plugins){ data.plugins(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "get_app_name",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{{ui_json.server}}}/{{#with (lookup ui_json entity)}}{{{get}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.appId}}",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ if(data.appNameResp){ data.appNameResp(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit",
+                    "failure": "bad-alert"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_block_type",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded editJson}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json entity)}}{{{put}}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.ID}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "next_url"
+                }
+            },
+            {
+                "id": "next_url",
+                "type": "js",
+                "code": "function(data, ui){ debugger; if(data.route.params.templateID){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateID}}';}else{data.nextUrl=data.nextUrl='/app/helperslist/{{route.params.cloudId}}/{{route.params.appId}}/helper'} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_block_helpers",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded editJson}}}",
+                "url": "{{ui_json.server}}/appdb/_db/BLOCKS",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/{{route.params.iswritable}}/{{route.params.id}}",
+                "next": {
+                    "success": "success"
+                }
+            },
+            {
+                "id": "success",
+                "type": "js",
+                "code": "function(data, ui){if(data.getData){ data.getData(data.response_data.data);}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){   ui.showError = true; ui.messageAlert = data.response_data.data.responseText;}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_block_type_code_editor",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded editJson}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json entity)}}{{{put}}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.ID}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveUpdateData){ data.saveUpdateData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_python_code_editor",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded editJson}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json entity)}}{{{put}}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.ID}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "js",
+                "code": "function(data, ui){ if(data.saveUpdateData){ data.saveUpdateData(data.response_data.data, 200)}}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unpublish_app",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "DELETE",
+                "data": "{}",
+                "url": "{{ui_json.server}}/publish/un-publish-app/{{route.params.appId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "alert",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "variant": "success",
+                "message": "Unpublished successfully",
+                "next": {
+                    "success": "navigate"
+                }
+            }
+        ]
+    },
+    {
+        "id": "storeQuery",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "GET",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{copy_version}}{{/with}}/{{route.params.appId}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/home/clouds",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_swagger",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "js",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "bad-alert",
+                "type": "alert",
+                "message": "Form validation failed",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){console.log('sds'); data.form['TRIGGER_ID'] = data.route.params.trigId; data.form['WORKFLOW_ID'] = data.route.params.wfId;data.form['APPLICATION_ID']= data.route.params.appId; data.test = {'data': JSON.stringify(data.form)}; return data;}",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ window.UIJSON.swagger.fields[4].url ='';}",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{{nextUrl}}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.message; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "preload_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{{get}}}?{{{filter}}}{{/with}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "js3",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "js3",
+                "type": "js",
+                "code": "function(data, ui){ ui.data = (data.response_data.data); console.log('ui data', ui.data)}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "swagger_dropdown_source",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){if(data.route.params.id){window.UIJSON.swagger.fields[4].url = '/appdb/_db/SWAGGER_TRIGGER_PARAM?where=TRIGGER_ID={{route.params.trigId}} and ID NOT IN ({{route.params.id}}) and PARENT_ID=0' + ' and PARAM_SOURCE=\\''+data.form.PARAM_SOURCE+'\\''} else{ window.UIJSON.swagger.fields[4].url = '/appdb/_db/SWAGGER_TRIGGER_PARAM?where=TRIGGER_ID={{route.params.trigId}} and PARENT_ID=0' + ' and PARAM_SOURCE=\\''+data.form.PARAM_SOURCE+'\\'' } }",
+                "next": {
+                    "success": "ajax"
+                }
+            }
+        ]
+    }
+]

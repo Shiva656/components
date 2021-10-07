@@ -1,0 +1,57 @@
+//@import "bootstrap/bootstrap.scss";
+/*-------- Fonts ----------*/
+//@import "fonts/fonts.scss";
+/*-------- Base ----------*/
+@import "base/vars.scss";
+@import "base/colors.scss";
+@import "base/typography.scss";
+/*------- Layouts --------*/
+@import "layouts/header.scss";
+@import "layouts/page-content.scss";
+@import "layouts/footer.scss";
+@import "layouts/tab-menu.scss";
+@import "layouts/banner.scss";
+/*------ Elements --------*/
+@import "elements/buttons.scss";
+@import "elements/page-title.scss";
+@import "elements/loader.scss";
+@import "elements/breadcrumbs.scss";
+@import "elements/filters.scss";
+@import "elements/add-url-popup.scss";
+@import "elements/radio-buttons.scss";
+@import "elements/dropdowns.scss";
+@import "elements/services.scss";
+@import "elements/circles.scss";
+@import "elements/apps.scss";
+@import "elements/notifications.scss";
+@import "elements/form.scss";
+@import "elements/user-dropdown.scss";
+@import "elements/switcher.scss";
+@import "elements/pricing-table.scss";
+@import "elements/tabs.scss";
+@import "elements/custom-url.scss";
+@import "elements/triggers.scss";
+@import "elements/upload-image.scss";
+@import "elements/collaborators.scss";
+@import "elements/table.scss";
+@import "elements/card.scss";
+@import "elements/categories-list.scss";
+@import "elements/plugins.scss";
+@import "elements/plugin-overview.scss";
+@import "elements/progress-bar.scss";
+@import "elements/reviews.scss";
+@import "elements/elements-modal.scss";
+@import "elements/workflow-elements.scss";
+@import "elements/add-more-workflows-modal.scss";
+@import "elements/steps.scss";
+@import "elements/system-notifications.scss";
+@import "elements/properties-modal.scss";
+@import "elements/social-icons.scss";
+@import "elements/captcha.scss";
+@import "elements/envelope.scss";
+@import "elements/infobox.scss";
+@import "elements/marketplace-apps.scss";
+@import "elements/delete-modal.scss";
+@import "elements/visual-designer.scss";
+@import "elements/custom.scss";
+/*------- Blocks ---------*/

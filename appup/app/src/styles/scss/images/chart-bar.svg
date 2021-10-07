@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 444 242" style="enable-background:new 0 0 444 242;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#filter-1);}
+	.st1{fill:#FFFFFF;stroke:#DDEDFF;}
+	.st2{fill:none;stroke:#E9F4FF;stroke-linecap:square;}
+	.st3{opacity:0.2;fill:#E6F2FF;enable-background:new    ;}
+	.st4{opacity:8.000000e-02;fill:#1A8CFF;}
+</style>
+<filter  filterUnits="objectBoundingBox" height="109.0%" id="filter-1" width="126.5%" x="-13.2%" y="-4.2%">
+	<feOffset  dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+	<feGaussianBlur  in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="17"></feGaussianBlur>
+	
+		<feColorMatrix  in="shadowBlurOuter1" result="shadowMatrixOuter1" type="matrix" values="0 0 0 0 0.823529412   0 0 0 0 0.870588235   0 0 0 0 0.929411765  0 0 0 0.3 0">
+		</feColorMatrix>
+	<feMerge>
+		<feMergeNode  in="shadowMatrixOuter1"></feMergeNode>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<title>Group 5</title>
+<desc>Created with Sketch.</desc>
+<g id="System">
+	<g id="Create-Block-_x2014_-Visual-_x2014_-Widgets" transform="translate(-6.000000, -237.000000)">
+		<g id="Group-14" transform="translate(24.000000, 80.000000)" class="st0">
+			<g id="_x31__1_" transform="translate(16.000000, 187.000000)">
+				<g id="Group-5_1_">
+					<path id="Rectangle-29-Copy_1_" class="st1" d="M-29-29h432.5c1.9,0,3.5,1.6,3.5,3.5v232.1c0,1.9-1.6,3.5-3.5,3.5H-29
+						c-1.9,0-3.5-1.6-3.5-3.5V-25.5C-32.5-27.4-30.9-29-29-29z"/>
+					<g id="Group-6-Copy_1_" transform="translate(17.000000, 24.000000)">
+						<g id="Group-5-Copy-2_1_" transform="translate(1.000000, 0.000000)">
+							<path id="_x31_-copy_1_" class="st2" d="M-30,158h399.7"/>
+							<rect id="Rectangle-25_1_" x="-27.6" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy_1_" x="9.9" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-2_1_" x="47.4" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-3_1_" x="84.9" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-4_1_" x="122.4" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-5_1_" x="159.9" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-6_1_" x="197.4" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-7_1_" x="234.9" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-8_1_" x="272.4" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-9_1_" x="309.9" y="-25.5" class="st3" width="1.2" height="184"/>
+							<rect id="Rectangle-25-Copy-10_1_" x="347.4" y="-25.5" class="st3" width="1.2" height="184"/>
+						</g>
+						<g id="Rectangle-31_1_">
+							<path class="st4" d="M-27.8-13.7h4.7c1.3,0,2.3,1,2.3,2.3v169.9h-9.4V-11.4C-30.2-12.7-29.1-13.7-27.8-13.7z"/>
+						</g>
+						<g id="Rectangle-31-Copy_1_">
+							<path class="st4" d="M9.7,0.3h4.7c1.3,0,2.3,1,2.3,2.3v155.9H7.3V2.7C7.3,1.4,8.4,0.3,9.7,0.3z"/>
+						</g>
+						<g id="Rectangle-31-Copy-2_1_">
+							<path class="st4" d="M47.2,12h4.7c1.3,0,2.3,1,2.3,2.3v144.2h-9.4V14.4C44.8,13.1,45.9,12,47.2,12z"/>
+						</g>
+						<g id="Rectangle-31-Copy-3_1_">
+							<path class="st4" d="M84.7,24.9h4.7c1.3,0,2.3,1,2.3,2.3v131.3h-9.4V27.3C82.3,26,83.4,24.9,84.7,24.9z"/>
+						</g>
+						<g id="Rectangle-31-Copy-4_1_">
+							<path class="st4" d="M122.2,37.8h4.7c1.3,0,2.3,1,2.3,2.3v118.4h-9.4V40.2C119.9,38.9,120.9,37.8,122.2,37.8z"/>
+						</g>
+						<g id="Rectangle-31-Copy-5_1_">
+							<path class="st4" d="M159.7,49.5h4.7c1.3,0,2.3,1,2.3,2.3v106.7h-9.4V51.9C157.4,50.6,158.4,49.5,159.7,49.5z"/>
+						</g>
+						<g id="Rectangle-31-Copy-6_1_">
+							<path class="st4" d="M197.2,62.4h4.7c1.3,0,2.3,1,2.3,2.3v93.8h-9.4V64.8C194.9,63.5,195.9,62.4,197.2,62.4z"/>
+						</g>
+						<g id="Rectangle-31-Copy-7_1_">
+							<path class="st4" d="M235.9,76.5h4.7c1.3,0,2.3,1,2.3,2.3v79.7h-9.4V78.8C233.5,77.6,234.6,76.5,235.9,76.5z"/>
+						</g>
+						<g id="Rectangle-31-Copy-8_1_">
+							<path class="st4" d="M274.6,94.1h4.7c1.3,0,2.3,1,2.3,2.3v62.1h-9.4V96.4C272.2,95.1,273.3,94.1,274.6,94.1z"/>
+						</g>
+						<g id="Rectangle-31-Copy-9_1_">
+							<path class="st4" d="M309.7,107h4.7c1.3,0,2.3,1,2.3,2.3v49.2h-9.4v-49.2C307.4,108,308.4,107,309.7,107z"/>
+						</g>
+						<g id="Rectangle-31-Copy-10_1_">
+							<path class="st4" d="M347.2,122.2h4.7c1.3,0,2.3,1,2.3,2.3v34h-9.4v-34C344.9,123.3,345.9,122.2,347.2,122.2z"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

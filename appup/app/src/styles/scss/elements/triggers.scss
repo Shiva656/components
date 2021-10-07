@@ -1,0 +1,59 @@
+/*------------------------------------*/
+/*----------- TRIGGERS ---------------*/
+/*------------------------------------*/
+.trigger{
+	border: 1px solid $light_gray;
+	@include border-radius(4px);
+	padding: 0.8rem 1rem;
+    min-height: 136px;
+    margin-bottom: 0.9rem;
+	.trigger-title{
+		margin-bottom: 1.1rem;
+		position: relative;
+		h4 {
+		    color: $blue_bg;
+		}
+		p{
+			font-size: 0.625rem;
+    		letter-spacing: -0.05px;
+		    color: $ship_cove;
+		}
+		.more{
+		    font-size: 1.2rem;
+		    letter-spacing: -0.45px;
+		    font-family: 'Inter-ui-black';
+		    color: rgba(0, 0, 0, 0.1);
+		    cursor: pointer;
+		    position: absolute;
+            right: 0;
+		    top: 0;
+		    line-height: 15px;
+		    &:hover{
+		    	color: rgba(0, 0, 0, 0.1);
+		    }
+		}
+	}
+	.trigger-content{
+		.icon{
+			display: inline-block;
+			vertical-align: middle;
+		    margin-right: 0.2rem;
+		}
+		h6{
+		    display: inline-block;
+    		letter-spacing: 0.05px;
+    		color: $fiord;
+    		font-size: 0.75rem;
+		}
+		p{
+	    	font-size: 0.625rem;
+    		letter-spacing: -0.05px;
+    		color: $ship_cove;
+		}
+	}
+
+}
+/*------------------------------------*/
+/*----------- /TRIGGERS --------------*/
+/*------------------------------------*/
+/**/

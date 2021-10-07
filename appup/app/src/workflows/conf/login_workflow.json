@@ -1,0 +1,263 @@
+[
+    {
+        "id": "post_signup",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_email",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_email",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.email= window.UIJSON.signup.email; }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{ui_json.signup.post}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully sent verification code to your email.",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/verify-email",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_signup_email",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{ui_json.signup_email.post}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "set-var",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "set-var",
+                "type": "set_var",
+                "output" : "signup_email",
+                "value": "{{{form.email}}}",
+                "next": {
+                    "success": "set_email"
+                }
+            },
+            {
+                "id": "set_email",
+                "type": "js",
+                "code": "function(data, ui){  window.UIJSON.signup.email=data.signup_email }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/signup/2",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_verifycode",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_email",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_email",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.email= window.UIJSON.signup.email; }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{ui_json.verifycode.post}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "navigate",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert =data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/login",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    
+    {
+        "id": "post_login",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{ui_json.login.post}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "set_ids",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "set_ids",
+                "type": "js",
+                "code": "function(data, ui){ window.UIJSON.login.profileId=data.response_data.data.profile_id; window.UIJSON.login.firstname=data.response_data.data.firstname }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert =data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "/home/cloud",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

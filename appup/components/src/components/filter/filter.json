@@ -1,0 +1,92 @@
+{
+    "filters": [
+        {
+            "filter-label": "Tags",
+            "filter-type": "tags",
+            "filter-name": "tags",
+            "filter-checkbox": true,
+            "field-json": {
+                "type": "multiselect",
+                "name": "contact_tags",
+                "label": "Enter Tags",
+                "url": "http://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+                "key_value": "value",
+                "key_label": "label"
+            },
+            "filter-cdata": {}
+        },
+        {
+            "filter-label": "Score",
+            "filter-type": "number",
+            "filter-name": "score",
+            "filter-checkbox": true,
+            "field-json": {
+                "type": "number",
+                "name": "score",
+                "label": "score"
+            },
+            "filter-cdata": {}
+        },
+        {
+            "filter-label": "Created",
+            "filter-checkbox": true,
+            "filter-type": "date",
+            "filter-name": "created_on",
+            "field-json": {
+                "type": "date",
+                "name": "date",
+                "label": "Created"
+            },
+            "filter-cdata": {}
+        },
+        {
+            "filter-label": "Name",
+            "filter-checkbox": true,
+            "filter-type": "string",
+            "filter-name": "name",
+            "field-json": {
+                "type": "text",
+                "name": "first_name",
+                "label": "Name"
+            },
+            "filter-cdata": {}
+        },
+        {
+            "filter-label": "Owner",
+            "filter-checkbox": true,
+            "filter-type": "boolean",
+            "filter-name": "owner",
+            "field-json": {
+                "type": "dropdown",
+                "name": "owner_id",
+                "label": "select owner",
+                "key_value": "value",
+                "key_label": "label",
+                "url": "http://www.mocky.io/v2/5b507e3a3600003b14dd0e66"
+            },
+            "filter-cdata": {}
+        },
+        {
+            "filter-label": "Custom",
+            "filter-checkbox": true,
+            "filter-name": "custom",
+            "filter-type": "custom",
+            "custom-field-json": {
+                "type": "dropdown",
+                "label": "Condition",
+                "option": [
+                    {
+                        "label": "Test",
+                        "value": "Test"
+                    }
+                ]
+            },
+            "field-json": {
+                "type": "text",
+                "name": "first_name",
+                "label": "Name"
+            },
+            "filter-cdata": {}
+        }
+    ]
+}

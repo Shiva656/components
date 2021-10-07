@@ -1,0 +1,271 @@
+{
+    "fields": [
+        {
+            "id": "name",
+            "type": "text",
+            "name": "name",
+            "label": "Label",
+            "required": true,
+            "placeholder": "Label"
+        },
+        {
+            "id": "label",
+            "type": "hidden",
+            "name": "label",
+            "computation": "form.name"
+        },
+        {
+            "id": "type",
+            "type": "dropdown",
+            "name": "type",
+            "label": "Type",
+            "option": [
+                {
+                    "value": "text",
+                    "label": "Text Field"
+                },
+                {
+                    "value": "email",
+                    "label": "Email Field"
+                },
+                {
+                    "value": "number",
+                    "label": "Number"
+                },
+                {
+                    "value": "textarea",
+                    "label": "Text Area"
+                },
+                {
+                    "value": "dropdown",
+                    "label": "Dropdown"
+                },
+                {
+                    "value": "multiselect",
+                    "label": "Multiselect"
+                },
+                {
+                    "value": "tags",
+                    "label": "Tags"
+                },
+                {
+                    "value": "checkbox",
+                    "label": "Checkbox"
+                },
+                {
+                    "value": "radio",
+                    "label": "Radio"
+                },
+                {
+                    "value": "date",
+                    "label": "Date Field"
+                },
+                {
+                    "value": "time",
+                    "label": "Time"
+                },
+                {
+                    "value": "datetime",
+                    "label": "Date Time"
+                },
+                {
+                    "value": "daterange",
+                    "label": "Date Range"
+                }
+            ],
+            "required": true
+        },
+        {
+            "id": "min",
+            "type": "number",
+            "name": "min",
+            "label": "Minimum Value",
+            "placeholder": "Enter Minimum Value",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'number'"
+        },
+        {
+            "id": "max",
+            "type": "number",
+            "name": "max",
+            "label": "Maximum Value",
+            "placeholder": "Enter Maximum Value",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'number'"
+        },
+        {
+            "id": "rows",
+            "type": "number",
+            "name": "rows",
+            "label": "No of rows",
+            "placeholder": "Enter No of rows",
+            "required": false,
+            "condition": "this.form.type != null && (this.form.type == 'textarea')"
+        },
+        {
+            "id": "max-rows",
+            "type": "number",
+            "name": "max-rows",
+            "label": "Maximum No of rows",
+            "placeholder": "Enter Maximum No of rows",
+            "required": false,
+            "condition": "this.form.type != null && this.form.type == 'textarea'"
+        },
+        {
+            "id": "loadOptions",
+            "type": "dropdown",
+            "name": "loadOptions",
+            "label": "Load Options Type",
+            "option": [
+                {
+                    "value": null,
+                    "label": "Select Options Type",
+                    "checked": true
+                },
+                {
+                    "value": "url",
+                    "label": "Dynamic URL"
+                },
+                {
+                    "value": "options",
+                    "label": "Add Options"
+                }
+            ],
+            "required": true,
+            "condition": "this.form.type != null && (this.form.type =='dropdown' || this.form.type =='multiselect'|| this.form.type =='tags')"
+        },
+        {
+            "id": "url",
+            "type": "text",
+            "name": "url",
+            "label": "URL",
+            "condition": "this.form.type != null && this.form.loadOptions == 'url' && (this.form.type =='dropdown' || this.form.type =='multiselect'|| this.form.type =='tags')",
+            "placeholder": "Enter URL to Get Options",
+            "required": true,
+            "description": "Response Data should be array of json objects"
+        },
+        {
+            "id": "key_value",
+            "type": "text",
+            "name": "key_value",
+            "label": "Key Value",
+            "condition": "this.form.type != null && this.form.loadOptions == 'url'&& (this.form.type =='dropdown' || this.form.type =='multiselect'|| this.form.type =='tags')",
+            "required": true,
+            "placeholder": "Enter Key for the Option",
+            "description": "Key Value should match with one of the key of JSON Objects of response Data from url"
+        },
+        {
+            "id": "key_label",
+            "type": "text",
+            "name": "key_label",
+            "label": "Key Label",
+            "condition": "this.form.type != null && this.form.loadOptions == 'url' && (this.form.type =='dropdown' || this.form.type =='multiselect'|| this.form.type =='tags')",
+            "required": true,
+            "placeholder": "Enter Label for the Option",
+            "description": "Key Label should match with one of the key of JSON Objects of response Data from url"
+        },
+        {
+            "id": "option_grid",
+            "type": "grid",
+            "name": "option",
+            "label": "Option",
+            "columns": [
+                {
+                    "key": "label",
+                    "label": "Label"
+                },
+                {
+                    "key": "value",
+                    "label": "Value"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "label",
+                        "type": "text",
+                        "name": "label",
+                        "label": "Label",
+                        "placeholder": "Enter Label for the Option",
+                        "required": true
+                    },
+                    {
+                        "id": "value",
+                        "type": "text",
+                        "name": "value",
+                        "label": "Value",
+                        "placeholder": "Enter key for the Option",
+                        "required": true
+                    },
+                    {
+                        "id": "checked",
+                        "type": "dropdown",
+                        "name": "checked",
+                        "label": "Checked",
+                        "option": [
+                            {
+                                "value": true,
+                                "label": "True"
+                            },
+                            {
+                                "value": false,
+                                "label": "False",
+                                "checked": true
+                            }
+                        ],
+                        "required": false
+                    },
+                    {
+                        "id": "disabled",
+                        "type": "dropdown",
+                        "name": "disabled",
+                        "label": "Disabled",
+                        "option": [
+                            {
+                                "value": true,
+                                "label": "True"
+                            },
+                            {
+                                "value": false,
+                                "label": "False",
+                                "checked": true
+                            }
+                        ],
+                        "required": false
+                    }
+                ]
+            },
+            "condition": "this.form.type != null && ((this.form.loadOptions == 'options' && (this.form.type =='dropdown' || this.form.type =='multiselect'|| this.form.type =='tags')) || this.form.type =='checkbox' || this.form.type =='radio')",
+            "required": true
+        },
+        {
+            "id": "description",
+            "type": "text",
+            "name": "description",
+            "label": "Description",
+            "required": true,
+            "placeholder": "Description"
+        },
+        {
+            "id": "required",
+            "type": "dropdown",
+            "name": "required",
+            "label": "Required",
+            "option": [
+                {
+                    "value": true,
+                    "label": "True"
+                },
+                {
+                    "value": false,
+                    "label": "False"
+                }
+            ],
+            "required": false
+        }
+    ]
+}

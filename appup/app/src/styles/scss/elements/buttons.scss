@@ -1,0 +1,451 @@
+/*------------------------------------*/
+/*------------- BUTTONS --------------*/
+/*------------------------------------*/
+.btn{
+    font-family: 'Inter-UI-Medium';
+    @include border-radius(3px);
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 0.76rem;
+    border: none;
+    line-height: 17px;
+    width: 150px;  
+    margin: 0 5px; 
+}
+:last-child.btn {
+    margin-right:0;
+}
+:first-child.btn {
+    margin-left:0;
+}
+
+.btn-outline-secondary{
+    padding: 0.59rem 0.95rem;
+    border: 1px solid $light_gray;
+    @include border-radius(2px);
+    color: $ship_cove;
+    &:hover, &:focus, &:active, &:not(:disabled):not(.disabled):active {
+        border-color: $light_gray;
+        outline: none;
+        box-shadow: none;
+    }
+}
+.btn-link.btn:not(:disabled):not(.disabled){
+    color: $blue_bg;
+    padding: 0;
+    min-width: 1px;
+    margin-left: 0;
+    font-size: 0.85rem;
+    letter-spacing: -0.35px;
+    margin-top: -0.5rem;
+    text-transform: none;
+}
+.page-title .btn-outline-secondary {
+    margin-right: 0.7rem;
+    border: 1px solid $light_gray;
+    padding: 0.75rem 0.9rem;
+    width: 42px;
+    span.icon-arrow-left{
+        font-size: 0.7rem;
+        line-height: 18px;
+    }
+}
+.btn-secondary{
+    background: $rock_blue;
+    font-weight: bold;
+}
+.header.header-home{
+    .btn-secondary, .btn:first-child{
+        margin-left: 0.4rem;
+    }
+}
+.btn-primary {
+    background: $blue_bg;
+}
+.btn-warning{
+    background: $orange;
+}
+.custom-urls .btn-outline-secondary{
+    vertical-align: top;
+    font-size: 1.7rem;
+    margin-left: 0.2rem;
+    width: 43px;
+    height: 44px;
+    padding: 0;
+}
+section.marketplace-apps{
+    .btn-link.btn:not(:disabled):not(.disabled){
+        margin-top: 2.4rem;
+        font-weight: bold;
+        font-size: 1rem;
+        letter-spacing: -0.45px;
+    }
+}
+.new-app{
+    .btn{
+        padding: 0.675rem 1.05rem;
+        font-size: 0.65rem;
+        display: initial;
+        border-color: transparent;
+        letter-spacing: 0.35px;
+        @include border-radius(2px);
+        min-width: auto;
+        margin-top: -0.4rem;
+        span.icon-new-app{
+            margin-right: 0.7rem;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+form.search .btn-primary{
+    text-transform: none;
+    &:hover{
+        background-color: $blue;
+    }
+}
+kbd{
+	background: $dodger_blue_translucent;
+	color: $blue;
+	border: 1px solid $light_blue_border_color;
+	@include border-radius(2px);
+    font-size: 0.7699rem;
+    letter-spacing: -0.05px;
+    padding: 0.1rem 0.4rem;
+    font-family: Inter-UI-Regular;
+}
+.team-management-app-cloud-setup kbd{
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05px;
+    text-align: center;
+}
+.buttons-form{
+    padding-top: 0.1rem;
+    .btn{
+        font-family: 'Inter-UI-Bold';
+        display: inline-block;
+        text-align: center;
+        padding: 0.73rem 0;
+        margin-left: 0.3rem;
+        letter-spacing: 0;
+    }
+}
+.add-url-popup{
+    .btn-primary{
+        margin-right: 0rem;
+        margin-left: 1rem;
+    }
+}
+.preferences{
+    .btn-outline-secondary{
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0;
+        padding: 0.75rem 1.45rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.15px;
+    }
+    .buttons-form{
+        .btn{
+            min-width: 0px;
+            width: 149px;
+            letter-spacing:  0.05px;
+        }
+        .btn-outline-secondary{
+            color:  $ship_cove;
+            font-size: 0.7rem;
+            padding: 0.65rem 0;
+            display:  inline-block;
+            vertical-align:  top;
+            line-height: 17px;
+            margin-left: 0;
+        }
+    }
+    &.card-block .buttons-form{
+        margin-top: 0.8rem;
+        position:  relative;
+        margin-bottom: 0.4rem;
+        .btn{
+            width: 154px;
+            &.btn-outline-secondary{
+                margin: 0;
+            }
+        }
+        &:before{
+            content: '';
+            left: 0;
+            right: 0;
+            position: relative;
+            background: $solitude_gray;
+            height: 1px;
+            margin: 0px -23px 0 -27px;
+            display:  block;
+            margin-bottom: 1rem;
+        }
+    }
+}
+.enter-name .btn-outline-success{
+    padding: 0;
+    min-width: 1px;
+    border: 1px solid $lavender_gray;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    margin: 0;
+    width: 14%;
+    span:before{
+        color:  $hawkes_blue;
+        line-height: 20px;
+    }
+}
+.add-plugin-form .buttons-form{
+    .btn{
+        letter-spacing: 0.15px;
+        margin-left: 0.4rem;
+    }
+}
+.plugins-overview .categories .btn-primary{
+    margin: 0 0.9rem;
+    display: block;
+    width: auto;
+}
+.plugins-overview .plugin {
+    .btn-group {
+        margin: 0 -14px;
+        display: flex;
+        flex-direction:  row;
+        clear:  both;
+        justify-content:  space-between;
+        border-top: 1px solid $light_gray;
+        .btn{
+            border: none;
+            width: 50%;
+            margin:  0;
+            color: $periwinkle;
+            padding: 0.75rem 0.95rem;
+            letter-spacing: 0.25px;
+            text-transform: none;
+            &:first-child{
+                border-right: 1px solid $light_gray;
+            }
+            &:last-child{
+                color: $christi;
+            }
+            &:hover{
+                background: transparent;
+            }
+            span{
+                position: static;
+                display: inline-block;
+                border: none;
+                margin-right: 0.3rem;
+                &:before{
+                    color: $christi;
+                    position: static;
+                }
+            }
+        }
+    }
+}
+.plugin-modal{
+    .btn-primary{
+        padding: 0.46rem 0;
+        min-width: 123px;
+        letter-spacing: -0.15px;
+        font-size: 0.625rem;
+    }
+    .reviews .btn-primary{
+        width: 100%;
+        margin: 0;
+        padding: 0.7rem 0;
+        letter-spacing: 0.15px;
+        font-size: 0.6875rem;
+    }
+}
+.create-block .btn{
+    letter-spacing: 0;
+    min-width: 146px;
+    margin-left: 0.4rem;
+}
+.workflow-items{
+    .btn-outline-secondary{
+        color: $blue_bg;
+        width: 99px;
+        text-align: left;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.25px;
+        margin-bottom: 0.95rem;
+        margin-right: 0;
+        margin-left: 0;
+        display: block;
+        text-transform: none;
+        &:after{
+            content: '';
+            position: relative;
+            float: right;
+            top: 0.3rem;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 5px 0 5px;
+            border-color: $periwinkle transparent transparent transparent;
+            @include transform(rotate(180deg));
+            
+        }
+        &.collapsed{
+            &:after{
+                @include transform(rotate(0deg));
+            }
+        }
+    }
+    .add-more{
+        .btn-outline-secondary{
+            text-align: center;
+            padding: 1.6rem 0 0.9rem;
+            width: 100%;
+            margin-right: 0;
+            color: $blue_bg;
+            &:after{
+                display: none;
+            }
+            span{
+                display: block;
+                font-size: 0.9rem;
+                margin-bottom: 1.7rem;
+            }
+        }
+    }
+}
+.addmorebutton{
+    .btn-outline-secondary{
+        text-transform: none;
+        width: 100%;
+        font-family: 'Inter-UI-Regular';
+        font-size: 10px;
+        padding: 2.5rem 0 1.8rem;
+        font-weight: 400;
+        border: 1px solid $lavender_gray;
+        .icon{
+            font-size: 14px;
+            display: block;
+            margin-bottom: 2.8rem;
+        }
+    }
+}
+
+.triggers-block form.search .btn-primary{
+    margin-left: 0;
+}
+.workflows-block{
+    .buttons-form .btn{
+        letter-spacing: 0.05px;
+    }
+}
+.add-more-workflows{
+    .btn-primary{
+        padding: 0.7rem 0;
+    }
+}
+.start-block .btn-primary{
+    min-width: 100%;
+    margin-left: 0;
+}
+.envelope-button .btn-primary{
+    z-index: 30;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 7rem;
+    left: 0;
+    right: 0;
+    max-width: 64.3%;
+    background: rgba(255, 255, 255, 0.1);
+}
+.modal-delete .buttons-form{
+    .btn{
+        width: 47.5%;
+    }
+    .btn-outline-secondary{
+        color: $ship_cove;
+    }
+}
+.login-block-2 .btn-primary{
+    padding: 0.65rem 0.75rem;
+    font-size: 0.6rem;
+    line-height: 18px;
+}
+@media(max-width: 1199px){
+    .preferences.card-block .buttons-form .btn{
+        width: 123px;
+    }
+}
+@media(max-width: 1023px){
+    .team-management-app-cloud-setup kbd{
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+@media(max-width: 991px){
+    .preferences.card-block .buttons-form .btn, 
+    .preferences.card-block .buttons-form .btn.btn-outline-secondary{
+        width: 100%;
+        margin: 0 0 1rem;
+        display: block;
+    }
+    .add-plugin-form .buttons-form .btn{
+        margin-left: 0;
+    }
+}
+@media(max-width: 767px){
+    kbd {
+        display: block;
+        width: 50%;
+        text-align: center;
+    }
+    .team-management-app-cloud-setup kbd{
+        float: right;
+        width: auto;   
+    }
+    .buttons-form, .preferences .buttons-form{
+        .btn{
+            width: 100%;
+            margin-bottom: 1rem;
+            margin-left: 0;
+        }
+    }
+    .plugin-modal .btn-primary{
+        margin: 0;
+    }
+    .plugins-overview .plugin .btn-group{
+        display: block;
+    }
+    .plugins-overview .plugin .btn-group .btn{
+        width: 100%;
+        min-width: 100%;
+        display: block;
+    }
+    .plugins-overview .plugin .btn-group .btn:first-child{
+        border-bottom: 1px solid $light_gray;
+        border-right: 0;
+    }
+    .add-url-popup .btn-primary{
+        width: 100%;
+        margin: 0.7rem 0;
+    }
+    .envelope-button .btn-primary{
+        bottom: 4.4rem;
+    }
+
+}
+@media(max-width: 374px){
+    .team-management-app-cloud-setup kbd{
+        padding: 0.35rem 0.2rem;
+        font-size: 0.6rem;
+    }
+}
+/*------------------------------------*/
+/*------------- /BUTTONS -------------*/
+/*------------------------------------*/
+/**/

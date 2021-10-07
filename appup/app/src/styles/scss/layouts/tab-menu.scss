@@ -1,0 +1,72 @@
+/*------------------------------------*/
+/*------------ TAB MENU --------------*/
+/*------------------------------------*/
+.tab-menu{
+    border-bottom: 1px solid $light_gray;
+    padding-bottom: 0rem;
+    margin-bottom: 2.5rem;
+	width: 100%;
+    display: inline-block;
+	li{
+		display: inline-block;
+		&.active{
+			a{
+				color: $acadia;
+    			font-weight: 500;
+    			font-family: 'Inter-UI-Medium';
+
+			}
+			&:after{
+				content: '';
+			    background: $acadia;
+			    position: relative;
+			    width: 100%;
+			    display: block;
+			    height: 1px;
+			    bottom: -16px;
+			}
+		}
+		a{
+		    font-size: 0.72rem;
+		    color: $rock_blue;
+		    padding: 0 0.94rem;
+    		letter-spacing: 0.25px;
+    		text-transform: uppercase;
+    		&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+}
+@media(max-width: 767px){
+	.tab-menu{
+	    border-bottom:  none;
+	    text-align:  center;
+	    margin-bottom:  1rem;
+	    li.active:after{
+    	    display: none;
+	    }
+	    li a{
+    	    padding: 0 0.74rem;
+	    }
+	}
+
+}
+@media(max-width: 424px){
+	.tab-menu li{
+		a{
+			padding: 0 0.14rem;
+    		font-size: 0.7rem;
+		}
+		&:first-child a{
+			padding-left: 0;
+		}
+		&:last-child{
+			padding-right: 0;
+		}
+	}
+}
+/*------------------------------------*/
+/*------------ /TAB MENU -------------*/
+/*------------------------------------*/
+/**/

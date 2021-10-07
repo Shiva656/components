@@ -1,0 +1,602 @@
+[
+    {
+        "id": "put",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "modify_data"
+                }
+            },
+            {
+                "id": "modify_data",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.entity == 'page_cms'){ debugger; ui.form.JSON = JSON.stringify(ui.form.JSON);}}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{put}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  if(data.route.params.entity == 'swagger'){ window.UIJSON.swagger.fields[4].url ='';} ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigation_url"
+                }
+            },
+            {
+                "id": "navigation_url",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.templateId){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateId}}';}else{data.nextUrl=(data.route.params.entity != 'block' && data.route.params.entity != 'pages' && data.route.params.entity != 'appjs')?UIJSON[data.route.params.entity].nextUrl:''} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_trigger_event",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "modify_data"
+                }
+            },
+            {
+                "id": "modify_data",
+                "type": "js",
+                "code": "function(data, ui){  data.trigger_object={}; data.trigger_object.ID= data.route.params.id; data.trigger_object.APPLICATION_ID = data.route.params.appId; data.trigger_object.CATEGORY_ID = data.form.CATEGORY_ID; data.trigger_object.NAME = data.form.NAME; data.trigger_object.TRIGGER_TYPE = data.form.TRIGGER_TYPE; data.trigger_object.WORKFLOW_ID = data.form.WORKFLOW_ID; data.trigger_object.EXECUTE_CONTINUES = data.form.EXECUTE_CONTINUES;}",
+                "next": {
+                    "success": "modify_data2"
+                }
+            },
+            {
+                "id": "modify_data2",
+                "type": "js",
+                "code": "function(data, ui){  data.trigger_params=[]; if(data.form.event_type == 'activemq'){ var trigger_params_activemq_list=['broker_url', 'username', 'password', 'queue_name','message_variable']; var trigger_params={}; for(let i=0;i<trigger_params_activemq_list.length;i++){ trigger_params.ID = data.form.trigger_params_id[i]; trigger_params['`KEY`'] = trigger_params_activemq_list[i]; trigger_params.VALUE = data.form[trigger_params_activemq_list[i]]; data.trigger_params.push(trigger_params); trigger_params={}; } }else{ var trigger_params_sqs_list=['access_key', 'secret_key', 'region', 'queue_name','message_variable']; var trigger_params={}; for(let i=0;i<trigger_params_sqs_list.length;i++){ trigger_params.ID = data.form.trigger_params_id[i]; trigger_params['`KEY`'] = trigger_params_sqs_list[i]; trigger_params.VALUE = data.form[trigger_params_sqs_list[i]]; data.trigger_params.push(trigger_params); trigger_params={}; } } let event_object = {}; event_object.ID= data.form.trigger_params_id[5]; event_object['`KEY`'] = 'event_type'; event_object.VALUE = data.form.event_type; data.trigger_params.push(event_object); data.trigger_params_object = {'data':data.trigger_params}; data.trigger_params_object=JSON.stringify(data.trigger_params_object); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded trigger_object}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{put}}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "ajax2",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{trigger_params_object}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{{put2}}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "Content-Type": "application/json"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  if(data.route.params.entity == 'swagger'){ window.UIJSON.swagger.fields[4].url ='';} ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigation_url"
+                }
+            },
+            {
+                "id": "navigation_url",
+                "type": "js",
+                "code": "function(data, ui){ if(data.route.params.templateId){data.nextUrl='/appcms/edit/{{route.params.cloudId}}/{{route.params.appId}}/page_cms/1/{{route.params.templateId}}';}else{data.nextUrl=UIJSON[data.route.params.entity].nextUrl} }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{{nextUrl}}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "cmsput",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "data_conversion"
+                }
+            },
+            {
+                "id": "data_conversion",
+                "type": "js",
+                "code": "function(data, ui){debugger;  var mobj = JSON.parse(JSON.stringify(data.form));  var obj = {};  obj.ID= data.route.params.id; obj.NAME = mobj.name; obj.TITTLE = mobj.item; obj.URL = mobj.route; delete mobj.name; delete mobj.route; delete mobj.item; obj.ITEM_JSON = JSON.stringify(mobj); data.mform = obj; console.log(data.mform); return data }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded mform}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{put}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "set_id"
+                }
+            },
+            {
+                "id": "set_id",
+                "type": "js",
+                "code": "function(data, ui){ ui.form.ID= data.response_data.data.GENERATED_KEY; }",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "showAlert",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "set_param"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){debugger; data.message = data.currentMessage;}",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "{{message}}",
+                "next": {
+                    "success": "navigate"
+                }
+            }
+        ]
+    },
+    {
+        "id": "post_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_param",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "disable_button"
+                }
+            },
+            {
+                "id": "disable_button",
+                "type": "js",
+                "code": "function(data, ui){ document.getElementsByClassName('submit-button')[0].setAttribute('disabled',''); }",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{post}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "enable_button"
+                }
+            },
+            {
+                "id": "enable_button",
+                "type": "js",
+                "code": "function(data, ui){document.getElementsByClassName('submit-button')[0].removeAttribute('disabled') }",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "enable_button"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "set_param",
+                    "failure": "bad-alert"
+                }
+            },
+            {
+                "id": "set_param",
+                "type": "js",
+                "code": "function(data, ui){ data.workflow_params = ui.workflow_params.entity;}",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json workflow_params)}}{{put}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "alert",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "put_logging",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "validate"
+                }
+            },
+            {
+                "id": "validate",
+                "type": "validate",
+                "next": {
+                    "success": "ajax"
+                }
+            },
+            {
+                "id": "ajax",
+                "type": "ajax",
+                "method": "put",
+                "data": "{{{form-encoded form}}}",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json route.params.entity)}}{{put}}{{/with}}",
+                "var": "response_data",
+                "headers": [
+                    {
+                        "test": "{{route.params.id}}"
+                    }
+                ],
+                "next": {
+                    "success": "ajax2",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "ajax2",
+                "type": "ajax",
+                "method": "get",
+                "data": "{}",
+                "url": "{{ui_json.server}}/cloud/log4j-event/{{route.params.id}}",
+                "var": "response_data",
+                "headers": "{{route.params.entity}}",
+                "next": {
+                    "success": "show_msg",
+                    "failure": "show_error"
+                }
+            },
+            {
+                "id": "show_msg",
+                "type": "js",
+                "code": "function(data, ui){  ui.showSuccess = true; ui.messageAlert = 'Updated sucessfully.' }",
+                "next": {
+                    "success": "alert"
+                }
+            },
+            {
+                "id": "alert",
+                "type": "alert",
+                "message": "Successfully Saved",
+                "variant": "success",
+                "next": {
+                    "success": "navigate"
+                }
+            },
+            {
+                "id": "navigate",
+                "type": "navigate",
+                "url": "{{#with (lookup ui_json route.params.entity)}}{{nextUrl}}{{/with}}",
+                "next": {
+                    "success": "exit"
+                }
+            },
+            {
+                "id": "show_error",
+                "type": "js",
+                "code": "function(data, ui){  ui.showError = true; ui.messageAlert = data.response_data.data.responseText; }",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

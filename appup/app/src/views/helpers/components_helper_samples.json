@@ -1,0 +1,1174 @@
+{
+    "ac-collection-table": [{
+        "label": "Example 1",
+        "props": {
+            "columns": [{
+                    "label": "name",
+                    "key": "name",
+                    "sortable": "true",
+                    "__slot__": "<div><ac-gravatar :avatar_props=\"{ size: 100, rounded: false }\" :email=\"item.email\"/> {{item.name}} - {{item.email}}</div>"
+                },
+                {
+                    "label": "email",
+                    "key": "email",
+                    "sortable": "true",
+                    "__slot__": "<div>{{item.email}} </div>"
+                },
+                {
+                    "label": "body",
+                    "key": "body",
+                    "sortable": "true"
+                }
+            ],
+            "dropdown_options": [{
+                "label": "edit",
+                "type": "edit",
+                "icon": "edit",
+                "handler": "debugger",
+                "handler_params": "{\"a\":\"bc\"}"
+            }],
+            "__event__row_clicked": [],
+            "__event__params__row_clicked": "{\"a\":\"b\"}",
+            "bulk": true,
+            "dropdown": true,
+            "dropdown_button_options": {
+                "icon": "fa  ",
+                "variant": ""
+            },
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "loading_image": "",
+            "__slot__header": "<div></div>",
+            "__event__dropdown_click": [],
+            "__event__row_dblclicked": [],
+            "__event__checkbox_clicked": [{
+                "name": "test"
+            }],
+            "load_more_type": "  "
+        }
+    }, {
+        "label": "Example 2",
+        "props": {
+            "dropdown_button_options": {
+                "icon": "fal fa-ellipsis-h",
+                "variant": "bg-transparent p-0",
+                "size": "lg"
+            },
+            "columns": [{
+                "label": "ID",
+                "key": "id",
+                "sortable": "True"
+            }, {
+                "label": "Name",
+                "key": "name",
+                "sortable": "True",
+                "__slot__": "<div class=\"media align-items-center\">\n<ac-gravatar :avatar_props=\"{ size: 35, rounded: true ,username:item.name,src:item.image}\"/>\n<div class=\"media-body\">\n <h5 class=\"mb-0 ml-2 text-capitalize\">{{item.name}}</h5>\n</div>\n</div>"
+            }, {
+                "label": "Email",
+                "key": "email",
+                "sortable": "True"
+            }],
+            "bulk": true,
+            "dropdown": true,
+            "dropdown_options": [{
+                "label": "Edit",
+                "type": "edit",
+                "icon": "fa fa-pencil-alt",
+                "handler_params": "{}"
+            }, {
+                "label": "Delete",
+                "type": "delete",
+                "icon": "fa fa-trash-alt",
+                "handler_params": "{}"
+            }],
+            "search_key": "email",
+            "show_searchbar": true,
+            "show_pagination": true,
+            "limit": "5",
+            "total_count": "200",
+            "limit_key": "_limit",
+            "offset_key": "_start",
+            "loading_image": "http://css.500apps.com/animated/trackly.png",
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "method": "GET",
+            "sort_key": "name"
+        }
+    }, {
+        "label": "employee_sample",
+        "props": {
+            "columns": [{
+                "label": "name",
+                "key": "first_name",
+                "sortable": "true",
+                "__slot__": ""
+            }, {
+                "label": "email",
+                "key": "email_id",
+                "sortable": "true",
+                "__slot__": ""
+            }],
+            "dropdown_options": [{
+                "label": "Edit",
+                "type": "edit",
+                "icon": "edit",
+                "handler": "Appup_modal_load",
+                "handler_params": "{\"modal_helper\":\"test_sample_form\",\"parent_ref\":\"sample_table_ref\",\"title\":\"Edit Employee\"}"
+            }, {
+                "label": "Delete",
+                "type": "delete",
+                "handler": "Appup_ajax_delete",
+                "handler_params": "{\"parent_ref\":\"sample_table_ref\",\"delete_url\":\"employee_details\"}"
+            }],
+            "__event__row_clicked": [],
+            "__event__params__row_clicked": "{\"a\":\"b\"}",
+            "bulk": true,
+            "dropdown": true,
+            "dropdown_button_options": {
+                "icon": "fal fa-ellipsis-h",
+                "variant": "bg-transparent p-0",
+                "size": "sm",
+                "right": true
+            },
+            "url": "https://handlerstest.500apps.com/v2/employee_details",
+            "loading_image": "",
+            "__slot__header": "<div></div>",
+            "__event__dropdown_click": [],
+            "__event__row_dblclicked": [],
+            "__event__checkbox_clicked": [{
+                "name": "test"
+            }],
+            "load_more_type": "  ",
+            "method": "GET",
+            "refs": "sample_table_ref",
+            "response_key": "",
+            "searchbar_placeholder": "",
+            "show_dropdown_icons": true,
+            "search_key": ""
+        }
+    }],
+    "ac-material-dropdown": [{
+        "label": "Edit dropdown",
+        "props": {
+            "options": [{
+                    "label": "Edit",
+                    "type": "edit"
+                },
+                {
+                    "label": "Delete",
+                    "type": "delete"
+                }
+            ],
+            "refs": "material_dropdown",
+            "button_options": {
+                "icon": "fal fa-ellipsis-h fa-lg p-1",
+                "variant": "transparent p-0",
+                "right": false
+            },
+            "right": false
+        }
+    }],
+    "ac-grouped-dropdown": [{
+        "label": "Grouped Dropdown",
+        "props": {
+            "url": "https://api.myjson.com/bins/19gmx7",
+            "variant": "primary",
+            "key_label": "name",
+            "refs": "grouped_dropdown",
+            "__slot__dropdownItem": "<div>\n          {{item.name}} <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\n        </div>"
+        }
+    }],
+    "ac-nested-dropdown": [{
+        "label": "Nested Dropdown with subitems",
+        "props": {
+            "nested-dropdown-list": "[{\n\t\"text\": \"item1\",\n\t\"id\": \"23\",\n\t\"isSubMenu\": true,\n\t\"subMenuList\": [{\n\t\t\"text\": \"subitem1\",\n\t\t\"isSubMenu\": false,\n\t\t\"id\": \"24\"\n\t}, {\n\t\t\"text\": \"subitem2\",\n\t\t\"isSubMenu\": true,\n\t\t\"id\": \"25\",\n\t\t\"subMenuList\": [{\n\t\t\t\"text\": \"subitem3\",\n\t\t\t\"isSubMenu\": false,\n\t\t\t\"id\": \"26\"\n\t\t}, {\n\t\t\t\"text\": \"subitem4\",\n\t\t\t\"isSubMenu\": true,\n\t\t\t\"id\": \"27\"\n\t\t}]\n\t}]\n}, {\n\t\"text\": \"item2\",\n\t\"isSubMenu\": false,\n\t\"id\": \"28\"\n}]",
+            "key-value": "id",
+            "refs": "nested_dropdown",
+            "__slot__btn_slot": "<div>example</div>"
+        }
+    }],
+    "ac-tab": [{
+        "label": "Tabs with url",
+        "props": {
+            "url": "https://api.myjson.com/bins/zpwm9",
+            "align": "horizantal",
+            "refs": "tabs_ref",
+            "__slot__header": "",
+            "__slot__tabbody": "<div>{{data.content}}</div>",
+            "tabs_attrs": "{\"pills\":true}",
+            "__slot__title": "<div>{{data.label}}</div>"
+        }
+    }],
+    "ac-accordion": [{
+        "label": "Example 1",
+        "props": {
+            "refs": "contributers_accordion",
+            "data": [{
+                "label": "Contributors",
+                "body": "<div><contributer_Inline></contributer_Inline></div>",
+                "ref": "contributorRef"
+            }],
+            "__slot__title": "<div><div class=\"d-flex align-items-center px-3 pad-collapse cursor-pointer \" @click=\"start(`hideSearchTD`,{ref:`contributer_InlineRef`})\"><h6 class=\"mb-0\">{{data.label}}</h6> <div class=\"ml-auto\"><i class=\"fal fa-angle-up fa-lg text-muted\"></i></div></div></div>\n\ncontributer_InlineRef"
+        }
+    }],
+    "ac-action-navbar": [{
+        "label": "Example 1",
+        "props": {
+            "columns": [{
+                "key": "1",
+                "class": "col-md-12",
+                "__slot__": "<div class=\"d-md-flex justify-content-between align-items-center\">\n<h3 class=\"mb-0 mr-auto ml-3 text-capitalize pt-md-0 pt-4\">Automation</h3>\n<div class=\"pl-md-2 p-0  search-width border-right\">\n<newAutomationSearch></newAutomationSearch>\n</div>\n<div class=\"px-3 pb-md-0 pb-3  \">\n<!--<ticketdrpdown></ticketdrpdown>-->\n</div>\n</div>"
+            }],
+            "refs": "automationActionNavbarRef"
+        }
+    }],
+    "ac-header": [{
+        "label": "Example 1",
+        "props": {
+            "title": {
+                "image": "https://s3-us-west-1.amazonaws.com/support.ly/app-icons/supportly-logo.svg",
+                "name": "",
+                "link_to": "#/support/ticket"
+            },
+            "id": "5",
+            "left-controls": [{
+                "link_to": "#/support/ticket",
+                "label": "Tickets",
+                "type": "link",
+                "activeWhen": "[\"/support/:entity\",\"/taskview\"]"
+            }, {
+                "label": "Knowledge Base",
+                "link_to": "#/kb/dashboard",
+                "type": "link",
+                "activeWhen": "[\"/kb/dashboard\"]"
+            }, {
+                "label": "Automation",
+                "link_to": "#/automation",
+                "type": "link",
+                "activeWhen": "[\"/automation\"]"
+            }, {
+                "label": "Feedback",
+                "link_to": "#/supporrt/feedback",
+                "type": "link",
+                "activeWhen": "[\"/supporrt/feedback\"]"
+            }, {
+                "label": "Reports",
+                "type": "link",
+                "link_to": "#/reports/dashboard",
+                "activeWhen": "[\"/reports/dashboard\"]"
+            }],
+            "refs": "navbarRef",
+            "navbgcolor": "primary",
+            "textcolor": "dark",
+            "right-controls": [],
+            "__slot__rightend_component": "<div class=\"mr-2 gr-avthar\"><apps-launcher  v-b-tooltip.hover\n title=\"500 apps\" url=\"https://500appss.appup.cloud/dev/ninedots\" />\n</div>",
+            "__slot__right_component": "<div class=\"mr-2 gr-avthar d-flex\">\n<b-button variant=\"transparent\" class=\"rightside-icons border-0 nav-link\">\n<i class=\"fal fa-plus fa-lg p-2\" v-b-tooltip.hover\n title=\"Add ticket\" @click=\"start(`buttonHandler`,{helperName:`addticket`,button_id:`addticketid`,title:`Add Ticket`,buttonName:`Add ticket`})\"></i></b-button>\n<navbarMaterialdropdown class=\"my-auto\"></navbarMaterialdropdown>\n</div>",
+            "__slot__banner": ""
+        }
+    }],
+    "ac-vertical-navigation": [{
+        "label": "Example 1",
+        "props": {
+            "menu": [{
+                "href": "/dashboard",
+                "title": "Dashboard",
+                "icon": "fal fa-home-alt"
+            }, {
+                "href": "/employeepage/employee?id=3639",
+                "title": "Employee",
+                "icon": "fal fa-user"
+            }, {
+                "href": "/filepage/file",
+                "title": "File",
+                "icon": "fal fa-file"
+            }, {
+                "href": "/leavespage/leave",
+                "title": "Leave",
+                "icon": "fal fa-chess-knight"
+            }, {
+                "href": "/attendancepage/attendance",
+                "title": "Attendance",
+                "icon": "fal fa-calendar-alt"
+            }, {
+                "href": "/workgrouppage/workgroup",
+                "title": "Workgroups",
+                "icon": "fal fa-users"
+            }, {
+                "href": "/list/am/automation",
+                "title": "Automations",
+                "icon": "fal fa-project-diagram"
+            }, {
+                "href": "/reportsPage/reports",
+                "title": "Reports",
+                "icon": "fal fa-chart-bar"
+            }],
+            "collapsed": true,
+            "refs": "verticalmenubarref"
+        }
+    }],
+    "ac-date-range-picker": [{
+        "label": "Example 1",
+        "props": {
+            "opens": "center",
+            "start-date": "2019-05-01",
+            "end-date": "2019-05-13",
+            "locale-data": "{ \"firstDay\": 1, \"format\": \"DD-MM-YYYY\" }",
+            "min-date": "2016-09-02",
+            "max-date": "2019-10-02",
+            "date-range": "{  \"startDate\": \"2019-05-01\", \"endDate\": \"2019-05-10\"  }",
+            "single-date-picker": false,
+            "time-picker": false,
+            "time-picker24-hour": false,
+            "time-picker-increment": "1",
+            "time-picker-seconds": false,
+            "show-ranges": false,
+            "show-week-numbers": false,
+            "show-dropdowns": false,
+            "auto-apply": true,
+            "ranges": "",
+            "refs": "dashboard_daterange_refs",
+            "__event__input": [{
+                "name": "dynamic_daterange"
+            }]
+        }
+    }],
+    "ac-button-group": [{
+        "label": "Button group with dropdown",
+        "props": {
+            "data": "[{\n\"key\":\"fome_ref\",\n  \t\t\"name\": \"Home\",\n  \t\t\"type\": \"\",\n                 \"ref\":\"fome_ref\",\n                \"__slot__\":\"<div>qw{{item.name}}</div>\"\n  \t},\n  \t{\n  \t\t\"name\": \"Sales\",\n  \t\t\"label\": \"Sales\",\n  \t\t\"type\": \"dropdown\",\n  \t\t\"variant\": \"primary\",\n  \t\t\"items\": [{\n  \t\t\t\t\"name\": \"Home\",\n  \t\t\t\t\"label\": \"Home\",\n  \t\t\t\t\"url\": \"#Home\"\n\n  \t\t\t},\n  \t\t\t{\n  \t\t\t\t\"name\": \"Sales\",\n  \t\t\t\t\"url\": \"/sales\",\n  \t\t\t\t\"iconClass\": \"fa fa-envelope\"\n  \t\t\t},\n  \t\t\t{\n  \t\t\t\t\"name\": \"Sales\",\n  \t\t\t\t\"type\": \"input\",\n  \t\t\t\t\"iconClass\": \"fa fa-envelope\",\n  \t\t\t\t\"oninputchange\": \"raiseevent\"\n  \t\t\t}\n  \t\t]\n  \t},\n  \t{\n  \t\t\"name\": \"Home\",\n  \t\t\"url\": \"#/examples\"\n  \t},\n  \t{\n  \t\t\"name\": \"Sales\",\n  \t\t\"url\": \"#/examples/ac-button-group\",\n  \t\t\"iconClass\": \"fa fa-envelope\"\n  \t},\n  \t{\n  \t\t\"name\": \"Developers\",\n  \t\t\"variant\": \"success\",\n  \t\t\"type\": \"dropdown\",\n\n  \t\t\"items\": [{\n  \t\t\t\t\"name\": \"java\",\n  \t\t\t\t\"label\": \"Home\",\n  \t\t\t\t\"url\": \"#java\"\n  \t\t\t},\n  \t\t\t{\n  \t\t\t\t\"name\": \"Angular\"\n\n  \t\t\t},\n  \t\t\t{\n  \t\t\t\t\"name\": \"vue\"\n  \t\t\t}\n  \t\t]\n  \t}\n  ]",
+            "refs": "BGroupRef"
+        }
+    }],
+    "ac-calendar": [{
+        "label": "Calender",
+        "props": {
+            "refs": "calendar_ref",
+            "events": "[{\n\t\t\"title\": \"event1\",\n\t\t\"start\": \"2019-08-01\",\n                 \"end\": \"2019-08-03\"\n\t},\n\t{\n\t\t\"title\": \"event2\",\n\t\t\"start\": \"2019-10-05\",\n\t\t\"end\": \"2019-10-07\"\n\t},\n\t{\n\t\t\"title\": \"event3\",\n\t\t\"start\": \"2019-10-09T12:30:00\",\n\t\t\"allDay\": false\n\t}\n]",
+            "config": "{\n\t\"defaultView\": \"month\"\n}"
+        }
+    }],
+    "ac-dropdown": [{
+        "label": "Appup Frontend Dropdown",
+        "props": {
+            "split": false,
+            "refs": "split_button",
+            "no_caret": false,
+            "lazy": false,
+            "split_variant": "outline-secondary",
+            "variant": "outline-secondary",
+            "size": " btn-sm py-2 px-2",
+            "split_button_type": "button",
+            "dropdown_header": "Frontend",
+            "dropdown_header_class": "outline-secondary",
+            "items": "[{\n\t\t\"label\": \"Pages\",\n\t\t\"type\": \"submit\",\n\t\t\"value\": \"pages\"\n\t},\n\t{\n\t\t\"label\": \"Blocks\",\n\t\t\"type\": \"submit\",\n\t\t\"value\": \"blocks\"\n\t},\n\t{\n\t\t\"label\": \"Handlers\",\n\t\t\"type\": \"submit\",\n\t\t\"value\": \"handlers\"\n\t},\n\t{\n\t\t\"label\": \"Category\",\n\t\t\"type\": \"submit\",\n\t\t\"value\": \"category\"\n\t}\n]"
+        }
+    }],
+    "ac-dynamic-kanban": [{
+        "label": "Dynamic kanban",
+        "props": {
+            "item_url": "https://api.myjson.com/bins/13hnfj?id=`${id}`",
+            "stage_url": "https://api.myjson.com/bins/1d0l3z",
+            "stage_append_key": "id",
+            "item_append_key": "id",
+            "bulk_action": true,
+            "no_drop": false,
+            "show_stg_empty_slot": true,
+            "load_more_type": "loadMoreButton",
+            "show_loadmore": true,
+            "limit": "5",
+            "limit_key": "limit",
+            "offset_key": "offset",
+            "refs": "kanbanref",
+            "__slot__header": "<div>{{headItem.name}}</div>",
+            "__slot__body": "<div class=\"card-body\">{{item.subject}}\n<br>\n{{item.r_name}}\n{{item.source}}\n</div>"
+        }
+    }],
+    "ac-simple-filter": [{
+        "label": "Example 1",
+        "props": {
+            "filter_json": "{\n  \"fields\": [\n    {\n      \"type\": \"date-range\",\n      \"name\": \"activity.date\",\n      \"label\": \"Date\",\n      \"opens\": \"center\",\n      \"startDate\": \"2019-05-01\",\n      \"endDate\": \"2019-05-15\",\n      \"minDate\": \"2016-09-02\",\n      \"maxDate\": \"2019-10-02\",\n      \"dateRange\": {\n        \"startDate\": \"2019-05-01\",\n        \"endDate\": \"2019-05-10\"\n      },\n      \"localeData\": {\n        \"firstDay\": 1,\n        \"format\": \"DD-MM-YYYY\"\n      },\n      \"show_ranges\": true,\n      \"singleDatePicker\": false,\n      \"timePicker\": true,\n      \"timePicker24Hour\": true,\n      \"showDropdowns\": true,\n      \"autoApply\": true,\n      \"showWeekNumbers\": true,\n     \"class\": \"col-sm-12 col-md-4 select\"\n    },\n    {\n      \"id\": \"80\",\n      \"type\": \"dropdown\",\n      \"name\": \"id\",\n      \"label\": \"Id\",\n      \"url\": \"https://jsonplaceholder.typicode.com/posts?userId=1\",\n      \"key_value\": \"id\",\n      \"key_label\": \"title\",\n      \"required\": true\n    },\n    {\n      \"id\": \"80\",\n      \"type\": \"dropdown\",\n      \"name\": \"Email\",\n      \"label\": \"Email\",\n      \"url\": \"https://jsonplaceholder.typicode.com/comments?postId=1\",\n      \"key_value\": \"email\",\n      \"key_label\": \"email\",\n      \"required\": true\n    }\n  ]\n}\n",
+            "inline_labels": true,
+            "inline": true,
+            "refs": "SimpleFilterRef"
+        }
+    }],
+    "appup-filter": [{
+        "label": "Example 1",
+        "props": {
+            "filter-json": "{\n  \"fields\": [\n    {\n      \"filter-label\": \"Tags\",\n      \"filter-type\": \"tags\",\n      \"filter-name\": \"tags\",\n      \"filter-checkbox\": true,\n      \"field-json\": {\n        \"type\": \"multiselect\",\n        \"name\": \"contact_tags\",\n        \"label\": \"Enter Tags\",\n        \"url\": \"http://www.mocky.io/v2/5b507e3a3600003b14dd0e66\",\n        \"key_value\": \"value\",\n        \"key_label\": \"label\"\n      },\n      \"filter-cdata\": { \"dbtable\": \"contact\" }\n    },\n    {\n      \"filter-label\": \"Score\",\n      \"filter-type\": \"number\",\n      \"filter-name\": \"score\",\n      \"filter-checkbox\": true,\n      \"field-json\": {\n        \"type\": \"number\",\n        \"name\": \"score\",\n        \"label\": \"score\"\n      },\n      \"filter-cdata\": {}\n    },\n    {\n      \"filter-label\": \"Created\",\n      \"filter-checkbox\": true,\n      \"filter-type\": \"date\",\n      \"filter-name\": \"created_on\",\n      \"field-json\": {\n        \"type\": \"date\",\n        \"name\": \"date\",\n        \"label\": \"Created\"\n      },\n      \"filter-cdata\": {}\n    },\n    {\n      \"filter-label\": \"Name\",\n      \"filter-checkbox\": true,\n      \"filter-type\": \"string\",\n      \"filter-name\": \"name\",\n      \"field-json\": {\n        \"type\": \"text\",\n        \"name\": \"first_name\",\n        \"label\": \"Name\"\n      },\n      \"filter-cdata\": {}\n    },\n    {\n      \"filter-label\": \"Owner\",\n      \"filter-checkbox\": true,\n      \"filter-type\": \"boolean\",\n      \"filter-name\": \"owner\",\n      \"field-json\": {\n        \"type\": \"dropdown\",\n        \"name\": \"owner_id\",\n        \"label\": \"select owner\",\n        \"key_value\": \"value\",\n        \"key_label\": \"label\",\n        \"url\": \"http://www.mocky.io/v2/5b507e3a3600003b14dd0e66\"\n      },\n      \"filter-cdata\": {}\n    },\n    {\n      \"filter-label\": \"Custom\",\n      \"filter-checkbox\": true,\n      \"filter-name\": \"custom\",\n      \"filter-type\": \"custom\",\n      \"custom-field-json\": {\n        \"type\": \"dropdown\",\n        \"label\": \"Condition\",\n        \"option\": [\n          {\n            \"label\": \"Test\",\n            \"value\": \"Test\"\n          }\n        ]\n      },\n      \"field-json\": {\n        \"type\": \"text\",\n        \"name\": \"first_name\",\n        \"label\": \"Name\"\n      },\n      \"filter-cdata\": {}\n    }\n  ],\n  \"buttons\": []\n}\n",
+            "config": "{\n  \"data\": {\n    \"fields\": \"tags.id as 'tagid',con.first_name as 'name',con.email as 'email'\",\n    \"tables\": [\n      {\n        \"contact\": \"con\"\n      },\n      {\n        \"company\": \"com\"\n      },\n      {\n        \"contact_tag\": \"ctag\"\n      },\n      {\n        \"tag\": \"tags\"\n      }\n    ],\n    \"join\": [\n      {\n        \"join_type\": \"left join\",\n        \"table1\": \"con\",\n        \"join_column1\": \"company_id\",\n        \"table2\": \"com\",\n        \"join_column2\": \"id\"\n      },\n      {\n        \"join_type\": \"left join\",\n        \"table1\": \"con\",\n        \"join_column1\": \"id\",\n        \"table2\": \"ctag\",\n        \"join_column2\": \"contact_id\"\n      },\n      {\n        \"join_type\": \"left join\",\n        \"table1\": \"ctag\",\n        \"join_column1\": \"tag_id\",\n        \"table2\": \"tags\",\n        \"join_column2\": \"id\"\n      }\n    ],\n    \"order_by\": \"con.id ASC\",\n    \"offset\": 0,\n    \"limit\": 10\n  }\n}\n",
+            "on-apply-close": true,
+            "refs": "AdvFiltersRef"
+        }
+    }],
+    "ac-move-up-down": [{
+        "label": "Example 1",
+        "props": {
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "loading_image": "https://cmswebsites.s3.us-west-1.amazonaws.com/Dual%20Ring-0.9s-200px.gif",
+            "method": "GET",
+            "ac_cursor": "{ \"postId\": 1 }",
+            "sort_key": "email",
+            "refs": "MoveUpDownRef",
+            "__slot__header": "<header class=\"border p-2 mb-2\">header</header>",
+            "__slot__footer": "<footer class=\"border p-2 mt-2\">footer</footer>",
+            "__slot__item": "<b-card>{{item.name}}</b-card>"
+        }
+    }],
+    "ac-simple-card": [{
+            "label": "Example 1",
+            "props": {
+                "dropdown_button_options": {},
+                "data": "",
+                "url": "https://api.myjson.com/bins/11pzgp",
+                "img": "img",
+                "selected": true,
+                "card_title": "id",
+                "card_text": "body",
+                "bulk": true,
+                "header-slot": true,
+                "footer-slot": true,
+                "card_header": "title",
+                "card_footer": "footer",
+                "card_subtitle": "subtitle",
+                "refs": "SimpleCardRef"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "dropdown_button_options": {},
+                "data": "{\n  \"id\": 1,\n  \"img\": \"https://picsum.photos/300/300/?image=41\",\n  \"title\": \"Title of card from url\",\n  \"body\": \"from url\",\n  \"header\": \"this is header\",\n  \"subtitle\": \"this is subtitle\",\n  \"footer\": \"this is footer\"\n}",
+                "img": "img",
+                "__slot__header": "<div>Header slot</div>",
+                "__slot__body": "<div>{{data.body}}</div>",
+                "selected": true,
+                "url": "https://api.myjson.com/bins/qeqyx",
+                "__slot__footer": "<div>Footer</div>",
+                "header-slot": true,
+                "footer-slot": true,
+                "refs": "refer",
+                "card_title": "title"
+            }
+        }
+    ],
+    "ac-chart": [{
+            "label": "Pie Chart Example",
+            "props": {
+                "type": "pie",
+                "title": "Pie Chart",
+                "url": "https://api.myjson.com/bins/1h2yvd",
+                "config": "{\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 1562889600000,\n           \"pointInterval\": 86400000\n       }\n   },\n   \"legend\": {\n       \"layout\": \"vertical\",\n       \"align\": \"right\",\n       \"verticalAlign\": \"middle\"\n   }\n\n}",
+                "refs": "pie_ref"
+            }
+        },
+        {
+            "label": "Column Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/c27ah",
+                "title": "Column Chart",
+                "type": "column",
+                "config": "{\n   \"xtitle\": \"STAGES\",\n   \"ytitle\": \"NUMBER OF CANDIDATES\",\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 0,\n           \"pointInterval\": 1\n       }\n   },\n   \"xAxis\": {\n       \"type\" : \"name\"  \n   }\n}",
+                "refs": "column_ref"
+            }
+        },
+        {
+            "label": "Line Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/okazt",
+                "title": "Line Chart",
+                "type": "line",
+                "config": "{\n   \"xtitle\": \"STAGES\",\n   \"ytitle\": \"NUMBER OF CANDIDATES\",\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 0,\n           \"pointInterval\": 1\n       }\n   },\n   \"xAxis\": {\n       \"type\" : \"name\"  \n   }\n}",
+                "refs": "line_ref"
+            }
+        },
+        {
+            "label": "Bubble Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/17m6cp",
+                "title": "Bubble Chart",
+                "type": "bubble",
+                "config": "{\n   \"xtitle\": \"STAGES\",\n   \"ytitle\": \"NUMBER OF CANDIDATES\",\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 0,\n           \"pointInterval\": 1\n       }\n   },\n   \"xAxis\": {\n       \"type\" : \"name\"  \n   }\n}",
+                "refs": "bubble_ref"
+            }
+        },
+        {
+            "label": "Funnel Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/wwdgp",
+                "title": "Funnel Chart",
+                "type": "funnel",
+                "config": "{\n   \"xtitle\": \"STAGES\",\n   \"ytitle\": \"NUMBER OF CANDIDATES\",\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 0,\n           \"pointInterval\": 1\n       }\n   },\n   \"xAxis\": {\n       \"type\" : \"name\"  \n   }\n}",
+                "refs": "funnel_ref"
+            }
+        },
+        {
+            "label": "Bar Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/1alcdl",
+                "title": "Bar Chart",
+                "type": "bar",
+                "config": "{\n   \"xtitle\": \"STAGES\",\n   \"ytitle\": \"NUMBER OF CANDIDATES\",\n   \"tooltip\": {},\n   \"plotOptions\": {\n       \"series\": {\n           \"label\": {\n               \"connectorAllowed\": false\n           },\n           \"pointStart\": 0,\n           \"pointInterval\": 1\n       }\n   },\n   \"xAxis\": {\n       \"type\" : \"name\"  \n   }\n}",
+                "refs": "bar_ref"
+            }
+        },
+        {
+            "label": "Donut Chart Example",
+            "props": {
+                "url": "https://api.myjson.com/bins/tbru1",
+                "title": "Donut Chart",
+                "type": "pie",
+                "config": "{\n  \"chart\": {\n    \"type\": \"pie\"\n  },\n  \"plotOptions\": {\n    \"pie\": {\n      \"size\": \"50%\",\n      \"innerSize\": 100,\n      \"depth\": 45\n    }\n  },\n  \"series\": [\n    {\n      \"data\": [\n        [\n          \"pt1\",\n          5\n        ],\n        [\n          \"pt2\",\n          2\n        ],\n        [\n          \"pt3\",\n          4\n        ]\n      ]\n    }\n  ]\n}",
+                "refs": "donut_ref"
+            }
+        }
+    ],
+    "ac-grid": [{
+        "label": "Example 1",
+        "props": {
+            "grid_items": "[\n{\nlabel: \"Item 1\",\ndescription: \"Desription 1\",\n          id: 1,\n          position: {\n            x: 0,\n            y: 0\n          }\n        },\n        {\n          label: \"Item 2\",\n          description: \"Desription 2\",\n          id: 2,\n          position: {\n            x: 2,\n            y: 0\n          },\n          width: 2,\n          height: 1\n        }\n      ]",
+            "enable_drag": true,
+            "resizable": true,
+            "auto_size": false,
+            "grid_width": 2,
+            "grid_height": 1,
+            "grid_column": 12,
+            "__event__layout_updated_event": {},
+            "__event__clicked_event": {}
+        }
+    }],
+    "ac-dynamic": [{
+        "label": "Example 1",
+        "props": {
+            "url": "[\n\t\t\t\t\t\"https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css\",\n\t\t\t\t\t\"https://unpkg.com/vue-multiselect@2.1.0\"\n\t\t\t\t]",
+            "component_name": "VueMultiselect",
+            "props": "{\n\t\t\t\t\t\"list\": [\n\t\t\t\t\t\t\"list\",\n\t\t\t\t\t\t\"of\",\n\t\t\t\t\t\t\"options\"\n\t\t\t\t\t],\n\t\t\t\t\t\"switchoff\": false,\n\t\t\t\t\t\"value\": \"list\"\n\t\t\t\t}",
+            "props_mapper": "{\n\t\t\t\t\t\"list\": \"options\",\n\t\t\t\t\t\"switchoff\": \"disabled\",\n\t\t\t\t\t\"testing\": \"someprop\",\n\t\t\t\t\t\"value\": \"value\"\n\t\t\t\t}"
+
+        }
+    }],
+    "ac-wizard-builder": [{
+        "label": "Example 1",
+        "props": {
+            "rule-json": "{\n\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\"selectedVal\": \"\",\n\t\t\t\t\t\"keys\": {\n\t\t\t\t\t\t\"url\": \"https://support.appup.cloud/support/landing/get/automation_metadata?fields=id,name,conditions,options,retrieve%20as%20url,format%20as%20type&where=type=%27condition%27%20and%20name%20in%20(%27Assigned%20to%27,%27Ticket%20tags%27,%27Priority%27,%27Status%27,%27Type%27,%27Group%20name%27,%27Requester%20email%27,%27Ticket%20participants%27,%27Subject%27,%27Source%27)\",\n\t\t\t\t\t\t\"keyvalue\": \"id\",\n\t\t\t\t\t\t\"keytext\": \"name\",\n\t\t\t\t\t\t\"options\": []\n\t\t\t\t\t},\n\t\t\t\t\t\"operators\": {\n\t\t\t\t\t\t\"text\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"EQ\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Not Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"NE\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"INBETWEEN\",\n\t\t\t\t\t\t\t\t\"value\": \"INBTW\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"date\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Equal\",\n\t\t\t\t\t\t\t\t\"value\": \"EQ\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Not Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"NE\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"number\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"EQ\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Not Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"NE\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"select\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"EQ\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"text\": \"Not Equals\",\n\t\t\t\t\t\t\t\t\"value\": \"NE\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t},\n\t\t\t\t\t\"controls\": {\n\t\t\t\t\t\t\"text\": {\n\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"date\": {\n\t\t\t\t\t\t\t\"type\": \"appup-datetime\",\n\t\t\t\t\t\t\t\"name\": \"date\",\n\t\t\t\t\t\t\t\"input\": \"date\",\n\t\t\t\t\t\t\t\"label\": \"Date Picker\",\n\t\t\t\t\t\t\t\"placeholder\": \"Date here\",\n\t\t\t\t\t\t\t\"custom\": {\n\t\t\t\t\t\t\t\t\"dateFormat\": \"m-Y-d\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"number\": {\n\t\t\t\t\t\t\t\"type\": \"number\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"select\": {\n\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\"url\": \"\",\n\t\t\t\t\t\t\t\"keyvalue\": \"id\",\n\t\t\t\t\t\t\t\"keytext\": \"name\",\n\t\t\t\t\t\t\t\"options\": []\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}",
+            "avail-tabs-obj": "{\n\t\t\t\t\t\"trigger\": true,\n\t\t\t\t\t\"filter\": true,\n\t\t\t\t\t\"action\": true\n\t\t\t\t}",
+            "prefill-data": "[\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"AX\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"EQ\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"EA\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"And\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"And\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"Or\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"Or\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"Or\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"Or\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"rules\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"condition\": \"Or\",\n\t\t\t\t\t\t\t\t\"selectedKey\": \"\",\n\t\t\t\t\t\t\t\t\"selectedOperator\": \"\",\n\t\t\t\t\t\t\t\t\"selectedVal\": \"\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t\"condition\": \"Or\"\n\t\t\t\t\t}\n\t\t\t\t]",
+            "trigger-json": "{\n\t\t\t\t\t\"url\": \"\",\n\t\t\t\t\t\"keyvalue\": \"id\",\n\t\t\t\t\t\"keytext\": \"name\",\n\t\t\t\t\t\"keytype\": \"select\",\n\t\t\t\t\t\"options\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"text\": \"fsdfsf\",\n\t\t\t\t\t\t\t\"value\": \"sdfsfsdfsdfs\"\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t}",
+            "workflow-json": "{\n\t\t\t\t\t\"id\": 1010,\n\t\t\t\t\t\"type\": \"workflow\",\n\t\t\t\t\t\"name\": \"JSON_CODE\",\n\t\t\t\t\t\"label\": \"Workflow\",\n\t\t\t\t\t\"src\": \" https://our.appup.com/app/designer/designer.html\",\n\t\t\t\t\t\"description\": \"We will load designer here\",\n\t\t\t\t\t\"width\": \"90%\",\n\t\t\t\t\t\"height\": \"900px\",\n\t\t\t\t\t\"placeholder\": \"Enter Email\",\n\t\t\t\t\t\"required\": true,\n\t\t\t\t\t\"class\": \"col-sm-12\",\n\t\t\t\t\t\"toolbar1\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"JS code\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\"help\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"js\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Code\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"code\",\n\t\t\t\t\t\t\t\t\t\"id\": \"code\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Noty Permission\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/url.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/transfer.png\",\n\t\t\t\t\t\t\t\"info\": \"To ask permission to send notifications\",\n\t\t\t\t\t\t\t\"help\": \"To ask permission to send notifications\",\n\t\t\t\t\t\t\t\"author\": \"Sandeep\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success,failure\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"notiRequestAccess\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"CurrentPosition\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Get the current position by using this node\",\n\t\t\t\t\t\t\t\"help\": \"Get the current position by using this node\",\n\t\t\t\t\t\t\t\"author\": \"Sandeep\",\n\t\t\t\t\t\t\t\"company\": \"500 Apps\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"get_current_position\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"category\": \"Mobile\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Latiude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"latitude\",\n\t\t\t\t\t\t\t\t\t\"id\": \"Latitude\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Latitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Longitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"longitude\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Longitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"id\": \"Longitude\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Get current position (lat and long) by using this node\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Notification\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/url.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/transfer.png\",\n\t\t\t\t\t\t\t\"info\": \"create notification with title,body, Image and badge\",\n\t\t\t\t\t\t\t\"help\": \"create notification with title,body, Image and badge\",\n\t\t\t\t\t\t\t\"author\": \"Sandeep\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"createNotification\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"noti_title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Notification Title\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Body\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"body\",\n\t\t\t\t\t\t\t\t\t\"id\": \"noti_body\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Notification Message\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Timeout\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"timeout\",\n\t\t\t\t\t\t\t\t\t\"id\": \"noti_timeout\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Notification Timeout\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"create Notification.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Navigate\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/url.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/transfer.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\"help\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"navigate\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Path\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"url\",\n\t\t\t\t\t\t\t\t\t\"id\": \"url\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Validate\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Condition.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/SetProperty.png\",\n\t\t\t\t\t\t\t\"info\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success,failure\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"validate\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Select form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select form to validate.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Alert\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Announcement.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/push.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\"help\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"alert\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to alert.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Message\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"message\",\n\t\t\t\t\t\t\t\t\t\"id\": \"message\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter message to alert.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Serialize\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/crm/status.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-update.png\",\n\t\t\t\t\t\t\t\"info\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"serialize\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Output\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"output\",\n\t\t\t\t\t\t\t\t\t\"id\": \"output\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter output variable to hold serialized data\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter form id.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"GetCurrentPosition\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Get the current position by using this node\",\n\t\t\t\t\t\t\t\"help\": \"Get the current position by using this node\",\n\t\t\t\t\t\t\t\"author\": \"Sandeep\",\n\t\t\t\t\t\t\t\"company\": \"500 Apps\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"get_current_position\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"category\": \"Mobile\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Latiude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"latitude\",\n\t\t\t\t\t\t\t\t\t\"id\": \"Latitude\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Latitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Longitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"longitude\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Longitude Variable Name\",\n\t\t\t\t\t\t\t\t\t\"id\": \"Longitude\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Get current position (lat and long) by using this node\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"WatchPosition\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Watch the current position by using this node\",\n\t\t\t\t\t\t\t\"help\": \"Watch the current position by using this node\",\n\t\t\t\t\t\t\t\"author\": \"Tabrez\",\n\t\t\t\t\t\t\t\"company\": \"500 Apps\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"watch_position\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"category\": \"Mobile\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Hanlder Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"handler\",\n\t\t\t\t\t\t\t\t\t\"id\": \"Handler\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Hanlder Name\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enable High Accuracy?\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"enableHighAccuracy\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Want to enable High Accuracy?\",\n\t\t\t\t\t\t\t\t\t\"id\": \"EnableHighAccuracy\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Watch current position by using this node\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Clear Watch\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Stop watching for changes to device location\",\n\t\t\t\t\t\t\t\"help\": \"Stop watching for changes to device location\",\n\t\t\t\t\t\t\t\"author\": \"Sandeep\",\n\t\t\t\t\t\t\t\"company\": \"500 Apps\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Mobile\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Code\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"clear_watch_code\",\n\t\t\t\t\t\t\t\t\t\"id\": \"clear_watch_code\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter or modify clear watch code\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Stop watching for changes to device location\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"TwilioIncomingCall\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Fires when call is incoming\",\n\t\t\t\t\t\t\t\"help\": \"Incoming call node\",\n\t\t\t\t\t\t\t\"author\": \"Tabrez\",\n\t\t\t\t\t\t\t\"company\": \"500 Apps\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"twilio_incoming_call\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"category\": \"Mobile\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Client Number\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"clientNumber\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Client Number\",\n\t\t\t\t\t\t\t\t\t\"id\": \"ClientNumber\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Deserialize\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Variables.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/addtask.png\",\n\t\t\t\t\t\t\t\"info\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"deserialize_form\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Data\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data\",\n\t\t\t\t\t\t\t\t\t\"id\": \"data\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter data to deserialize\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter form id.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Ajax\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/jsonio.png\",\n\t\t\t\t\t\t\t\"info\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\"help\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"ajax\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.JSONNode\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"URL:\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"url\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter a valid HTTP URL\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Output Variable\",\n\t\t\t\t\t\t\t\t\t\"category\": \"More Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"var\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter a variable to store output\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Method type:\",\n\t\t\t\t\t\t\t\t\t\"required\": \"No\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"method\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select the appropriate type for accessing the URL.\",\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"*GET\": \"get\",\n\t\t\t\t\t\t\t\t\t\t\"POST\": \"post\",\n\t\t\t\t\t\t\t\t\t\t\"PUT\": \"put\",\n\t\t\t\t\t\t\t\t\t\t\"DELETE\": \"delete\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"JSONP:\",\n\t\t\t\t\t\t\t\t\t\"required\": \"No\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"jsonp\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select the appropriate accessing the URL.\",\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"*NO\": false,\n\t\t\t\t\t\t\t\t\t\t\"YES\": true\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Post Data\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter the data variable you want to send\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Params\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data_params\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter keyname\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\"defaultvalues\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"keyName\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"valueName\": \"value\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Headers\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Headers\",\n\t\t\t\t\t\t\t\t\t\"name\": \"headers\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter keyname\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\"defaultvalues\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"keyName\": \"Accept\",\n\t\t\t\t\t\t\t\t\t\t\t\"valueName\": \"text/plain\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"toolbar2\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Set Cookie\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/crm/status.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-insert.png\",\n\t\t\t\t\t\t\t\"info\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\"help\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"set_cookie\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.NewCondition\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cookie\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key_grid\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\t\"overflow-y\": \"scroll\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"id\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"class\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie key name.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"cookie_value\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie value.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Delete Cookie\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-delete-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-delete.png\",\n\t\t\t\t\t\t\t\"info\": \"Deletes cookie value of given key\",\n\t\t\t\t\t\t\t\"help\": \"Deletes cookie value of given key.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"delete_cookie\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cookie Key\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\"id\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie key to delete.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deletes cookie value of given key.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Set Local Storage\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-insert-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-insert.png\",\n\t\t\t\t\t\t\t\"info\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\"help\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"set_local_storage\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.NewCondition\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Local Storage\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"ls_key_grid\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\t\"overflow-y\": \"scroll\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"id\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"class\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage key name.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"ls_value\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage value.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Delete Local Storage\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-delete-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-delete.png\",\n\t\t\t\t\t\t\t\"info\": \"Deletes local storage value of given key\",\n\t\t\t\t\t\t\t\"help\": \"Deletes local storage value of given key.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"delete_local_storage\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Local Storage Key\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\"id\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage key to delete.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deletes local storage value of given key.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"marketplace\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Modal Helper\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Variables.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/notify.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter helper name in the modal.\",\n\t\t\t\t\t\t\t\"help\": \"Enter title and message in the modal.\",\n\t\t\t\t\t\t\t\"author\": \"Appup Developer\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"modal_helper\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"helper\",\n\t\t\t\t\t\t\t\t\t\"id\": \"helper\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Helper name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter name of helper to modal.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to modal.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"OK button title\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-ok-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-ok-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to ok button.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"OK\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cancel button title\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-cancel-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-cancel-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to cancel button.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"Cancel2\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"False\": \"false\",\n\t\t\t\t\t\t\t\t\t\t\"True\": \"true\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-no-close-on-esc\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Close on ESC?\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-no-close-on-esc\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select option on esc\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"False\": \"false\",\n\t\t\t\t\t\t\t\t\t\t\"True\": \"true\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-no-close-on-backdrop\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Close on backdrop?\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-no-close-on-backdrop\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select option on backdrop\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Modal Config\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"config\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-config\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter modal config\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"OK variant\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-ok-variant\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-ok-variant\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter variant for OK button\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"danger\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter title and message in the modal.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/check_campaign.png\",\n\t\t\t\t\t\t\t\"unique_branches\": \"yes\",\n\t\t\t\t\t\t\t\"dynamicports\": \"yes\",\n\t\t\t\t\t\t\t\"author\": \"Appup Developer\",\n\t\t\t\t\t\t\t\"dynamicbranch\": \"key\",\n\t\t\t\t\t\t\t\"dynamicportkey\": \"cases\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/switch.png\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"switch_case\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"material_icon\": \"format_list_bulleted\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.appup.workflows.core.steps.SwitchCaseStepExecutor\",\n\t\t\t\t\t\t\t\"help\": \"Switch case Step\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"variable\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Switch Case Input Variable\",\n\t\t\t\t\t\t\t\t\t\"id\": \"variable\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Switch Case Input Variable\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"key\",\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Case\",\n\t\t\t\t\t\t\t\t\t\t\t\"id\": \"key\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\"name\": \"cases\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Cases\",\n\t\t\t\t\t\t\t\t\t\"id\": \"cases\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"title\": \"\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"required\": false\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\"material_icon_color\": \"blue\",\n\t\t\t\t\t\t\t\"displayname\": \"Switch case\",\n\t\t\t\t\t\t\t\"material_icon_bg_color\": \"bg_blue\",\n\t\t\t\t\t\t\t\"name\": \"Switch Case\",\n\t\t\t\t\t\t\t\"material_icon_img\": \"storage\",\n\t\t\t\t\t\t\t\"company\": \"Appup.com\",\n\t\t\t\t\t\t\t\"id\": \"Switch_Case_Step\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"info\": \"Evaluate a series of conditions and run the code corresponding to the true ones \"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/sms/Condition.png\",\n\t\t\t\t\t\t\t\"author\": \"Appup Developer\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/sms/Condition.png\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success,failure\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"if_condition\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"material_icon\": \"compare_arrows\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.appup.workflows.core.steps.IfConditionStepExecutor\",\n\t\t\t\t\t\t\t\"help\": \"If Condition Step\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"value\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\"strlen\": \"strlen\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"if_type\",\n\t\t\t\t\t\t\t\t\t\"label\": \"If\",\n\t\t\t\t\t\t\t\t\t\"id\": \"if_type\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Variable type.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"variable1\",\n\t\t\t\t\t\t\t\t\t\"label\": \"variable1\",\n\t\t\t\t\t\t\t\t\t\"id\": \"variable1\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter value\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"less than\": \"<\",\n\t\t\t\t\t\t\t\t\t\t\"greater than or equals\": \">=\",\n\t\t\t\t\t\t\t\t\t\t\"equal to\": \"==\",\n\t\t\t\t\t\t\t\t\t\t\"less than or equals\": \"<=\",\n\t\t\t\t\t\t\t\t\t\t\"not equal to\": \"!=\",\n\t\t\t\t\t\t\t\t\t\t\"greater than\": \">\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"comparator\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Compare this\",\n\t\t\t\t\t\t\t\t\t\"id\": \"if_type\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Operation type.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"variable2\",\n\t\t\t\t\t\t\t\t\t\"label\": \"variable2\",\n\t\t\t\t\t\t\t\t\t\"id\": \"variable2\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter value\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\"material_icon_color\": \"blue\",\n\t\t\t\t\t\t\t\"displayname\": \"If Condition\",\n\t\t\t\t\t\t\t\"material_icon_bg_color\": \"bg_blue\",\n\t\t\t\t\t\t\t\"name\": \"If Condition\",\n\t\t\t\t\t\t\t\"material_icon_img\": \"storage\",\n\t\t\t\t\t\t\t\"company\": \"Appup.com\",\n\t\t\t\t\t\t\t\"id\": \"If_Condition_Step\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"info\": \"Condition Step\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Ajax\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/jsonio.png\",\n\t\t\t\t\t\t\t\"info\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\"help\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"ajax\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"branches\": \"failure,success\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.JSONNode\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"URL:\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"url\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter a valid HTTP URL\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Output Variable\",\n\t\t\t\t\t\t\t\t\t\"category\": \"More Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"var\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter a variable to store output\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Method type:\",\n\t\t\t\t\t\t\t\t\t\"required\": \"No\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"method\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select the appropriate type for accessing the URL.\",\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"*GET\": \"get\",\n\t\t\t\t\t\t\t\t\t\t\"POST\": \"post\",\n\t\t\t\t\t\t\t\t\t\t\"PUT\": \"put\",\n\t\t\t\t\t\t\t\t\t\t\"DELETE\": \"delete\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Post Data\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Please enter the data variable you want to send\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Params\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data_params\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter keyname\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\"defaultvalues\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"keyName\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"valueName\": \"value\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Headers\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Headers\",\n\t\t\t\t\t\t\t\t\t\"name\": \"headers\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter keyname\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\t\"defaultvalues\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"keyName\": \"Accept\",\n\t\t\t\t\t\t\t\t\t\t\t\"valueName\": \"text/plain\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Perform an asynchronous HTTP request within workflow.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Alert\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Announcement.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/push.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\"help\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"alert\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to alert.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Message\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"message\",\n\t\t\t\t\t\t\t\t\t\"id\": \"message\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter message to alert.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter title and message in the alert.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Delete Cookie\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-delete-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-delete.png\",\n\t\t\t\t\t\t\t\"info\": \"Deletes cookie value of given key\",\n\t\t\t\t\t\t\t\"help\": \"Deletes cookie value of given key.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"delete_cookie\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cookie Key\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\"id\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie key to delete.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deletes cookie value of given key.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Delete Local Storage\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-delete-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-delete.png\",\n\t\t\t\t\t\t\t\"info\": \"Deletes local storage value of given key\",\n\t\t\t\t\t\t\t\"help\": \"Deletes local storage value of given key.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"delete_local_storage\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Local Storage Key\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\"id\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage key to delete.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deletes local storage value of given key.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Deserialize\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Variables.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/addtask.png\",\n\t\t\t\t\t\t\t\"info\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"deserialize_form\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Data\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data\",\n\t\t\t\t\t\t\t\t\t\"id\": \"data\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter data to deserialize\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter form id.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Deserializes form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Trigger Event\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Announcement.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/push.png\",\n\t\t\t\t\t\t\t\"info\": \"Trigger browser events from handler.\",\n\t\t\t\t\t\t\t\"help\": \"Trigger browser events from handler.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"emit-event\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Reference\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"ref\",\n\t\t\t\t\t\t\t\t\t\"id\": \"ref\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter reference to event.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Event Name\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"event_name\",\n\t\t\t\t\t\t\t\t\t\"id\": \"event-name\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter name of the event.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Params\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"data\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"required\": \"true\",\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"name\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter keyname\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Please enter value\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Trigger browser events from handler\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Get Cookie\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-import-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-import.png\",\n\t\t\t\t\t\t\t\"info\": \"Gets cookie from browser based on given parameters.\",\n\t\t\t\t\t\t\t\"help\": \"Gets cookie from browser based on given parameters.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"get_cookie\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.NewCondition\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Method\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"method\",\n\t\t\t\t\t\t\t\t\t\"id\": \"method\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter method\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"key\",\n\t\t\t\t\t\t\t\t\t\"id\": \"key\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter key\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Variable\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"var\",\n\t\t\t\t\t\t\t\t\t\"id\": \"var\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter variable\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Headers\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"headers\",\n\t\t\t\t\t\t\t\t\t\"id\": \"headers\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter headers\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Get cookie based on given parameters.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"JS code\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/jsonio.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/addnote.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\"help\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"js\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Code\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"code\",\n\t\t\t\t\t\t\t\t\t\"id\": \"code\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter js code to execute.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Modal\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Variables.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/crm/notify.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter title and message in the modal.\",\n\t\t\t\t\t\t\t\"help\": \"Enter title and message in the modal.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"modal\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to modal.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Body\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"body\",\n\t\t\t\t\t\t\t\t\t\"id\": \"body\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter body to modal.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"OK button title\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-ok-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-ok-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to ok button.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"OK\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cancel button title\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-cancel-title\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-cancel-title\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter title to cancel button.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"Cancel2\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"False\": \"false\",\n\t\t\t\t\t\t\t\t\t\t\"True\": \"true\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-no-close-on-esc\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Close on ESC?\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-no-close-on-esc\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select option on esc\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\t\t\t\t\"False\": \"false\",\n\t\t\t\t\t\t\t\t\t\t\"True\": \"true\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-no-close-on-backdrop\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Close on backdrop?\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-no-close-on-backdrop\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select option on backdrop\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"select\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"select\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Modal Config\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"config\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-config\",\n\t\t\t\t\t\t\t\t\t\"cols\": \"75\",\n\t\t\t\t\t\t\t\t\t\"rows\": \"13\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter modal config\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"textarea\",\n\t\t\t\t\t\t\t\t\t\"type\": \"textarea\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"OK variant\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"modal-ok-variant\",\n\t\t\t\t\t\t\t\t\t\"id\": \"modal-ok-variant\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter variant for OK button\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"value\": \"danger\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter title and message in the modal.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Navigate\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/common/url.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/transfer.png\",\n\t\t\t\t\t\t\t\"info\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\"help\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"navigate\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Path\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"url\",\n\t\t\t\t\t\t\t\t\t\"id\": \"url\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Enter path to navigate.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Serialize\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/crm/status.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-update.png\",\n\t\t\t\t\t\t\t\"info\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"serialize\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Output\",\n\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"output\",\n\t\t\t\t\t\t\t\t\t\"id\": \"output\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter output variable to hold serialized data\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter form id.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Serializes form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Set Cookie\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/crm/status.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-insert.png\",\n\t\t\t\t\t\t\t\"info\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\"help\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"set_cookie\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.NewCondition\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Cookie\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key_grid\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\t\"overflow-y\": \"scroll\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"id\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"class\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"cookie_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie key name.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"cookie_value\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter cookie value.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Saves given key-value pairs in browser cookies.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Set Local Storage\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/new/sql-insert-node.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/new/sql-insert.png\",\n\t\t\t\t\t\t\t\"info\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\"help\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"set_local_storage\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.NewCondition\",\n\t\t\t\t\t\t\t\"category\": \"Database\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Local Storage\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"name\": \"ls_key_grid\",\n\t\t\t\t\t\t\t\t\t\"type\": \"grid\",\n\t\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\t\"overflow-y\": \"scroll\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Key\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"id\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"class\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"ls_key\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage key name.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\t\t\"required\": \"required\",\n\t\t\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"ls_value\",\n\t\t\t\t\t\t\t\t\t\t\t\"title\": \"Enter local storage value.\",\n\t\t\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Saves given key-value pairs in browser local storage.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Condition.png\",\n\t\t\t\t\t\t\t\"author\": \"Appup Developer\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/SetProperty.png\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success,failure\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"set_var\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"material_icon\": \"settings\",\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.appup.workflows.core.steps.SetVarStepExecutor\",\n\t\t\t\t\t\t\t\"help\": \"Step Help\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"output\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Output Variable\",\n\t\t\t\t\t\t\t\t\t\"id\": \"output\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter variable name to hold value\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"value\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Value\",\n\t\t\t\t\t\t\t\t\t\"id\": \"value\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Enter Value\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Settings\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"name\": \"help\",\n\t\t\t\t\t\t\t\t\t\"label\": \"Set the value of a specific variable\",\n\t\t\t\t\t\t\t\t\t\"id\": \"help\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"category\": \"help\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"required\": true\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\"material_icon_color\": \"blue\",\n\t\t\t\t\t\t\t\"displayname\": \"Set var\",\n\t\t\t\t\t\t\t\"material_icon_bg_color\": \"bg_blue\",\n\t\t\t\t\t\t\t\"name\": \"Set var\",\n\t\t\t\t\t\t\t\"material_icon_img\": \"storage\",\n\t\t\t\t\t\t\t\"company\": \"Appup.com\",\n\t\t\t\t\t\t\t\"id\": \"set-var\",\n\t\t\t\t\t\t\t\"category\": \"Utilities\",\n\t\t\t\t\t\t\t\"info\": \"Step info\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"name\": \"Validate\",\n\t\t\t\t\t\t\t\"thumbnail\": \"json/nodes/images/Condition.png\",\n\t\t\t\t\t\t\t\"icon\": \"json/nodes/icons/common/SetProperty.png\",\n\t\t\t\t\t\t\t\"info\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\"help\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\"author\": \"Naresh\",\n\t\t\t\t\t\t\t\"company\": \"Appup\",\n\t\t\t\t\t\t\t\"language\": \"en\",\n\t\t\t\t\t\t\t\"branches\": \"success,failure\",\n\t\t\t\t\t\t\t\"type\": {\n\t\t\t\t\t\t\t\t\"name\": \"validate\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"workflow_tasklet_class_name\": \"com.campaignio.tasklets.agile.Score\",\n\t\t\t\t\t\t\t\"category\": \"Developers\",\n\t\t\t\t\t\t\t\"ui\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Select form\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Info\",\n\t\t\t\t\t\t\t\t\t\"name\": \"form_id\",\n\t\t\t\t\t\t\t\t\t\"title\": \"Select form to validate.\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"input\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"label\": \"Validates form fields.\",\n\t\t\t\t\t\t\t\t\t\"category\": \"Help\",\n\t\t\t\t\t\t\t\t\t\"fieldType\": \"label\",\n\t\t\t\t\t\t\t\t\t\"type\": \"label\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t}",
+            "showbuttons": true
+        }
+    }],
+    "ac-dual-list": [{
+        "label": "Employee_workgroup",
+        "props": {
+            "collection_options": {
+                "url": "https://api.myjson.com/bins/axnk7",
+                "method": "GET",
+                "sort_key": "first_name"
+            },
+            "dropdown_button_options": {
+                "icon": "fal fa-ellipsis-h",
+                "variant": "bg-transparent p-0",
+                "size": "sm",
+                "label": "Reason"
+            },
+            "refs": "testlocalduallistrefs",
+            "key_value": "employee_id",
+            "key_label": "first_name",
+            "value": "[{\"id\":9,\"domain_id\":2155,\"employee_id\":\"CRM-33\",\"employee_login_id\":101,\"email_id\":\"harika@gmail.com\",\"first_name\":\"harika\",\"middle_name\":\"M\",\"last_name\":\"koppisetti\",\"joining_date\":\"Apr 9, 2019\",\"DOL\":\"Mar 19, 2019\",\"department_id\":5,\"role_id\":1,\"reporting_id\":\"MGR-1\",\"designation_id\":3,\"employee_type_id\":2,\"status_id\":10,\"work_location_id\":53,\"contact\":\"\",\"alternate_contact\":null,\"created_by\":7,\"created_date\":\"Feb 12, 2019 1:10:01 PM\",\"description\":null,\"is_active\":true,\"updated_by\":7,\"updated_date\":\"Jun 10, 2019 12:09:39 PM\"}]",
+            "dropdown_options_handler": [{
+                "label": "Edit",
+                "type": "edit",
+                "icon": ""
+            }]
+        }
+    }],
+    "ac-collection-card": [{
+            "label": "Example 1",
+            "props": {
+                "dropdown_button_options": {
+                    "icon": "fal fa-ellipsis-h",
+                    "variant": "bg-transparent p-0",
+                    "size": "lg"
+                },
+                "url": "https://api.myjson.com/bins/so3l7",
+                "bulk": false,
+                "card_img": "image",
+                "card_header": "postId",
+                "card_title": "id",
+                "card_subtitle": "name",
+                "card_body": "body",
+                "card_footer": "email",
+                "align": "horizontal",
+                "card_options": "{\"text-variant\":\"primary\"}",
+                "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fa fa-pencil-alt",
+                    "handler_params": "{}"
+                }, {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fa fa-trash-alt",
+                    "handler_params": "{}"
+                }],
+                "show_searchbar": false,
+                "search_key": "",
+                "show_pagination": false,
+                "limit_key": "",
+                "offset_key": "",
+                "limit": "",
+                "method": "GET",
+                "stg-data-count": "",
+                "refs": " ",
+                "card_img_hover": "<div class=\"align-items-center mt-5\"><center>On Hover HTML</center></div>"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "dropdown_button_options": {
+                    "icon": "fal fa-ellipsis-h",
+                    "variant": "bg-transparent p-0",
+                    "size": "lg"
+                },
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "bulk": false,
+                "card_img": "",
+                "card_header": "postId",
+                "card_title": "id",
+                "card_subtitle": "name",
+                "card_body": "body",
+                "card_footer": "email",
+                "align": "horizontal",
+                "card_options": "{\"text-variant\":\"primary\"}",
+                "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fa fa-pencil-alt",
+                    "handler_params": "{}"
+                }, {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fa fa-trash-alt",
+                    "handler_params": "{}"
+                }],
+                "show_searchbar": false,
+                "search_key": "",
+                "show_pagination": true,
+                "limit_key": "_limit",
+                "offset_key": "_start",
+                "limit": "10",
+                "method": "GET",
+                "total_count": "500"
+            }
+        }
+    ],
+    "ac-collection-grouped-accordion": [{
+        "label": "Example 1",
+        "props": {
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "method": "GET",
+            "ac_cursor": "{\"_limit\":50}",
+            "group_key": "postId",
+            "refs": "accordion_grouped_refs",
+            "__slot__group_accordion_label": "<div class=\"alert alert-success\"><h3>{{ groupItem.name }}</h3></div>",
+            "__slot__body": "<div class=\"row card-body pb-1 b-padding\">\n<div class=\"row\">\n <div v-for=\"(value, key) in data\" class=\"col-md-3 mb-2\">\n     <b-card\n    :title=\"value.email\"\n    :sub-title=\"value.name\"\n     img-src=\"https://picsum.photos/600/300/?image=25\"\n     img-alt=\"Image\"\n  >\n    <b-card-text>\n      {{value.body}}\n    </b-card-text>\n    <b-button href=\"#\" variant=\"primary\">Go somewhere</b-button>\n  </b-card>\n </div> \n</div>\n</div>\n",
+            "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+            "__slot__emptyState": "<div>No Data Exists</div>",
+            "__slot__group_header": "<div class=\" p-2\"><h2>Group Header</h2></div>",
+            "__slot__group_footer": "<div class=\" p-2\"><h2>Group Footer</h2></div>"
+        }
+    }],
+    "ac-collection-grouped-card": [{
+            "label": "Example 1",
+            "props": {
+                "tabs_attrs": {
+                    "card": true
+                },
+                "dropdown_button_options": {
+                    "icon": "fal fa-ellipsis-h",
+                    "variant": "bg-transparent p-0",
+                    "size": "lg",
+                    "right": false
+                },
+                "refs": "collection-grouped-card_refs",
+                "ac_cursor": "{\"_limit\":100}",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "method": "GET",
+                "group_key": "postId",
+                "ac_type": "horizontal-tab",
+                "align": "horizontal",
+                "card_header": "id",
+                "card_title": "name",
+                "card_subtitle": "email",
+                "card_body": "body",
+                "card_footer": "name",
+                "bulk": true,
+                "card_img": "",
+                "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fal fa-pencil-alt",
+                    "handler_params": "{}"
+                }, {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fal fa-trash-alt",
+                    "handler_params": "{}"
+                }],
+                "show_default_card": false,
+                "stg-data-count": "",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__group_header": "<div class=\" p-2\"><small>{{title}}</small></div>",
+                "__slot__group_footer": "<div class=\" p-2\"><h2>Group Footer</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>Group Footer</h5></div>"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "tabs_attrs": {
+                    "card": true
+                },
+                "dropdown_button_options": {
+                    "icon": "fal fa-ellipsis-h",
+                    "variant": "bg-transparent p-0",
+                    "size": "lg",
+                    "right": false
+                },
+                "refs": "collection-grouped-card_refs",
+                "ac_cursor": "{\"_limit\":100}",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "method": "GET",
+                "group_key": "postId",
+                "ac_type": "vertical-tab",
+                "align": "horizontal",
+                "card_header": "id",
+                "card_title": "name",
+                "card_subtitle": "email",
+                "card_body": "body",
+                "card_footer": "name",
+                "bulk": true,
+                "card_img": "",
+                "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fal fa-pencil-alt",
+                    "handler_params": "{}"
+                }, {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fal fa-trash-alt",
+                    "handler_params": "{}"
+                }],
+                "show_default_card": false,
+                "stg-data-count": "",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__group_header": "<div class=\" p-2\"><small>{{title}}</small></div>",
+                "__slot__group_footer": "<div class=\" p-2\"><h2>Group Footer</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>Group Footer</h5></div>"
+            }
+        },
+        {
+            "label": "Example 3",
+            "props": {
+                "tabs_attrs": {
+                    "card": true
+                },
+                "dropdown_button_options": {
+                    "icon": "fal fa-ellipsis-h",
+                    "variant": "bg-transparent p-0",
+                    "size": "lg",
+                    "right": false
+                },
+                "refs": "collection-grouped-card_refs",
+                "ac_cursor": "{\"_limit\":100}",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "method": "GET",
+                "group_key": "postId",
+                "ac_type": "accordion",
+                "align": "horizontal",
+                "card_header": "id",
+                "card_title": "name",
+                "card_subtitle": "email",
+                "card_body": "body",
+                "card_footer": "name",
+                "bulk": true,
+                "card_img": "",
+                "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fal fa-pencil-alt",
+                    "handler_params": "{}"
+                }, {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fal fa-trash-alt",
+                    "handler_params": "{}"
+                }],
+                "show_default_card": false,
+                "stg-data-count": "",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__group_header": "<div class=\" p-2\"><small>{{title}}</small></div>",
+                "__slot__group_footer": "<div class=\" p-2\"><h2>Group Footer</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>Group Footer</h5></div>"
+            }
+        }
+    ],
+    "ac-collection-grouped-table": [{
+        "label": "Example 1",
+        "props": {
+            "dropdown_button_options": {
+                "icon": "fal fa-ellipsis-h",
+                "variant": "bg-transparent p-0",
+                "size": "lg"
+            },
+            "refs": "collection-grouped-table_refs",
+            "ac_cursor": "{\"_limit\":100}",
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "method": "GET",
+            "loading_image": "http://css.500apps.com/animated/trackly.png",
+            "columns": [{
+                "label": "Id",
+                "key": "id",
+                "sortable": "true"
+            }, {
+                "label": "Email",
+                "key": "email",
+                "sortable": "true"
+            }, {
+                "label": "Name",
+                "key": "name",
+                "sortable": "true"
+            }],
+            "dropdown": true,
+            "group_key": "postId",
+            "__slot__group_header": "<div class=\"alert alert-success\"><h3>Post Id : {{ groupItem.postId }}</h3></div>",
+            "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+            "__slot__emptyState": "<div class=\" p-2\"><h5>Group Footer</h5></div>",
+            "dropdown_options": [{
+                "label": "Edit",
+                "type": "edit",
+                "icon": "fas fa-pencil-alt",
+                "handler_params": "{}"
+            }, {
+                "label": "Delete",
+                "type": "delete",
+                "icon": "fas fa-trash-alt",
+                "handler_params": ""
+            }],
+            "bulk": true
+        }
+    }],
+    "ac-gravatar": [{
+            "label": "Example 1",
+            "props": {
+                "email": "albert_500apps@gmail.com",
+                "name": "Albert",
+                "avatar_props": "{\"size\":100,\"rounded\":false}",
+                "refs": "gravtar_refs"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "email": "",
+                "name": "Albert",
+                "avatar_props": "{\"size\":100,\"rounded\":true}",
+                "refs": "gravtar_refs"
+            }
+        }
+    ],
+    "ac-list-group": [{
+            "label": "Example 1",
+            "props": {
+                "url": "",
+                "group-items": [{
+                    "label": "Authentication",
+                    "key": "authentication",
+                    "href": "#/auth"
+                }, {
+                    "label": "Registration",
+                    "key": "registration",
+                    "href": "#/registration"
+                }, {
+                    "label": "Login",
+                    "key": "login",
+                    "href": "#/login"
+                }, {
+                    "label": "Uncategorised",
+                    "key": "uncategorised",
+                    "href": "#/uncategorised"
+                }, {
+                    "label": "Generic SQL",
+                    "key": "generic",
+                    "href": "#/genericsql"
+                }, {
+                    "label": "Publish",
+                    "key": "publish",
+                    "href": "#/publish"
+                }, {
+                    "label": "S3 Upload",
+                    "key": "upload",
+                    "href": "#/s3upload"
+                }],
+                "label_key": "label",
+                "link_to_key": "link",
+                "refs": "hii_refs",
+                "preload": "",
+                "__slot__default": "",
+                "__event__click": []
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "url": "https://api.myjson.com/bins/12y3kn",
+                "group-items": [],
+                "label_key": "label",
+                "link_to_key": "link",
+                "refs": "hii_refs",
+                "preload": "",
+                "__slot__default": "",
+                "__event__click": []
+            }
+        }
+    ],
+    "ac-swatches": [{
+            "label": "Example 1",
+            "props": {
+                "refs": "swatches_refs",
+                "value": "color",
+                "__slot__title": "<div class=\"mb-3\"><h5 class=\"mb-0\">Title</h5></div>"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "refs": "swatches_refs",
+                "value": "color",
+                "__slot__title": "<div class=\"mb-3\"><h5 class=\"mb-0\">Title</h5></div>",
+                "colors": "[\"#F64272\", \"#F6648B\", \"#F493A7\", \"#F891A6\", \"#FFCCD5\"]"
+            }
+        }
+    ],
+    "ac-collection": [{
+            "label": "Example 1",
+            "props": {
+                "refs": "collection_refs",
+                "loading_image": "",
+                "ac_cursor": "{\"_limit\":100}",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "method": "GET",
+                "__slot__body": "<div class=\"row card-body pb-1 b-padding\">\n<div class=\"row\">\n <div v-for=\"(value, key) in data\" class=\"col-md-3 mb-2\">\n     <b-card\n    :title=\"value.email\"\n    :sub-title=\"value.name\"\n  >\n    <b-card-text>\n      {{value.body}}\n    </b-card-text>\n    <b-button href=\"#\" variant=\"primary\">Go somewhere</b-button>\n  </b-card>\n </div> \n</div>\n</div>",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>No Data Exist</h5></div>",
+                "__slot__footer": "<div class=\"mb-3\"><h2>Main Footer</h2></div>"
+            }
+        },
+        {
+            "label": "Example 2",
+            "props": {
+                "refs": "collection_refs",
+                "loading_image": "",
+                "ac_cursor": "",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments?h",
+                "method": "GET",
+                "__slot__body": "<div class=\"row card-body pb-1 b-padding\">\n<div class=\"row\">\n <div v-for=\"(value, key) in data\" class=\"col-md-3 mb-2\">\n     <b-card\n    :title=\"value.email\"\n    :sub-title=\"value.name\"\n  >\n    <b-card-text>\n      {{value.body}}\n    </b-card-text>\n    <b-button href=\"#\" variant=\"primary\">Go somewhere</b-button>\n  </b-card>\n </div> \n</div>\n</div>",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>No Data Exist</h5></div>",
+                "__slot__footer": "<div class=\"mb-3\"><h2>Main Footer</h2></div>",
+                "show-loadmore": true,
+                "stg-data-count": "500",
+                "limit": "10",
+                "limit_key": "_limit",
+                "offset_key": "_start",
+                "sort_key": "email"
+            }
+        },
+        {
+            "label": "Example 3",
+            "props": {
+                "refs": "collection_refs",
+                "loading_image": "",
+                "ac_cursor": "{\"_limit\":100}",
+                "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+                "method": "GET",
+                "__slot__body": "<div class=\"row card-body pb-1 b-padding\">\n   <div>\n    <b-table striped hover :items=\"data\"></b-table>\n  </div>\n</div>",
+                "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+                "__slot__emptyState": "<div class=\" p-2\"><h5>No Data Exist</h5></div>",
+                "__slot__footer": "<div class=\"mb-3\"><h2>Main Footer</h2></div>",
+                "show-loadmore": false,
+                "stg-data-count": "",
+                "limit": "",
+                "limit_key": "",
+                "offset_key": "",
+                "sort_key": "email"
+            }
+        }
+    ],
+    "ac-collection-grouped": [{
+        "label": "Example 1",
+        "props": {
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "ac_cursor": "{\"_limit\":200}",
+            "group_key": "postId",
+            "group_col": true,
+            "cols_class": "col-md-4",
+            "loading_image": "http://css.500apps.com/animated/trackly.png",
+            "__slot__group_header": "<div class=\"alert alert-success\"><h3>post id : {{ groupItem.postId }}</h3></div>",
+            "__slot__body": " <div class=\"card-body\">\n        <div class=\"row\">\n            <template v-for=\"(item,index) in data\">\n                            <div class=\"text-left py-2  d-flex d-lg-block\">\n                                <ac-gravatar :avatar_props=\"{ size: 35, rounded: true ,username:item.name,src:item.img}\" />\n                                <span class=\"d-inline-block mt-2 pl-md-0 pl-2 text-truncate w-77\" v-b-tooltip.hover :title=\"item.name\">{{item.email}}</span>\n                            </div>\n            </template>\n</div>\n\n",
+            "method": "GET",
+            "refs": "collection-grouped_refs",
+            "__slot__default_group": "<div class=\"mb-3\"><h2>Default Slot</h2></div>",
+            "__slot__header": "<div class=\"mb-3\"><h2>Main Header</h2></div>",
+            "__slot__group_footer": "<div class=\" p-2\"><h2>Group Footer</h2></div>",
+            "__slot__emptyState": "<div class=\" p-2\"><h5>No Data Exist</h5></div>",
+            "__slot__footer": "<div class=\" p-2\"><h5>Main Footer</h5></div>"
+        }
+    }],
+    "ac-simple-wizard": [{
+        "label": "Employee_File",
+        "props": {
+            "steps": [{
+                "html": "<div class=\"header-circle\">1</div>",
+                "description": "Employee",
+                "helper": "employee",
+                "active": "true",
+                "completed": "false"
+            }, {
+                "html": "<div class=\"header-circle\">2</div>",
+                "description": "File Table",
+                "helper": "fileTable",
+                "active": "true",
+                "completed": "false"
+            }, {
+                "html": "<div class=\"header-circle\">3</div>",
+                "description": "work group",
+                "helper": "work_group",
+                "active": "true",
+                "completed": "false"
+            }],
+            "previous_btn_class": "bg-primary",
+            "next_btn_class": "bg-primary",
+            "previous_btn_label": "before",
+            "next_btn_label": "Next",
+            "finish_btn_label": "Completed",
+            "finish_btn_class": "bg-success"
+        }
+    }],
+    "ac-inline-form-edit": [{
+        "label": "Employee_Personal_Details_Edit",
+        "props": {
+            "form-json": "[{\n\t\"id\": \"email_id\",\n\t\"type\": \"text\",\n\t\"value\": \"\",\n\t\"name\": \"email_id\",\n\t\"placeholder\": \"Enter\",\n\t\"label\": \"Email\",\n\t\"table\": \"employee\",\n\t\"validateObj\": {\n\t\t\"required\": true\n\t},\n\t\"display\": true,\n\t\"isInlineEnable\": true\n}, {\n\t\"type\": \"text\",\n\t\"value\": \"\",\n\t\"id\": \"contact\",\n\t\"name\": \"contact\",\n\t\"table\": \"employee\",\n\t\"placeholder\": \"Enter Mobile Number\",\n\t\"label\": \"Mobile Number\",\n\t\"validateObj\": {\n\t\t\"required\": true,\n\t\t\"email\": true\n\t},\n\t\"display\": true,\n\t\"isInlineEnable\": true\n}, {\n\t\"type\": \"text\",\n\t\"value\": \"\",\n\t\"name\": \"alternate_contact\",\n\t\"id\": \"alternate_contact\",\n\t\"placeholder\": \"Enter Telephone Number\",\n\t\"table\": \"employee\",\n\t\"label\": \"Telephone Number\",\n\t\"validateObj\": {\n\t\t\"required\": true,\n\t\t\"email\": true\n\t},\n\t\"display\": true,\n\t\"isInlineEnable\": true\n}]"
+        }
+    }],
+    "ac-tags-inline": [{
+        "label": "Ticket_Tags",
+        "props": {
+            "url": "https://api.myjson.com/bins/d5xij",
+            "searchurl": "https://api.myjson.com/bins/d5xij?",
+            "type": "typeahead",
+            "__slot__body": "<div>\n<div class=\"mx-2\"> <span>{{item.name}}</span>\n</div></div>",
+            "__event__type": [],
+            "title": "Tags",
+            "add-class": "fal fa-plus-circle fa-2x"
+        }
+    }],
+    "ac-accordion-table": [{
+        "label": "Example 1",
+        "props": {
+            "stages-url": "https://api.myjson.com/bins/al0xt",
+            "item-url": "https://api.myjson.com/bins/1fnxoh",
+            "append-key": "id",
+            "refs": "",
+            "table-props": "{\n\t\"bulk\": true,\n\t\"dropdown\": false,\n\t\"columns\": [\n\t\t{\n\t\t\t\"label\": \"subject\",\n\t\t\t\"sortable\": false,\n\t\t\t\"key\": \"subject\"\n\t\t},\n\t\t{\n\t\t\t\"label\": \"source\",\n\t\t\t\"sortable\": false,\n\t\t\t\"key\": \"source\"\n\t\t},\n\t\t{\n\t\t\t\"label\": \"Name\",\n\t\t\t\"sortable\": false,\n\t\t\t\"key\": \"first_name\"\n\t\t},\n                {\n\t\t\t\"label\": \"Email\",\n\t\t\t\"sortable\": false,\n\t\t\t\"key\": \"requester_email\"\n\t\t}\n\t],\n\n\t\"show_pagination\": true,\n\t\"total_count\": 20,\n\t\"limit\": 5,\n\t\"limit_key\": \"limit\",\n\t\"offset_key\": \"offset\",\n\t\"offset\": 5,\n\t\"ac_cursor\": {\n\t\t\"fields\": \"name,owner_pic,assignee_id,customer_html_text,last_customer_replied_time,CONCAT(IFNULL(first_name, %27%27),IFNULL(last_name, %27%27)) as r_name,source_name as source,html_text as last_reply_text, ticket_id as id,last_agent_replied_time,status_name as status,subject, CAST(created_time AS DATE) AS c_time,created_by,tenant_id,count(distinct case when is_reply=1 THEN ticket_note_id ELSE NULL END) as mcount\",\n\t\t\"group_by\": \"ticket_id\",\n\t\t\"order_by\": \"updated_date desc\",\n\t\t\"where\": \"status_id =%27${id}%27 \"\n\t}\n}"
+        }
+    }],
+    "ac-notifications": [{
+        "label": "Example 1",
+        "props": {
+            "url": "https://api.myjson.com/bins/j1t5t",
+            "title": "Notifications",
+            "__slot__custom": "<div>\n    <b-table striped hover :items=\"data\"></b-table>\n  </div>"
+        }
+    }, {
+        "label": "Example 2",
+        "props": {
+            "url": "https://jsonplaceholder.typicode.com/todos?userId=1",
+            "title": "Notifications",
+            "__slot__custom": "<div>\n    <b-table striped hover :items=\"data\"></b-table>\n  </div>",
+            "mark_all_btn_url": "https://jsonplaceholder.typicode.com/posts",
+            "show_mark_all_btn": true,
+            "read_key": "completed",
+            "icon": "fa fa-bell"
+        }
+    }],
+    "ac-card-collection": [{
+        "label": "Example 1",
+        "props": {
+            "__slot__card_header": "<div class=\"card-header\">{{item.id}} - {{item.email}}</div>",
+            "__slot__card_footer": "<div class=\"card-footer\">{{item.postId}}</div>",
+            "__slot__card_body": "<div class=\"card-body\">{{item.name}}<img src=\"https://cdn.pixabay.com/photo/2018/08/03/14/50/flamingo-3582047_960_720.jpg\" /></div>",
+            "dropdown_options": [{
+                    "label": "Edit",
+                    "type": "edit",
+                    "icon": "fas fa-pencil-alt",
+                    "handler_params": "{\"key\":\"value\"}"
+                },
+                {
+                    "label": "Delete",
+                    "type": "delete",
+                    "icon": "fas fa-trash-alt"
+                }
+            ],
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "show_dropdown": true,
+            "dropdown_button_options": {
+                "icon": " fas fa-ellipsis-v",
+                "variant": "outline-secondary",
+                "size": "sm"
+            },
+            "__slot__body": "",
+            "__event__click": [{
+                "name": "test12",
+                "params": "{}"
+            }],
+            "method": "GET",
+            "params": "",
+            "responsive_class": "",
+            "loading_image": "https://cmswebsites.s3.us-west-1.amazonaws.com/Dual%20Ring-0.9s-200px.gif",
+            "show_searchbar": true,
+            "refs": "cardBuilderRef",
+            "ac_cursor": "{}",
+            "sort_key": "name",
+            "show_pagination": true,
+            "limit": "5",
+            "total_count": "40",
+            "limit_key": "_limit",
+            "offset_key": "_start",
+            "__slot__header": "<header class=\"border p-2 mb-2\">Ac collection header</header>",
+            "__slot__footer": "<footer class=\"border p-2 mt-2\">ac collection footer</footer>"
+        },
+        "slotTemplateSelected": {
+            "header": {
+                "props": {
+                    "content": "{{item.title}}"
+                },
+                "value": "header_1"
+            },
+            "footer": {
+                "props": {
+                    "content": "{{item.postId}}"
+                },
+                "value": "footer_1"
+            },
+            "body": {
+                "props": {
+                    "content": "{{item.name}}",
+                    "imge": "https://cdn.pixabay.com/photo/2018/08/03/14/50/flamingo-3582047_960_720.jpg"
+                },
+                "value": "body_1"
+            }
+        }
+    }]
+}

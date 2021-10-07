@@ -1,0 +1,113 @@
+{
+  "name": "@appup/components",
+  "version": "0.1.91",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name components src/appup-components.js",
+    "lib2": "vue-cli-service build --target lib --name components src/dynamic-appup-component.js",
+    "libtest": "vue-cli-service build --target lib --name components --mode development src/appup-components.js",
+    "distrun": "webpack-dev-server --content-base dist/"
+  },
+  "main": "src/dynamic-appup-component.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "src/components/*",
+    "src/mixins/*",
+    "src/components/*",
+    "src/new-components/*",
+    "src/views/*",
+    "src/workflows/*",
+    "src/assets/*"
+  ],
+  "dependencies": {
+    "@appup/appup-components-dynamic": "0.0.270",
+    "@tinymce/tinymce-vue": "^2.1.0",
+    "axios-jsonp": "^1.0.2",
+    "chapalamadugu-vue2-ace-editor": "^0.0.13",
+    "core-js": "2.5.7",
+    "emoji-mart-vue": "^2.6.6",
+    "fullcalendar-scheduler": "1.9.0",
+    "highcharts": "^7.1.0",
+    "highcharts-vue": "^1.3.5",
+    "konva": "^4.0.18",
+    "lodash.foreach": "^4.5.0",
+    "lodash.forown": "^4.4.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.indexof": "^4.0.5",
+    "lodash.merge": "^4.6.1",
+    "moment": "^2.25.3",
+    "node-json-transform": "^1.0.19",
+    "tiny-cookie": "^2.1.2",
+    "twilio": "^3.29.2",
+    "url-parse": "^1.4.4",
+    "v-click-outside": "^2.1.3",
+    "vee-validate": "^2.1.5",
+    "vue": "^2.5.16",
+    "vue-click-outside": "^1.0.7",
+    "vue-codemirror": "^4.0.5",
+    "vue-cute-timeline": "^1.2.5",
+    "vue-flatpickr-component": "^8.1.1",
+    "vue-full-calendar": "2.5.0",
+    "vue-konva": "^2.1.1",
+    "vue-multiselect": "^2.1.3",
+    "vue-notification": "^1.3.12",
+    "vue-plugin-load-script": "^1.2.0",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.0.2",
+    "vue-timeago": "^5.1.2",
+    "vuedraggable": "^2.23.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "bootstrap": "^4.2.1",
+    "handlebars": "^4.0.11",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "peerDependencies": {
+    "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "tiny-cookie": "^2.1.2",
+    "vee-validate": "^2.1.5",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-timeago": "^5.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

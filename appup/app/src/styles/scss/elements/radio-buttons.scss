@@ -1,0 +1,81 @@
+/*------------------------------------*/
+/*---------- RADIO BUTTONS -----------*/
+/*------------------------------------*/
+.radio-buttons{
+    padding-right: 0;
+    label{
+        letter-spacing: 0;
+        margin-bottom: .5rem;
+    }
+}
+input[type="radio"]{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+label.radio-button{
+    float: left;
+    width: 20%;
+    &:first-child input[type="radio"] + span{
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    &:last-child input[type="radio"] + span{
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-right: 1px solid $light_gray;
+    }
+}
+label.radio-button span{
+	position: relative;
+	cursor: pointer;
+}
+input[type="radio"] + span{
+	float: left;
+    text-align: center;
+    width: 100%;
+    border: 1px solid $light_gray;
+    border-right: 1px solid transparent;
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+    color: $rock_blue;
+    letter-spacing: 0.05px;
+ }
+ input[type="radio"]:checked + span{
+ 	border: 1px solid rgba(26, 140, 255, 0.3);
+    color: $blue_bg;
+ }
+ input[type="radio"]:checked + span:before{
+ 	content: '';
+ 	background: $light_blue_border_color;
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ 	width: 100%;
+ 	height: 100%;
+ }
+label.radio-button input[type="radio"]:checked + span:last-child{
+    border-right: 1px solid rgba(26, 140, 255, 0.3);
+}
+
+.properties-modal label.radio-button{
+    width: 50%;
+}
+@media(max-width: 1023px){
+    label.radio-button{
+        width: 25%;
+    }
+}
+@media(max-width: 767px){
+    .radio-buttons label, .properties-modal label.radio-button{
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    input[type="radio"] + span{
+        border-right:1px solid $light_gray;
+        @include border-radius(2px);
+    }
+}
+/*------------------------------------*/
+/*---------- /RADIO BUTTONS ----------*/
+/*------------------------------------*/

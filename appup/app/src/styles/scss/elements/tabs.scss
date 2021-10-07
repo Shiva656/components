@@ -1,0 +1,43 @@
+/*------------------------------------*/
+/*---------------- TABS  -------------*/
+/*------------------------------------*/
+
+.nav-tabs {
+    border-bottom: 1px solid $light_gray;
+    padding: 0 8px;
+    margin-bottom: 22px;
+    .nav-link {
+        border: 0;
+        color: $rock_blue;
+        font-size: 12px;
+        padding: 18px 16px;
+        text-transform: uppercase;
+        &.active {
+            color: $acadia;
+            border-bottom: 1px solid $acadia;
+        }
+    }
+}
+.add-more-workflows{
+    .nav-tabs{
+        padding: 0 1rem;
+        margin: 0 -1.9rem;
+        .nav-link{
+            padding: 1rem 0.98rem;
+            font-size: 0.7rem;
+        }
+    }
+}
+@media(max-width: 767px){
+    .add-more-workflows{
+        .nav-tabs{
+            .nav-link{
+                padding: 1rem 0.58rem;
+                font-size: 0.6rem;
+            }
+        }
+    }
+}
+/*------------------------------------*/
+/*---------------- /TABS  ------------*/
+/*------------------------------------*/
