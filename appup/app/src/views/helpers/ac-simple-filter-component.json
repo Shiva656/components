@@ -1,0 +1,390 @@
+{
+    "component": "ac-simple-filter",
+    "description": null,
+    "category": "component",
+    "fields": [
+        {
+            "type": "html",
+            "html": "<h3> <u>General Props</u></h3>",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true"
+        },
+        {
+            "id": "filter_json_field",
+            "name": "filter_json",
+            "label": "Add Fields",
+            "description": "Add fields to form like text, email, dropdown...",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true",
+            "category-name": "1_General",
+            "type": "form-builder"
+        },
+        {
+            "id": "buttons",
+            "name": "buttons",
+            "label": "Add button",
+            "description": "",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "",
+            "type": "grid",
+            "columns": [
+                {
+                    "key": "id",
+                    "label": "Id"
+                },
+                {
+                    "key": "label",
+                    "label": "Label"
+                },
+                {
+                    "key": "variant",
+                    "label": "Variant"
+                },
+                {
+                    "key": "type",
+                    "label": "Type"
+                },
+                {
+                    "key": "class",
+                    "label": "Class"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "type": "text",
+                        "name": "id",
+                        "label": "Id"
+                    },
+                    {
+                        "type": "text",
+                        "name": "label",
+                        "label": "Label"
+                    },
+                    {
+                        "type": "dropdown",
+                        "name": "variant",
+                        "label": "Variant",
+                        "option": [
+                            {
+                                "value": "primary",
+                                "label": "Primary"
+                            },
+                            {
+                                "value": "secondary",
+                                "label": "Secondary"
+                            },
+                            {
+                                "value": "success",
+                                "label": "Success"
+                            },
+                            {
+                                "value": "danger",
+                                "label": "Danger"
+                            },
+                            {
+                                "value": "warning",
+                                "label": "Warning"
+                            },
+                            {
+                                "value": "info",
+                                "label": "Info"
+                            },
+                            {
+                                "value": "light",
+                                "label": "Light"
+                            },
+                            {
+                                "value": "dark",
+                                "label": "Dark"
+                            },
+                            {
+                                "value": "outline-primary",
+                                "label": "Outline-Primary"
+                            },
+                            {
+                                "value": "outline-secondary",
+                                "label": "Outline-Secondary"
+                            },
+                            {
+                                "value": "outline-success",
+                                "label": "Outline-Success"
+                            },
+                            {
+                                "value": "outline-danger",
+                                "label": "Outline-Danger"
+                            },
+                            {
+                                "value": "outline-warning",
+                                "label": "Outline-Warning"
+                            },
+                            {
+                                "value": "outline-info",
+                                "label": "Outline-Info"
+                            },
+                            {
+                                "value": "outline-light",
+                                "label": "Outline-Light"
+                            },
+                            {
+                                "value": "outline-dark",
+                                "label": "Outline-Dark"
+                            },
+                            {
+                                "value": "link",
+                                "label": "Link"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "dropdown",
+                        "name": "type",
+                        "label": "Type",
+                        "option": [
+                            {
+                                "label": "Submit",
+                                "value": "submit"
+                            },
+                            {
+                                "label": "Button",
+                                "value": "button"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "handlerName",
+                        "name": "handlerName",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME",
+                        "condition": "form.type == 'button'"
+                    },
+                    {
+                        "type": "textarea",
+                        "name": "handlerParams",
+                        "label": "Handler Params",
+                        "condition": "form.type == 'button'"
+                    },
+                    {
+                        "type": "text",
+                        "name": "class",
+                        "label": "Class"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "value_field",
+            "name": "value",
+            "label": "Value",
+            "description": "To prefill the filter JSON, ex: {\"name\":\"prefill\"}",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "textarea"
+        },
+        {
+            "id": "inline_labels_field",
+            "name": "inline_labels",
+            "label": "Inline Labels",
+            "description": "Show field and it's label in Inline.",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "radio",
+            "option": [
+                {
+                    "label": "Yes",
+                    "value": true
+                },
+                {
+                    "label": "No",
+                    "value": false
+                }
+            ]
+        },
+        {
+            "id": "inline_field",
+            "name": "inline",
+            "label": "Inline",
+            "description": "Show fields in Inline.",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "radio",
+            "option": [
+                {
+                    "label": "Yes",
+                    "value": true
+                },
+                {
+                    "label": "No",
+                    "value": false
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "name": "direction",
+            "label": "Button Direction",
+            "option": [
+                {
+                    "value": "lett",
+                    "label": "Left"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                }
+            ],
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General"
+        },
+        {
+            "id": "form_group_class",
+            "name": "form_group_class",
+            "label": "Form Group Class",
+            "description": "",
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "1_General",
+            "type": "text"
+        },
+        {
+            "id": "refs_field",
+            "name": "refs",
+            "label": "refs",
+            "description": "Component reference",
+            "type": "text",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a"
+        },
+        {
+            "id": "__event__input_field",
+            "type": "grid",
+            "label": "input event",
+            "name": "__event__input",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "preload_field",
+            "name": "preload",
+            "label": "preload",
+            "type": "grid",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        }
+    ]
+}

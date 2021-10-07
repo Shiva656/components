@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 444 242.5" style="enable-background:new 0 0 444 242.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#filter-1);}
+	.st1{fill:#FFFFFF;stroke:#DDEDFF;}
+	.st2{fill:none;stroke:#E2E7EF;stroke-linecap:square;}
+	.st3{opacity:0.2;fill:#E2E7EF;enable-background:new    ;}
+	.st4{fill:#E8F3FF;}
+	.st5{fill:#D2DEED;}
+</style>
+<filter  filterUnits="objectBoundingBox" height="109.0%" id="filter-1" width="112.1%" x="-6.1%" y="-4.2%">
+	<feOffset  dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+	<feGaussianBlur  in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="17"></feGaussianBlur>
+	
+		<feColorMatrix  in="shadowBlurOuter1" result="shadowMatrixOuter1" type="matrix" values="0 0 0 0 0.823529412   0 0 0 0 0.870588235   0 0 0 0 0.929411765  0 0 0 0.3 0">
+		</feColorMatrix>
+	<feMerge>
+		<feMergeNode  in="shadowMatrixOuter1"></feMergeNode>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<title>Group 9</title>
+<desc>Created with Sketch.</desc>
+<g id="System">
+	<g id="Create-Block-_x2014_-Visual-_x2014_-Widgets" transform="translate(-6.000000, -999.000000)">
+		<g id="Group-14" transform="translate(24.000000, 80.000000)" class="st0">
+			<g id="Group-9_1_" transform="translate(16.000000, 949.000000)">
+				<g id="_x34__1_">
+					<path id="Rectangle-29_1_" class="st1" d="M-27-27h428.7c1.9,0,3.5,1.6,3.5,3.5v230c0,1.9-1.6,3.5-3.5,3.5H-27
+						c-1.9,0-3.5-1.6-3.5-3.5v-230C-30.5-25.4-28.9-27-27-27z"/>
+				</g>
+				<g id="Group-6_1_" transform="translate(22.000000, 24.000000)">
+					<g id="Group-5-Copy-2_1_" transform="translate(1.000000, 0.000000)">
+						<path id="_x31_-copy_1_" class="st2" d="M-27.4,158.1h384.5"/>
+						<rect id="Rectangle-25_1_" x="-25" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy_1_" x="12.1" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-2_1_" x="49.3" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-3_1_" x="86.5" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-4_1_" x="123.7" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-5_1_" x="160.8" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-6_1_" x="198" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-7_1_" x="235.2" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-8_1_" x="272.4" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-9_1_" x="309.6" y="-23.7" class="st3" width="1.2" height="182.4"/>
+						<rect id="Rectangle-25-Copy-10_1_" x="346.7" y="-23.7" class="st3" width="1.2" height="182.4"/>
+					</g>
+					<path id="Rectangle-31_1_" class="st4" d="M-25.2,29.7h4.6c1.3,0,2.3,1,2.3,2.3v126.6h-9.3V32.1
+						C-27.5,30.8-26.5,29.7-25.2,29.7z"/>
+					<rect id="Rectangle-31-Copy-11_1_" x="-27.5" y="76.2" class="st5" width="9.3" height="82.5"/>
+					<path id="Rectangle-31-Copy_1_" class="st4" d="M12,66.9h4.6c1.3,0,2.3,1,2.3,2.3v89.5H9.7V69.2C9.7,68,10.7,66.9,12,66.9z"/>
+					<rect id="Rectangle-31-Copy-12_1_" x="9.7" y="113.4" class="st5" width="9.3" height="45.3"/>
+					<path id="Rectangle-31-Copy-2_1_" class="st4" d="M49.2,1.9h4.6c1.3,0,2.3,1,2.3,2.3v154.5h-9.3V4.2
+						C46.8,2.9,47.9,1.9,49.2,1.9z"/>
+					<rect id="Rectangle-31-Copy-13_1_" x="46.8" y="39" class="st5" width="9.3" height="119.7"/>
+					<path id="Rectangle-31-Copy-3_1_" class="st4" d="M86.3,20.4H91c1.3,0,2.3,1,2.3,2.3v135.9H84V22.8C84,21.5,85,20.4,86.3,20.4z
+						"/>
+					<rect id="Rectangle-31-Copy-14_1_" x="84" y="86.7" class="st5" width="9.3" height="72"/>
+					<path id="Rectangle-31-Copy-4_1_" class="st4" d="M123.5,39h4.6c1.3,0,2.3,1,2.3,2.3v117.3h-9.3V41.4
+						C121.2,40.1,122.2,39,123.5,39z"/>
+					<rect id="Rectangle-31-Copy-15_1_" x="121.2" y="57.6" class="st5" width="9.3" height="101.1"/>
+					<path id="Rectangle-31-Copy-5_1_" class="st4" d="M160.7,29.7h4.6c1.3,0,2.3,1,2.3,2.3v126.6h-9.3V32.1
+						C158.4,30.8,159.4,29.7,160.7,29.7z"/>
+					<rect id="Rectangle-31-Copy-16_1_" x="158.4" y="76.2" class="st5" width="9.3" height="82.5"/>
+					<path id="Rectangle-31-Copy-6_1_" class="st4" d="M197.9,11.2h4.6c1.3,0,2.3,1,2.3,2.3v145.2h-9.3V13.5
+						C195.5,12.2,196.6,11.2,197.9,11.2z"/>
+					<rect id="Rectangle-31-Copy-17_1_" x="195.5" y="104.1" class="st5" width="9.3" height="54.6"/>
+					<path id="Rectangle-31-Copy-7_1_" class="st4" d="M236.2-16.7h4.6c1.3,0,2.3,1,2.3,2.3v173.1h-9.3V-14.4
+						C233.9-15.7,234.9-16.7,236.2-16.7z"/>
+					<rect id="Rectangle-31-Copy-18_1_" x="233.9" y="50.7" class="st5" width="9.3" height="108"/>
+					<path id="Rectangle-31-Copy-8_1_" class="st4" d="M274.5,48.3h4.6c1.3,0,2.3,1,2.3,2.3v108h-9.3v-108
+						C272.2,49.4,273.3,48.3,274.5,48.3z"/>
+					<rect id="Rectangle-31-Copy-19_1_" x="272.2" y="71.6" class="st5" width="9.3" height="88.3"/>
+					<path id="Rectangle-31-Copy-9_1_" class="st4" d="M309.4,20.4h4.6c1.3,0,2.3,1,2.3,2.3v135.9h-9.3V22.8
+						C307.1,21.5,308.1,20.4,309.4,20.4z"/>
+					<rect id="Rectangle-31-Copy-20_1_" x="307.1" y="61.1" class="st5" width="9.3" height="97.6"/>
+					<path id="Rectangle-31-Copy-10_1_" class="st4" d="M346.6,39h4.6c1.3,0,2.3,1,2.3,2.3v117.3h-9.3V41.4
+						C344.2,40.1,345.3,39,346.6,39z"/>
+					<rect id="Rectangle-31-Copy-21_1_" x="344.2" y="94.8" class="st5" width="9.3" height="63.9"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

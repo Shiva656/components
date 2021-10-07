@@ -1,0 +1,75 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@appup/appup-components-dynamic": "^0.0.27",
+    "axios": "^0.18.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "bootstrap-vue": "2.0.0-rc.19",
+    "codemirror": "^5.39.2",
+    "@appup/components": "^0.1.71",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fullcalendar-scheduler": "1.9.0",
+    "handlebars": "^4.1.2",
+    "lodash": "^4.17.11",
+    "lodash.foreach": "^4.5.0",
+    "node-sass": "^4.9.2",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^7.0.3",
+    "sass-resources-loader": "^1.3.3",
+    "style-loader": "^0.21.0",
+    "svgo": "1.3.0",
+    "tiny-cookie": "^2.1.2",
+    "vee-validate": "^2.1.0-beta.6",
+    "vue": "^2.5.16",
+    "vue-awesome": "^3.0.5",
+    "vue-codemirror": "^4.0.6",
+    "vue-cookies": "^1.5.7",
+    "vue-full-calendar": "2.5.0",
+    "vue-loader": "^15.2.6",
+    "vue-multiselect": "^2.1.0",
+    "vue-notification": "^1.3.12",
+    "vue-router": "^3.0.1",
+    "vue-style-loader": "^4.1.1",
+    "vue2-slideout-panel": "^2.2.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "resolutions": {
+    "svgo": "1.3.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 444 182" style="enable-background:new 0 0 444 182;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#filter-1);}
+	.st1{fill:#FFFFFF;stroke:#DDEDFF;}
+	.st2{opacity:8.000000e-02;fill:#1A8CFF;}
+	.st3{opacity:3.000000e-02;fill:#1A8CFF;}
+</style>
+<filter  filterUnits="objectBoundingBox" height="110.9%" id="filter-1" width="115.0%" x="-7.5%" y="-5.0%">
+	<feOffset  dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+	<feGaussianBlur  in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="17"></feGaussianBlur>
+	
+		<feColorMatrix  in="shadowBlurOuter1" result="shadowMatrixOuter1" type="matrix" values="0 0 0 0 0.823529412   0 0 0 0 0.870588235   0 0 0 0 0.929411765  0 0 0 0.3 0">
+		</feColorMatrix>
+	<feMerge>
+		<feMergeNode  in="shadowMatrixOuter1"></feMergeNode>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<title>Group 9</title>
+<desc>Created with Sketch.</desc>
+<g id="System">
+	<g id="Create-Block-_x2014_-Visual-_x2014_-Layout" transform="translate(-6.000000, -437.000000)">
+		<g id="Group-14" transform="translate(6.000000, 80.000000)" class="st0">
+			<g id="_x32__1_" transform="translate(34.000000, 387.000000)">
+				<g id="Group-8_1_">
+					<g id="Group-9_1_">
+						<path id="Rectangle-29-Copy_1_" class="st1" d="M-28.6-28h433.1c1.9,0,3.5,1.6,3.5,3.5v171.4c0,1.9-1.6,3.5-3.5,3.5H-28.6
+							c-1.9,0-3.5-1.6-3.5-3.5V-24.5C-32.2-26.4-30.6-28-28.6-28z"/>
+						<g id="Rectangle-2-Copy-6_1_">
+							<path class="st2" d="M-9.9,1.9h85.7c2.3,0,4.1,1.8,4.1,4.1l0,0c0,2.3-1.8,4.1-4.1,4.1H-9.9c-2.3,0-4.1-1.8-4.1-4.1l0,0
+								C-14,3.8-12.1,1.9-9.9,1.9z"/>
+						</g>
+						<g id="Rectangle-2-Copy-5_1_">
+							<path class="st2" d="M-9.9,19.5h151.4c2.3,0,4.1,1.8,4.1,4.1l0,0c0,2.3-1.8,4.1-4.1,4.1H-9.9c-2.3,0-4.1-1.8-4.1-4.1l0,0
+								C-14,21.4-12.1,19.5-9.9,19.5z"/>
+						</g>
+						<g id="Group-Copy-5_1_" transform="translate(16.000000, 66.000000)">
+							<g id="Rectangle-2-Copy-3_5_">
+								<path class="st2" d="M-26.5-17.1h258.2c1.9,0,3.5,1.6,3.5,3.5v66.9c0,1.9-1.6,3.5-3.5,3.5H-26.5c-1.9,0-3.5-1.6-3.5-3.5
+									v-66.9C-30-15.5-28.4-17.1-26.5-17.1z"/>
+							</g>
+							<g id="Rectangle-2-Copy_5_">
+								<path class="st3" d="M-26.5-17.1h258.2c1.9,0,3.5,1.6,3.5,3.5v4.7H-30v-4.7C-30-15.5-28.4-17.1-26.5-17.1z"/>
+							</g>
+						</g>
+						<g id="Group-Copy-3_1_" transform="translate(252.000000, 66.000000)">
+							<g id="Rectangle-2-Copy-3_2_">
+								<path class="st2" d="M14.6-17.1h119.7c1.9,0,3.5,1.6,3.5,3.5v66.9c0,1.9-1.6,3.5-3.5,3.5H14.6c-1.9,0-3.5-1.6-3.5-3.5v-66.9
+									C11-15.5,12.6-17.1,14.6-17.1z"/>
+							</g>
+							<g id="Rectangle-2-Copy_2_">
+								<path class="st3" d="M14.6-17.1h119.7c1.9,0,3.5,1.6,3.5,3.5v4.7H11v-4.7C11-15.5,12.6-17.1,14.6-17.1z"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

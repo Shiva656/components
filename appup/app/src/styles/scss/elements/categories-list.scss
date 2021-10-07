@@ -1,0 +1,41 @@
+/*------------------------------------*/
+/*--------- CATEGORIES LIST ----------*/
+/*------------------------------------*/
+.categories-list{
+	li{
+     	font-size: 0.8125rem;
+    	letter-spacing: 0.25px;
+    	margin-bottom: 0.88rem;
+		a{
+			color: $rock_blue;
+		}
+		&.active{
+			a{
+				color: $blue_bg;
+			}
+		}
+	}
+}
+.plugins-overview{
+	.categories-list{
+		margin-bottom: 2.4rem;
+		li{
+			border-left: 4px solid rgba(25, 129, 235, 0.04);
+			margin-left: -1px;
+		    padding: 0.75rem 1.3rem;
+			margin-bottom: 0;
+			@include transition(0.3s);
+			&.active, &:hover{
+				background: rgba(25, 129, 235, 0.04);
+				border-color: $blue;
+				a{
+					color: $blue_bg;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+/*------------------------------------*/
+/*--------- /CATEGORIES LIST ---------*/
+/*------------------------------------*/

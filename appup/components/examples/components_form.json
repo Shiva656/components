@@ -1,0 +1,3891 @@
+[
+    {
+        "component": "ac-accordion",
+        "description": "ac Accordion component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__title_field",
+                "name": "__slot__title",
+                "label": "title slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-card",
+        "description": "Appup Gridview component which can be used to display Grid items",
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "Fetch data with url",
+                "type": "text"
+            },
+            {
+                "id": "actions_field",
+                "name": "actions",
+                "label": "actions",
+                "description": "Action items for grid item\n\n'view','edit','delete'",
+                "type": "textarea"
+            },
+            {
+                "id": "preload_field",
+                "name": "preload",
+                "label": "preload",
+                "description": "URL to deserialize the grid initially.",
+                "type": "text"
+            },
+            {
+                "id": "section_field",
+                "name": "section",
+                "label": "section",
+                "description": null,
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "__slot__sections_field",
+                "name": "__slot__sections",
+                "label": "sections slot",
+                "description": "Slot of sorted Data. If key was given, it will have key, array or just array",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__section_field",
+                "name": "__slot__section",
+                "label": "section slot",
+                "description": "Slot for normal data",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__category-header_field",
+                "name": "__slot__category-header",
+                "label": "category-header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__card_field",
+                "name": "__slot__card",
+                "label": "card slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__category-header_field",
+                "name": "__slot__category-header",
+                "label": "category-header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__card_field",
+                "name": "__slot__card",
+                "label": "card slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-chart",
+        "description": null,
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "Fetch json data form url\nexcepting json data as following\n[{\"name\": \"Year 1800\",\"data\": [107, 31, 635, 203, 2]},{\"name\": \"Year 1900\",\"data\": [133, 156, 947, 408, 6]}]",
+                "type": "text"
+            },
+            {
+                "id": "title_field",
+                "name": "title",
+                "label": "title",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "type_field",
+                "name": "type",
+                "label": "type",
+                "description": "type of chart to display\naccepts\nline,bar,bubble,pie,funnel",
+                "type": "text"
+            },
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "If in case url is not available\nthen data will be considered\nsample data:\n[{\"name\": \"Year 1800\",\"data\": [107, 31, 635, 203, 2]},{\"name\": \"Year 1900\",\"data\": [133, 156, 947, 408, 6]}]",
+                "type": "text"
+            },
+            {
+                "id": "config_field",
+                "name": "config",
+                "label": "config",
+                "description": "Fetch extra addons for highcharts by using config\nextra addons like legend,tootltip,xaxis,yaxis\nx-axis and y-axis categories,",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-checkbox",
+        "description": "ac Checkbox component",
+        "fields": [
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-collection-card",
+        "description": "ac collection card component",
+        "fields": [
+            {
+                "id": "bulk_field",
+                "name": "bulk",
+                "label": "bulk",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "card_img_field",
+                "name": "card_img",
+                "label": "card_img",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_img_hover_field",
+                "name": "card_img_hover",
+                "label": "card_img_hover",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_header_field",
+                "name": "card_header",
+                "label": "card_header",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_title_field",
+                "name": "card_title",
+                "label": "card_title",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_subtitle_field",
+                "name": "card_subtitle",
+                "label": "card_subtitle",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_body_field",
+                "name": "card_body",
+                "label": "card_body",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_body_html_field",
+                "name": "card_body_html",
+                "label": "card_body_html",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_footer_field",
+                "name": "card_footer",
+                "label": "card_footer",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_options_field",
+                "name": "card_options",
+                "label": "card_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "align_field",
+                "name": "align",
+                "label": "align",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_links_field",
+                "name": "card_links",
+                "label": "card_links",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "href",
+                        "label": "href"
+                    },
+                    {
+                        "key": "variant",
+                        "label": "variant"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "href",
+                            "label": "href"
+                        },
+                        {
+                            "type": "text",
+                            "name": "variant",
+                            "label": "variant"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "col_options_field",
+                "name": "col_options",
+                "label": "col_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_height_field",
+                "name": "max_height",
+                "label": "max_height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "load_more_type_field",
+                "name": "load_more_type",
+                "label": "load_more_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-collection-grouped",
+        "description": "ac Grouped component which can be used to display items in grid, accordion, table",
+        "fields": [
+            {
+                "id": "group_key_field",
+                "name": "group_key",
+                "label": "group_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__group_header_field",
+                "name": "__slot__group_header",
+                "label": "group_header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__body_field",
+                "name": "__slot__body",
+                "label": "body slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__group_footer_field",
+                "name": "__slot__group_footer",
+                "label": "group_footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__load_more_button_field",
+                "name": "__slot__load_more_button",
+                "label": "load_more_button slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_height_field",
+                "name": "max_height",
+                "label": "max_height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "load_more_type_field",
+                "name": "load_more_type",
+                "label": "load_more_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-collection-table",
+        "description": "ac Table component which can be used to display data from API in table view",
+        "fields": [
+            {
+                "id": "columns_field",
+                "name": "columns",
+                "label": "columns",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "key",
+                        "label": "key"
+                    },
+                    {
+                        "key": "sortable",
+                        "label": "sortable"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "key",
+                            "label": "key"
+                        },
+                        {
+                            "type": "text",
+                            "name": "sortable",
+                            "label": "sortable"
+                        },
+                        {
+                            "type": "textarea",
+                            "name": "__slot__",
+                            "label": "Slot"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "bulk_field",
+                "name": "bulk",
+                "label": "bulk",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "dropdown_field",
+                "name": "dropdown",
+                "label": "dropdown",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "dropdown_options_field",
+                "name": "dropdown_options",
+                "label": "dropdown_options",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "type",
+                        "label": "type"
+                    },
+                    {
+                        "key": "icon",
+                        "label": "icon"
+                    },
+                    {
+                        "key": "handler",
+                        "label": "handler"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "type",
+                            "label": "type"
+                        },
+                        {
+                            "type": "text",
+                            "name": "icon",
+                            "label": "icon"
+                        },
+                        {
+                            "type": "text",
+                            "name": "handler",
+                            "label": "handler"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "dropdown_button_options_field",
+                "name": "dropdown_button_options",
+                "label": "dropdown_button_options",
+                "description": "",
+                "type": "form",
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "icon_field",
+                            "name": "icon",
+                            "label": "icon",
+                            "type": "text"
+                        },
+                        {
+                            "id": "variant_field",
+                            "name": "variant",
+                            "label": "variant",
+                            "type": "text"
+                        },
+                        {
+                            "id": "size_field",
+                            "name": "size",
+                            "label": "size",
+                            "type": "text"
+                        },
+                        {
+                            "id": "right_field",
+                            "name": "right",
+                            "label": "right",
+                            "type": "radio",
+                            "option": [
+                                {
+                                    "label": "Yes",
+                                    "value": true
+                                },
+                                {
+                                    "label": "No",
+                                    "value": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__load_more_button_field",
+                "name": "__slot__load_more_button",
+                "label": "load_more_button slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__dropdown_click_field",
+                "name": "__event__dropdown_click",
+                "label": "dropdown_click event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__dropdown_click_field",
+                "name": "__event__params__dropdown_click",
+                "label": "dropdown_click event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__row_clicked_field",
+                "name": "__event__row_clicked",
+                "label": "row_clicked event",
+                "description": "</header>",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__row_clicked_field",
+                "name": "__event__params__row_clicked",
+                "label": "row_clicked event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__row_dblclicked_field",
+                "name": "__event__row_dblclicked",
+                "label": "row_dblclicked event",
+                "description": "</header>",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__row_dblclicked_field",
+                "name": "__event__params__row_dblclicked",
+                "label": "row_dblclicked event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__checkbox_clicked_field",
+                "name": "__event__checkbox_clicked",
+                "label": "checkbox_clicked event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__checkbox_clicked_field",
+                "name": "__event__params__checkbox_clicked",
+                "label": "checkbox_clicked event params",
+                "type": "text"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_height_field",
+                "name": "max_height",
+                "label": "max_height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "load_more_type_field",
+                "name": "load_more_type",
+                "label": "load_more_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-collection",
+        "description": "ac Colection component which can be used to display data from API",
+        "fields": [
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_height_field",
+                "name": "max_height",
+                "label": "max_height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "load_more_type_field",
+                "name": "load_more_type",
+                "label": "load_more_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__body_field",
+                "name": "__slot__body",
+                "label": "body slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__load_more_button_field",
+                "name": "__slot__load_more_button",
+                "label": "load_more_button slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__collection_added_field",
+                "name": "__event__collection_added",
+                "label": "collection_added event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__collection_added_field",
+                "name": "__event__params__collection_added",
+                "label": "collection_added event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__collection_removed_field",
+                "name": "__event__collection_removed",
+                "label": "collection_removed event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__collection_removed_field",
+                "name": "__event__params__collection_removed",
+                "label": "collection_removed event params",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-dynamic-view",
+        "description": null,
+        "fields": [
+            {
+                "id": "config_field",
+                "name": "config",
+                "label": "config",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "icon",
+                        "label": "icon"
+                    },
+                    {
+                        "key": "helper",
+                        "label": "helper"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "icon",
+                            "label": "icon"
+                        },
+                        {
+                            "type": "text",
+                            "name": "helper",
+                            "label": "helper"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-dynamic",
+        "description": "Ac Dynamic component which will load components by URL",
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "component_name_field",
+                "name": "component_name",
+                "label": "component_name",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "props_field",
+                "name": "props",
+                "label": "props",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "props_mapper_field",
+                "name": "props_mapper",
+                "label": "props_mapper",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-file",
+        "description": "ac File component",
+        "fields": [
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-filter-form-advanced",
+        "description": "ac Filter Form component which will interact with a card or a table acting as a filter",
+        "fields": [
+            {
+                "id": "save_url_field",
+                "name": "save_url",
+                "label": "save_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-filter-form",
+        "description": "ac Filter Form component which will interact with a card or a table acting as a filter",
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "reference_field",
+                "name": "reference",
+                "label": "reference",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "apply_type_field",
+                "name": "apply_type",
+                "label": "apply_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_url_field",
+                "name": "fetch_url",
+                "label": "fetch_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "props_field",
+                "name": "props",
+                "label": "props",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "post_url_field",
+                "name": "post_url",
+                "label": "post_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "save_submit_route_field",
+                "name": "save_submit_route",
+                "label": "save_submit_route",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-filter-search-advanced",
+        "description": "Ac Filter Search component",
+        "fields": [
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__onChange_field",
+                "name": "__event__onChange",
+                "label": "onChange event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__onChange_field",
+                "name": "__event__params__onChange",
+                "label": "onChange event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-form",
+        "description": "ac Form component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_url_field",
+                "name": "fetch_url",
+                "label": "fetch_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "props_field",
+                "name": "props",
+                "label": "props",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "post_url_field",
+                "name": "post_url",
+                "label": "post_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "save_submit_route_field",
+                "name": "save_submit_route",
+                "label": "save_submit_route",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__submit_field",
+                "name": "__event__submit",
+                "label": "submit event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__submit_field",
+                "name": "__event__params__submit",
+                "label": "submit event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-gravatar",
+        "description": null,
+        "fields": [
+            {
+                "id": "email_field",
+                "name": "email",
+                "label": "email",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "name_field",
+                "name": "name",
+                "label": "name",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "avatar_props_field",
+                "name": "avatar_props",
+                "label": "avatar_props",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-grid",
+        "description": null,
+        "fields": [
+            {
+                "id": "grid_items_field",
+                "name": "grid_items",
+                "label": "grid_items",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "enable_drag_field",
+                "name": "enable_drag",
+                "label": "enable_drag",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "margin_field",
+                "name": "margin",
+                "label": "margin",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "auto_size_field",
+                "name": "auto_size",
+                "label": "auto_size",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "grid_width_field",
+                "name": "grid_width",
+                "label": "grid_width",
+                "description": "",
+                "type": "number"
+            },
+            {
+                "id": "grid_height_field",
+                "name": "grid_height",
+                "label": "grid_height",
+                "description": "",
+                "type": "number"
+            },
+            {
+                "id": "grid_column_field",
+                "name": "grid_column",
+                "label": "grid_column",
+                "description": "",
+                "type": "number"
+            },
+            {
+                "id": "resizable_field",
+                "name": "resizable",
+                "label": "resizable",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-header",
+        "description": "Appup Header with capabilty to render controls either left or right or both\n\nTODOs:\n\nActions for header controls\n\nIcons are not aligned properly",
+        "fields": [
+            {
+                "id": "id_field",
+                "name": "id",
+                "label": "id",
+                "description": "Id of input elements.",
+                "type": "text"
+            },
+            {
+                "id": "title_field",
+                "name": "title",
+                "label": "title",
+                "description": "Details of the title that should be shown on the extreme left\n\n{\nname: \"\",\n}",
+                "type": "textarea"
+            },
+            {
+                "id": "left-controls_field",
+                "name": "left-controls",
+                "label": "left-controls",
+                "description": "Controls to be displayed on left-hand side of header\n\n`\n[\n{\ntype: \"link\",\nlabel: \"Pages\",\nicon: \"pages\",\nlink_to: \"#alert\"\n},\n{\ntype: \"link\",\nlabel: \"Blocks\",\nicon: \"dashboard\",\nlink_to: \"#code\"\n}\n]\n`",
+                "type": "textarea"
+            },
+            {
+                "id": "right-controls_field",
+                "name": "right-controls",
+                "label": "right-controls",
+                "description": "Controls to be displayed on right-hand side of header\n\n`\n[\n{\ntype: \"dropdown\",\nlabel: \"Madan\",\nimage: \"http://agilecrm.dash.sweet-simple.com/assets/img/human01.jpg\",\nitems: [\n{\ntype: \"link\",\nlabel: \"Profile\",\nlink_to: \"#\"\n},\n{\ntype: \"link\",\nlabel: \"Signout\",\nlink_to: \"#\"\n}\n]\n}\n]\n`",
+                "type": "textarea"
+            },
+            {
+                "id": "navbgcolor_field",
+                "name": "navbgcolor",
+                "label": "navbgcolor",
+                "description": "Style varient of the navbar background color\n\n`primary, seconday, success, warning, danger`",
+                "type": "text"
+            },
+            {
+                "id": "textcolor_field",
+                "name": "textcolor",
+                "label": "textcolor",
+                "description": "type of the navbar color\n\n`light, dark`",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-image-upload",
+        "description": "ac Image Upload component",
+        "fields": [
+            {
+                "id": "title_field",
+                "name": "title",
+                "label": "title",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "gallery_url_field",
+                "name": "gallery_url",
+                "label": "gallery_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "upload_url_field",
+                "name": "upload_url",
+                "label": "upload_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "extensions_field",
+                "name": "extensions",
+                "label": "extensions",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_img_width_field",
+                "name": "max_img_width",
+                "label": "max_img_width",
+                "description": "",
+                "type": "number"
+            },
+            {
+                "id": "max_img_height_field",
+                "name": "max_img_height",
+                "label": "max_img_height",
+                "description": "",
+                "type": "number"
+            },
+            {
+                "id": "__event__select_field",
+                "name": "__event__select",
+                "label": "select event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__select_field",
+                "name": "__event__params__select",
+                "label": "select event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-input",
+        "description": "ac Input component",
+        "fields": [
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-kanban",
+        "description": "ac Kanban component",
+        "fields": [
+            {
+                "id": "items_field",
+                "name": "items",
+                "label": "items",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "draggable_field",
+                "name": "draggable",
+                "label": "draggable",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "item_key_field",
+                "name": "item_key",
+                "label": "item_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "headers_sortable_field",
+                "name": "headers_sortable",
+                "label": "headers_sortable",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "positions_field",
+                "name": "positions",
+                "label": "positions",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__kanban-item_field",
+                "name": "__slot__kanban-item",
+                "label": "kanban-item slot",
+                "description": "Slot for each draggable item",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "</div>\n</draggable>\n\n<!-- require this to have access to collection",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__on_change_field",
+                "name": "__event__on_change",
+                "label": "on_change event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__on_change_field",
+                "name": "__event__params__on_change",
+                "label": "on_change event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-layout",
+        "description": "ac layout component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "</b-col>",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-material-dropdown",
+        "description": "ac Material Dropdown component",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "button_options_field",
+                "name": "button_options",
+                "label": "button_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "right_field",
+                "name": "right",
+                "label": "right",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "__event__item_click_field",
+                "name": "__event__item_click",
+                "label": "item_click event",
+                "description": "Option click event",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__item_click_field",
+                "name": "__event__params__item_click",
+                "label": "item_click event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-mentions",
+        "description": "ac mentions component",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": null,
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-multiselect",
+        "description": null,
+        "fields": [
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-property-editor",
+        "description": null,
+        "fields": [
+            {
+                "id": "item_field",
+                "name": "item",
+                "label": "item",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__save_field",
+                "name": "__event__save",
+                "label": "save event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__save_field",
+                "name": "__event__params__save",
+                "label": "save event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-radio",
+        "description": "ac Radio component",
+        "fields": [
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-section",
+        "description": "ac Section component",
+        "fields": [
+            {
+                "id": "multi_field",
+                "name": "multi",
+                "label": "multi",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "max_field",
+                "name": "max",
+                "label": "max",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "item_field",
+                "name": "item",
+                "label": "item",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-select",
+        "description": "ac Select component",
+        "fields": [
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-simple-card",
+        "description": "Simple Card component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "img_field",
+                "name": "img",
+                "label": "img",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "selected_field",
+                "name": "selected",
+                "label": "selected",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "card_title_field",
+                "name": "card_title",
+                "label": "card_title",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_text_field",
+                "name": "card_text",
+                "label": "card_text",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "bulk_field",
+                "name": "bulk",
+                "label": "bulk",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "card_options_field",
+                "name": "card_options",
+                "label": "card_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "dropdown_options_field",
+                "name": "dropdown_options",
+                "label": "dropdown_options",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "type",
+                        "label": "type"
+                    },
+                    {
+                        "key": "icon",
+                        "label": "icon"
+                    },
+                    {
+                        "key": "handler",
+                        "label": "handler"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "type",
+                            "label": "type"
+                        },
+                        {
+                            "type": "text",
+                            "name": "icon",
+                            "label": "icon"
+                        },
+                        {
+                            "type": "text",
+                            "name": "handler",
+                            "label": "handler"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "dropdown_button_options_field",
+                "name": "dropdown_button_options",
+                "label": "dropdown_button_options",
+                "description": "",
+                "type": "form",
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "icon_field",
+                            "name": "icon",
+                            "label": "icon",
+                            "type": "text"
+                        },
+                        {
+                            "id": "variant_field",
+                            "name": "variant",
+                            "label": "variant",
+                            "type": "text"
+                        },
+                        {
+                            "id": "size_field",
+                            "name": "size",
+                            "label": "size",
+                            "type": "text"
+                        },
+                        {
+                            "id": "right_field",
+                            "name": "right",
+                            "label": "right",
+                            "type": "radio",
+                            "option": [
+                                {
+                                    "label": "Yes",
+                                    "value": true
+                                },
+                                {
+                                    "label": "No",
+                                    "value": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "header-slot_field",
+                "name": "header-slot",
+                "label": "header-slot",
+                "description": null,
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "footer-slot_field",
+                "name": "footer-slot",
+                "label": "footer-slot",
+                "description": null,
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "__slot__hover_field",
+                "name": "__slot__hover",
+                "label": "hover slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__body_field",
+                "name": "__slot__body",
+                "label": "body slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__dropdown_click_field",
+                "name": "__event__dropdown_click",
+                "label": "dropdown_click event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__dropdown_click_field",
+                "name": "__event__params__dropdown_click",
+                "label": "dropdown_click event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__hover_field",
+                "name": "__event__hover",
+                "label": "hover event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__hover_field",
+                "name": "__event__params__hover",
+                "label": "hover event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__click_field",
+                "name": "__event__click",
+                "label": "click event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__click_field",
+                "name": "__event__params__click",
+                "label": "click event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__input_field",
+                "name": "__event__input",
+                "label": "input event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__input_field",
+                "name": "__event__params__input",
+                "label": "input event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-tab",
+        "description": "ac Tab component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "align_field",
+                "name": "align",
+                "label": "align",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "tabs_attrs_field",
+                "name": "tabs_attrs",
+                "label": "tabs_attrs",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__tabs_field",
+                "name": "__slot__tabs",
+                "label": "tabs slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__empty_field",
+                "name": "__slot__empty",
+                "label": "empty slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__title_field",
+                "name": "__slot__title",
+                "label": "title slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "</template>\n\n<!-- @slot Slot takes name from 'ref' key inside data",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-text-area",
+        "description": "ac Text Area component",
+        "fields": [
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-view",
+        "description": "View component for ac-collections",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "header_label_field",
+                "name": "header_label",
+                "label": "header_label",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "header_classes_field",
+                "name": "header_classes",
+                "label": "header_classes",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-data",
+        "description": null,
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__success_field",
+                "name": "__event__success",
+                "label": "success event",
+                "description": "Fires when data is successfully loaded from API.",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__success_field",
+                "name": "__event__params__success",
+                "label": "success event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__loading_field",
+                "name": "__event__loading",
+                "label": "loading event",
+                "description": "Fires before call to API starts.",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__loading_field",
+                "name": "__event__params__loading",
+                "label": "loading event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__loaded_field",
+                "name": "__event__loaded",
+                "label": "loaded event",
+                "description": "Fires when API gives responce.",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__loaded_field",
+                "name": "__event__params__loaded",
+                "label": "loaded event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__failure_field",
+                "name": "__event__failure",
+                "label": "failure event",
+                "description": "Fires when data is failed to loaded from API.",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__failure_field",
+                "name": "__event__params__failure",
+                "label": "failure event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-bulk-actions",
+        "description": "ac bulk actions component",
+        "fields": [
+            {
+                "id": "buttons_field",
+                "name": "buttons",
+                "label": "buttons",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "collection_ref_field",
+                "name": "collection_ref",
+                "label": "collection_ref",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-collection-grouped-card",
+        "description": "ac collection grouped card component",
+        "fields": [
+            {
+                "id": "group_key_field",
+                "name": "group_key",
+                "label": "group_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_type_field",
+                "name": "ac_type",
+                "label": "ac_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "tabs_attrs_field",
+                "name": "tabs_attrs",
+                "label": "tabs_attrs",
+                "description": "",
+                "type": "form",
+                "formJson": {
+                    "fields": [
+                        {
+                            "id": "card_field",
+                            "name": "card",
+                            "label": "card",
+                            "type": "radio",
+                            "option": [
+                                {
+                                    "label": "Yes",
+                                    "value": true
+                                },
+                                {
+                                    "label": "No",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "pills_field",
+                            "name": "pills",
+                            "label": "pills",
+                            "type": "radio",
+                            "option": [
+                                {
+                                    "label": "Yes",
+                                    "value": true
+                                },
+                                {
+                                    "label": "No",
+                                    "value": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__group_header_field",
+                "name": "__slot__group_header",
+                "label": "group_header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__group_footer_field",
+                "name": "__slot__group_footer",
+                "label": "group_footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__load_more_button_field",
+                "name": "__slot__load_more_button",
+                "label": "load_more_button slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__group-header-click_field",
+                "name": "__event__group-header-click",
+                "label": "group-header-click event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__group-header-click_field",
+                "name": "__event__params__group-header-click",
+                "label": "group-header-click event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__delete_field",
+                "name": "__event__delete",
+                "label": "delete event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__delete_field",
+                "name": "__event__params__delete",
+                "label": "delete event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__click_field",
+                "name": "__event__click",
+                "label": "click event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__click_field",
+                "name": "__event__params__click",
+                "label": "click event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__hover_field",
+                "name": "__event__hover",
+                "label": "hover event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__hover_field",
+                "name": "__event__params__hover",
+                "label": "hover event params",
+                "type": "text"
+            },
+            {
+                "id": "bulk_field",
+                "name": "bulk",
+                "label": "bulk",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "card_img_field",
+                "name": "card_img",
+                "label": "card_img",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_img_hover_field",
+                "name": "card_img_hover",
+                "label": "card_img_hover",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_header_field",
+                "name": "card_header",
+                "label": "card_header",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_title_field",
+                "name": "card_title",
+                "label": "card_title",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_subtitle_field",
+                "name": "card_subtitle",
+                "label": "card_subtitle",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_body_field",
+                "name": "card_body",
+                "label": "card_body",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_body_html_field",
+                "name": "card_body_html",
+                "label": "card_body_html",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_footer_field",
+                "name": "card_footer",
+                "label": "card_footer",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_options_field",
+                "name": "card_options",
+                "label": "card_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "align_field",
+                "name": "align",
+                "label": "align",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "card_links_field",
+                "name": "card_links",
+                "label": "card_links",
+                "description": "",
+                "type": "grid",
+                "columns": [
+                    {
+                        "key": "label",
+                        "label": "label"
+                    },
+                    {
+                        "key": "href",
+                        "label": "href"
+                    },
+                    {
+                        "key": "variant",
+                        "label": "variant"
+                    },
+                    {
+                        "key": "actions",
+                        "label": ""
+                    }
+                ],
+                "formJson": {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "name": "label",
+                            "label": "label"
+                        },
+                        {
+                            "type": "text",
+                            "name": "href",
+                            "label": "href"
+                        },
+                        {
+                            "type": "text",
+                            "name": "variant",
+                            "label": "variant"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "col_options_field",
+                "name": "col_options",
+                "label": "col_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "max_height_field",
+                "name": "max_height",
+                "label": "max_height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "load_more_type_field",
+                "name": "load_more_type",
+                "label": "load_more_type",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "method_field",
+                "name": "method",
+                "label": "method",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "params_field",
+                "name": "params",
+                "label": "params",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "filter_key_field",
+                "name": "filter_key",
+                "label": "filter_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "filter_value_field",
+                "name": "filter_value",
+                "label": "filter_value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ac_cursor_field",
+                "name": "ac_cursor",
+                "label": "ac_cursor",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "fetch_count_field",
+                "name": "fetch_count",
+                "label": "fetch_count",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "sort_key_field",
+                "name": "sort_key",
+                "label": "sort_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "response_key_field",
+                "name": "response_key",
+                "label": "response_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-compose-message",
+        "description": null,
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "value_field",
+                "name": "value",
+                "label": "value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__input_field",
+                "name": "__event__input",
+                "label": "input event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__input_field",
+                "name": "__event__params__input",
+                "label": "input event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__enter_field",
+                "name": "__event__enter",
+                "label": "enter event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__enter_field",
+                "name": "__event__params__enter",
+                "label": "enter event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-dual-list",
+        "description": "ac dual list component",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "collection_options_field",
+                "name": "collection_options",
+                "label": "collection_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "dropdown_options_field",
+                "name": "dropdown_options",
+                "label": "dropdown_options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "value_field",
+                "name": "value",
+                "label": "value",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__change_field",
+                "name": "__event__change",
+                "label": "change event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__change_field",
+                "name": "__event__params__change",
+                "label": "change event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__input_field",
+                "name": "__event__input",
+                "label": "input event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__input_field",
+                "name": "__event__params__input",
+                "label": "input event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__dropdown_click', $event, 'left_field",
+                "name": "__event__dropdown_click', $event, 'left",
+                "label": "dropdown_click', $event, 'left event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__dropdown_click', $event, 'left_field",
+                "name": "__event__params__dropdown_click', $event, 'left",
+                "label": "dropdown_click', $event, 'left event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__dropdown_click', $event, 'right_field",
+                "name": "__event__dropdown_click', $event, 'right",
+                "label": "dropdown_click', $event, 'right event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__dropdown_click', $event, 'right_field",
+                "name": "__event__params__dropdown_click', $event, 'right",
+                "label": "dropdown_click', $event, 'right event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-html",
+        "description": null,
+        "fields": [
+            {
+                "id": "html_field",
+                "name": "html",
+                "label": "html",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-image-picker",
+        "description": "ac image picker component",
+        "fields": [
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "upload_url_field",
+                "name": "upload_url",
+                "label": "upload_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "search_key_field",
+                "name": "search_key",
+                "label": "search_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__file-check_field",
+                "name": "__event__file-check",
+                "label": "file-check event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__file-check_field",
+                "name": "__event__params__file-check",
+                "label": "file-check event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-image",
+        "description": "ac image component",
+        "fields": [
+            {
+                "id": "src_field",
+                "name": "src",
+                "label": "src",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "thumb_src_field",
+                "name": "thumb_src",
+                "label": "thumb_src",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "slide_field",
+                "name": "slide",
+                "label": "slide",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "fancybox_field",
+                "name": "fancybox",
+                "label": "fancybox",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "fancybox_config_field",
+                "name": "fancybox_config",
+                "label": "fancybox_config",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "width_field",
+                "name": "width",
+                "label": "width",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "height_field",
+                "name": "height",
+                "label": "height",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-mentions",
+        "description": "ac mentions component",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "value_field",
+                "name": "value",
+                "label": "value",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__input_field",
+                "name": "__event__input",
+                "label": "input event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__input_field",
+                "name": "__event__params__input",
+                "label": "input event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__enter_field",
+                "name": "__event__enter",
+                "label": "enter event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__enter_field",
+                "name": "__event__params__enter",
+                "label": "enter event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-modal",
+        "description": "ac modal component",
+        "fields": [
+            {
+                "id": "block_field",
+                "name": "block",
+                "label": "block",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "ref_field",
+                "name": "ref",
+                "label": "ref",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-multi-search",
+        "description": null,
+        "fields": [
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "types_field",
+                "name": "types",
+                "label": "types",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "loading_image_field",
+                "name": "loading_image",
+                "label": "loading_image",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "group_key_field",
+                "name": "group_key",
+                "label": "group_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "search_param_field",
+                "name": "search_param",
+                "label": "search_param",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "more_btn_link_field",
+                "name": "more_btn_link",
+                "label": "more_btn_link",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__slot__result_title_field",
+                "name": "__slot__result_title",
+                "label": "result_title slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__result_body_field",
+                "name": "__slot__result_body",
+                "label": "result_body slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__more_btn_field",
+                "name": "__slot__more_btn",
+                "label": "more_btn slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__types_field",
+                "name": "__slot__types",
+                "label": "types slot",
+                "description": "</b-form-checkbox-group>\n\n<!-- @slot types slot for types checkboxes",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__enter_field",
+                "name": "__event__enter",
+                "label": "enter event",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__event__params__enter_field",
+                "name": "__event__params__enter",
+                "label": "enter event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-notifications",
+        "description": "ac notifications component",
+        "fields": [
+            {
+                "id": "title_field",
+                "name": "title",
+                "label": "title",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "data_field",
+                "name": "data",
+                "label": "data",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "url_field",
+                "name": "url",
+                "label": "url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "show_mark_all_btn_field",
+                "name": "show_mark_all_btn",
+                "label": "show_mark_all_btn",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "mark_all_btn_label_field",
+                "name": "mark_all_btn_label",
+                "label": "mark_all_btn_label",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "mark_all_btn_url_field",
+                "name": "mark_all_btn_url",
+                "label": "mark_all_btn_url",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "show_see_all_btn_field",
+                "name": "show_see_all_btn",
+                "label": "show_see_all_btn",
+                "description": "",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "see_all_btn_label_field",
+                "name": "see_all_btn_label",
+                "label": "see_all_btn_label",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "see_all_btn_link_field",
+                "name": "see_all_btn_link",
+                "label": "see_all_btn_link",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "read_key_field",
+                "name": "read_key",
+                "label": "read_key",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "__slot__body_field",
+                "name": "__slot__body",
+                "label": "body slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__clicked_field",
+                "name": "__event__clicked",
+                "label": "clicked event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__clicked_field",
+                "name": "__event__params__clicked",
+                "label": "clicked event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-sort",
+        "description": "ac sort component",
+        "fields": [
+            {
+                "id": "options_field",
+                "name": "options",
+                "label": "options",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "collection_ref_field",
+                "name": "collection_ref",
+                "label": "collection_ref",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__input_field",
+                "name": "__event__input",
+                "label": "input event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__input_field",
+                "name": "__event__params__input",
+                "label": "input event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__change_field",
+                "name": "__event__change",
+                "label": "change event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__change_field",
+                "name": "__event__params__change",
+                "label": "change event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-timeago",
+        "description": "ac timeago component",
+        "fields": [
+            {
+                "id": "date_field",
+                "name": "date",
+                "label": "date",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "in_date_format_field",
+                "name": "in_date_format",
+                "label": "in_date_format",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "out_date_format_field",
+                "name": "out_date_format",
+                "label": "out_date_format",
+                "description": "",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-timeline-item",
+        "description": "ac-timeline-item component",
+        "fields": [
+            {
+                "id": "item_field",
+                "name": "item",
+                "label": "item",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-timeline",
+        "description": "ac-timeline component",
+        "fields": [
+            {
+                "id": "items_field",
+                "name": "items",
+                "label": "items",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "ac-wizard",
+        "description": null,
+        "fields": [
+            {
+                "id": "steps_field",
+                "name": "steps",
+                "label": "steps",
+                "description": null,
+                "type": "textarea"
+            },
+            {
+                "id": "previous_btn_label_field",
+                "name": "previous_btn_label",
+                "label": "previous_btn_label",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "previous_btn_class_field",
+                "name": "previous_btn_class",
+                "label": "previous_btn_class",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "next_btn_label_field",
+                "name": "next_btn_label",
+                "label": "next_btn_label",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "next_btn_class_field",
+                "name": "next_btn_class",
+                "label": "next_btn_class",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "finish_btn_label_field",
+                "name": "finish_btn_label",
+                "label": "finish_btn_label",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "finish_btn_class_field",
+                "name": "finish_btn_class",
+                "label": "finish_btn_class",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__default_field",
+                "name": "__slot__default",
+                "label": "default slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__event__completed-step_field",
+                "name": "__event__completed-step",
+                "label": "completed-step event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__completed-step_field",
+                "name": "__event__params__completed-step",
+                "label": "completed-step event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__clicked-back_field",
+                "name": "__event__clicked-back",
+                "label": "clicked-back event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__clicked-back_field",
+                "name": "__event__params__clicked-back",
+                "label": "clicked-back event params",
+                "type": "text"
+            },
+            {
+                "id": "__event__stepper-finished_field",
+                "name": "__event__stepper-finished",
+                "label": "stepper-finished event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__stepper-finished_field",
+                "name": "__event__params__stepper-finished",
+                "label": "stepper-finished event params",
+                "type": "text"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "component": "appup-filter",
+        "description": null,
+        "fields": [
+            {
+                "id": "filter-json_field",
+                "name": "filter-json",
+                "label": "filter-json",
+                "description": null,
+                "type": "textarea"
+            },
+            {
+                "id": "__event__save_field",
+                "name": "__event__save",
+                "label": "save event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__save_field",
+                "name": "__event__params__save",
+                "label": "save event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__apply_field",
+                "name": "__event__apply",
+                "label": "apply event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__event__params__apply_field",
+                "name": "__event__params__apply",
+                "label": "apply event",
+                "description": null,
+                "type": "text"
+            },
+            {
+                "id": "__slot__filterButton_field",
+                "name": "__slot__filterButton",
+                "label": "filterButton slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__header_field",
+                "name": "__slot__header",
+                "label": "header slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "__slot__footer_field",
+                "name": "__slot__footer",
+                "label": "footer slot",
+                "description": "",
+                "type": "textarea"
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "",
+                "type": "text"
+            }
+        ]
+    }
+]

@@ -1,0 +1,1237 @@
+{
+  "all_form_fields": {
+    "fields": [
+      {
+        "id": 10,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true
+      },
+      {
+        "id": 20,
+        "type": "email",
+        "name": "email",
+        "label": "Email",
+        "placeholder": "Enter Email",
+        "required": true
+      },
+      {
+        "type": "quilljs",
+        "config": {
+          "debug": "error",
+          "placeholder": "i am appup..",
+          "readOnly": "true",
+          "theme": "snow",
+          "modules": {
+            "toolbar": [["video"], ["link"]]
+          }
+        }
+      },
+      {
+        "id": 40,
+        "type": "password",
+        "name": "password",
+        "label": "Password",
+        "placeholder": "Enter Password",
+        "required": true,
+        "minLength": 2,
+        "maxLength": 10
+      },
+      {
+        "id": 40,
+        "type": "number",
+        "name": "age",
+        "label": "Age",
+        "placeholder": "Enter Age",
+        "required": true,
+        "min": 18,
+        "max": 99
+      },
+      {
+        "id": 50,
+        "type": "dropdown",
+        "name": "dropdown",
+        "label": "Dropdown",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "a",
+            "label": "This is First option"
+          },
+          {
+            "value": "b",
+            "label": "This will be selected",
+            "checked": true
+          },
+          {
+            "value": "c",
+            "label": "This is an option with object value"
+          },
+          {
+            "value": "d",
+            "label": "This one is disabled",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 60,
+        "type": "dropdown",
+        "name": "dropdownDynamic",
+        "label": "Dropdown with Options from url",
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "key_value": "id",
+        "key_label": "title",
+        "required": true
+      },
+      {
+        "id": 70,
+        "type": "multiselect",
+        "name": "multiselect",
+        "label": "Multiselect",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "js",
+            "label": "Javascript"
+          },
+          {
+            "value": "java",
+            "label": "Java"
+          },
+          {
+            "value": "ruby",
+            "label": "Ruby"
+          },
+          {
+            "value": "php",
+            "label": "PHP",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 80,
+        "type": "multiselect",
+        "name": "multiselectDynamic",
+        "label": "Multiselect with Options from url",
+        "url": "https://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+        "key_value": "value",
+        "key_label": "label",
+        "required": true
+      },
+      {
+        "id": 90,
+        "type": "tags",
+        "name": "tags",
+        "label": "Tags Input",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "js",
+            "label": "Javascript"
+          },
+          {
+            "value": "java",
+            "label": "Java"
+          },
+          {
+            "value": "ruby",
+            "label": "Ruby"
+          },
+          {
+            "value": "php",
+            "label": "PHP",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 100,
+        "type": "tags",
+        "name": "tagsDynamic",
+        "label": "Tags input with Options from url",
+        "url": "https://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+        "key_value": "value",
+        "key_label": "label",
+        "required": true
+      },
+      {
+        "id": 110,
+        "type": "checkbox",
+        "name": "checkbox",
+        "label": "Checkbox",
+        "option": [
+          {
+            "label": "Orange",
+            "value": "orange"
+          },
+          {
+            "label": "Apple",
+            "value": "apple",
+            "checked": true
+          },
+          {
+            "label": "Pineapple",
+            "value": "pineapple"
+          },
+          {
+            "label": "Grape",
+            "value": "grape",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 120,
+        "type": "radio",
+        "name": "radio",
+        "label": "Radio",
+        "option": [
+          {
+            "label": "Toggle this custom radio",
+            "value": "first"
+          },
+          {
+            "label": "Or toggle this other custom radio",
+            "value": "second",
+            "selected": true
+          },
+          {
+            "label": "This one is Disabled",
+            "value": "third",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 130,
+        "type": "date",
+        "name": "date",
+        "label": "Date",
+        "placeholder": "Pick Date",
+        "required": true
+      },
+      {
+        "id": 140,
+        "type": "time",
+        "name": "time",
+        "label": "Time",
+        "placeholder": "Pick Time",
+        "required": true
+      },
+      {
+        "id": 150,
+        "type": "datetime",
+        "name": "datetime",
+        "label": "Datetime",
+        "placeholder": "Pick Datetime",
+        "required": true
+      },
+      {
+        "id": 160,
+        "type": "daterange",
+        "name": "daterange",
+        "label": "Date Range",
+        "placeholder": "Pick a date range",
+        "required": true
+      },
+      {
+        "id": 170,
+        "type": "textarea",
+        "name": "textarea",
+        "label": "Textarea",
+        "placeholder": "Pick Textarea",
+        "required": true
+      },
+      {
+        "id": 210,
+        "type": "dropdown",
+        "name": "dropdown-select",
+        "label": "&spades; Dynamic Field Dropdown (Selecting a value in dropdown will render that component below it)",
+        "option": [
+          {
+            "type": "textarea",
+            "label": "Textarea",
+            "value": "textarea",
+            "required": true,
+            "text": "Textarea"
+          },
+          {
+            "type": "radio",
+            "label": "Radio",
+            "value": "radio",
+            "option": [
+              {
+                "label": "Toggle this custom radio",
+                "value": "first"
+              },
+              {
+                "label": "Or toggle this other custom radio",
+                "value": "second"
+              },
+              {
+                "label": "This one is Disabled",
+                "value": "third",
+                "disabled": true
+              }
+            ],
+            "required": true,
+            "text": "Radio"
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 220,
+        "type": "radio",
+        "name": "raio-select",
+        "label": "&spades; Dynamic Radio Field (Selecting a value will render that component below it)",
+        "option": [
+          {
+            "type": "textarea",
+            "label": "Textarea",
+            "value": "textarea",
+            "required": true,
+            "text": "Textarea"
+          },
+          {
+            "type": "radio",
+            "label": "Radio",
+            "value": "radio",
+            "option": [
+              {
+                "label": "Toggle this custom radio",
+                "value": "first"
+              },
+              {
+                "label": "Or toggle this other custom radio",
+                "value": "second"
+              },
+              {
+                "label": "This one is Disabled",
+                "value": "third",
+                "disabled": true
+              }
+            ],
+            "required": true,
+            "text": "Radio"
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": "template",
+        "type": "code-editor",
+        "lang": "html",
+        "name": "TEMPLATE",
+        "height": "1000px",
+        "width": "95%",
+        "rows": "10",
+        "max-row": "100",
+        "label": "Write your template",
+        "required": true,
+        "class": "col-sm-12",
+        "container": "settings",
+        "container-name": "Template",
+        "container-active": "true"
+      },
+      {
+        "id": 230,
+        "type": "checkbox",
+        "name": "checkbox-select",
+        "label": "&spades; Dynamic Field Checkbox (Selecting a value will render that component below it)",
+        "option": [
+          {
+            "type": "textarea",
+            "label": "Textarea",
+            "value": "textarea",
+            "required": true,
+            "text": "Textarea"
+          },
+          {
+            "type": "radio",
+            "label": "Radio",
+            "value": "radio",
+            "option": [
+              {
+                "label": "Toggle this custom radio",
+                "value": "first"
+              },
+              {
+                "label": "Or toggle this other custom radio",
+                "value": "second"
+              },
+              {
+                "label": "This one is Disabled",
+                "value": "third",
+                "disabled": true
+              }
+            ],
+            "required": true,
+            "text": "Radio"
+          }
+        ],
+        "required": true
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Continue",
+        "variant": "primary",
+        "type": "submit",
+        "function": "onSubmit"
+      }
+    ],
+    "nextUrl": "/verifycode",
+    "submit": "post_signup",
+    "post": "register"
+  },
+  "gridfield": {
+    "fields": [
+      {
+        "id": 10,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true
+      },
+      {
+        "id": "sss",
+        "type": "grid",
+        "name": "gridfield",
+        "columns": [
+          {
+            "key": "age",
+            "label": "Age",
+            "sortable": true,
+            "class": "text-center"
+          },
+          {
+            "key": "first_name",
+            "label": "First Name",
+            "sortable": true,
+            "sortDirection": "desc"
+          },
+          {
+            "key": "last_name",
+            "label": "Last Name"
+          },
+          {
+            "key": "actions",
+            "label": ""
+          }
+        ],
+        "formJson": {
+          "fields": [
+            {
+              "type": "text",
+              "name": "age",
+              "label": "Age",
+              "required": true
+            },
+            {
+              "type": "text",
+              "name": "first_name",
+              "label": "First Name"
+            },
+            {
+              "type": "text",
+              "name": "last_name",
+              "label": "Last Name"
+            }
+          ]
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Continue",
+        "variant": "primary",
+        "type": "submit",
+        "function": "onSubmit"
+      }
+    ],
+    "nextUrl": "/verifycode",
+    "post": "register"
+  },
+  "user": {
+    "fields": [
+      {
+        "id": 1,
+        "type": "text",
+        "name": "id",
+        "label": "ID"
+      },
+      {
+        "id": 2,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true
+      },
+      {
+        "id": 3,
+        "type": "text",
+        "name": "username",
+        "label": "User Name"
+      },
+      {
+        "id": 4,
+        "type": "text",
+        "name": "email",
+        "label": "Email",
+        "required": true
+      },
+      {
+        "id": 5,
+        "type": "form",
+        "name": "company",
+        "label": "Company Details",
+        "formJson": {
+          "fields": [
+            {
+              "type": "text",
+              "name": "name",
+              "label": "Name",
+              "required": true
+            },
+            {
+              "type": "text",
+              "name": "catchPhrase",
+              "label": "catchPhrase"
+            },
+            {
+              "type": "text",
+              "name": "bs",
+              "label": "BS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 130,
+        "type": "date",
+        "name": "date",
+        "label": "Date",
+        "placeholder": "Pick Date",
+        "required": true
+      }
+    ]
+  },
+  "test": {
+    "fields": [
+      {
+        "id": 2,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true,
+        "inlineClass": "col-md-6"
+      },
+      {
+        "id": 22,
+        "type": "textarea",
+        "name": "textarea",
+        "label": "textarea",
+        "placeholder": "Enter textarea",
+        "maxLength": 6,
+        "required": true
+      },
+      {
+        "id": 22,
+        "type": "textarea",
+        "name": "textarea1",
+        "label": "textarea1",
+        "placeholder": "Enter textarea",
+        "required": true,
+        "description":"description"
+      },
+      {
+        "id": 50,
+        "type": "dropdown",
+        "name": "select",
+        "label": "Sample Select",
+        "inlineClass": "col-md-12",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "one",
+            "label": "one"
+          },
+          {
+            "value": "two",
+            "label": "two"
+          },
+          {
+            "value": "three",
+            "label": "three"
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 60,
+        "type": "dropdown",
+        "name": "dropdownDynamic",
+        "label": "Dropdown with Options from url",
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "key_value": "id",
+        "key_label": "title",
+        "required": true,
+        "inlineClass": "col-md-4"
+      },
+      {
+        "id": 130,
+        "type": "date",
+        "name": "date",
+        "label": "Date",
+        "placeholder": "Pick Date",
+        "required": true,
+        "event.input": "callhandler"
+      },
+      {
+        "id": 90,
+        "type": "tags",
+        "name": "tags",
+        "label": "Tags Input",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "js",
+            "label": "Javascript"
+          },
+          {
+            "value": "java",
+            "label": "Java"
+          },
+          {
+            "value": "ruby",
+            "label": "Ruby"
+          },
+          {
+            "value": "php",
+            "label": "PHP",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 100,
+        "type": "tags",
+        "name": "tagsDynamic",
+        "label": "Tags input with Options from url",
+        "url": "https://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+        "key_value": "value",
+        "key_label": "label",
+        "required": true
+      },
+      {
+        "id": 110,
+        "type": "checkbox",
+        "name": "checkbox",
+        "label": "Checkbox",
+        "option": [
+          {
+            "label": "Orange",
+            "value": "orange"
+          },
+          {
+            "label": "Apple",
+            "value": "apple",
+            "checked": true
+          },
+          {
+            "label": "Pineapple",
+            "value": "pineapple"
+          },
+          {
+            "label": "Grape",
+            "value": "grape",
+            "disabled": true
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": 120,
+        "type": "radio",
+        "name": "radio",
+        "label": "Radio",
+        "option": [
+          {
+            "label": "Toggle this custom radio",
+            "value": "first"
+          },
+          {
+            "label": "Or toggle this other custom radio",
+            "value": "second",
+            "selected": true
+          },
+          {
+            "label": "This one is Disabled",
+            "value": "third",
+            "disabled": true
+          }
+        ],
+        "required": true
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Continue",
+        "variant": "primary",
+        "type": "submit",
+        "function": "onSubmit"
+      }
+    ]
+  },
+  "test1": {
+    "fields": [
+      [
+        {
+          "type": "multiselect",
+          "name": "multiselect",
+          "label": "Multiselect",
+          "option": [
+            {
+              "value": null,
+              "label": "Please select an option"
+            },
+            {
+              "value": "js",
+              "label": "Javascript"
+            },
+            {
+              "value": "java",
+              "label": "Java"
+            },
+            {
+              "value": "ruby",
+              "label": "Ruby"
+            },
+            {
+              "value": "php",
+              "label": "PHP",
+              "disabled": true
+            }
+          ],
+          "required": true
+        },
+        {
+          "type": "multiselect",
+          "name": "multiselectDynamic",
+          "label": "Multiselect with Options from url",
+          "url": "https://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+          "key_value": "value",
+          "key_label": "label",
+          "required": true
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "name": "firstField",
+          "label": "First Row",
+          "required": true,
+          "value": "default value",
+          "tabGroup": "second",
+          "tabName": "second-tab1",
+          "tabActive": true
+        }
+      ],
+      [
+        {
+          "type": "password",
+          "name": "password",
+          "label": "Password",
+          "placeholder": "Enter Password",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 10,
+          "tabGroup": "second",
+          "tabName": "second-tab2",
+          "tabActive": true
+        },
+        {
+          "type": "textarea",
+          "name": "textarea",
+          "label": "Textarea",
+          "placeholder": "Pick Textarea",
+          "required": true
+        }
+      ],
+      [
+        {
+          "type": "dropdown",
+          "name": "select",
+          "label": "Sample Select",
+          "option": [
+            {
+              "value": null,
+              "label": "Please select an option"
+            },
+            {
+              "value": "one",
+              "label": "one"
+            },
+            {
+              "value": "two",
+              "label": "two"
+            },
+            {
+              "value": "three",
+              "label": "three"
+            }
+          ],
+          "required": true,
+          "tabGroup": "second",
+          "tabName": "second-tab1",
+          "tabActive": true
+        },
+        {
+          "type": "dropdown",
+          "name": "dropdownDynamic",
+          "label": "Dropdown with Options from url",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "key_value": "id",
+          "key_label": "title",
+          "required": true
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "name": "firstName",
+          "label": "First Name",
+          "placeholder": "Enter First Name",
+          "required": true,
+          "tabGroup": "first",
+          "tabName": "first-tab1"
+        },
+        {
+          "type": "text",
+          "name": "lastName",
+          "label": "Last Name",
+          "placeholder": "Enter Last Name",
+          "required": true,
+          "value": "linga"
+        },
+        {
+          "type": "text",
+          "name": "FullName",
+          "label": "Full Name",
+          "required": true,
+          "computation": "form.firstName+' '+form.lastName"
+        }
+      ],
+      [
+        {
+          "type": "email",
+          "name": "email",
+          "label": "Email",
+          "placeholder": "Enter Email",
+          "required": true,
+          "tabGroup": "first",
+          "tabName": "first-tab2",
+          "tabActive": true
+        },
+        {
+          "type": "number",
+          "name": "Phnumber",
+          "label": "Phone Number",
+          "placeholder": "Enter Phone Number",
+          "required": true,
+          "min": 10
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "name": "lastField",
+          "label": "Last Row",
+          "required": true,
+          "condition": "this.form.firstName"
+        }
+      ]
+    ],
+    "buttons": [
+      {
+        "label": "Continue",
+        "variant": "primary",
+        "type": "submit",
+        "function": "onSubmit"
+      }
+    ]
+  },
+  "form": {
+    "fields": [
+      {
+        "id": 2,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true
+      },
+      {
+        "id": 50,
+        "type": "dropdown",
+        "name": "select",
+        "label": "Sample Select",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "one",
+            "label": "one"
+          },
+          {
+            "value": "two",
+            "label": "two"
+          },
+          {
+            "value": "three",
+            "label": "three"
+          }
+        ],
+        "required": true,
+        "container": "settings",
+        "container-name": "first",
+        "container-active": "true"
+      },
+      {
+        "id": 60,
+        "type": "dropdown",
+        "name": "dropdownDynamic",
+        "label": "Dropdown with Options from url",
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "key_value": "id",
+        "key_label": "title",
+        "required": true,
+        "container": "settings",
+        "container-name": "first",
+        "container-active": "true"
+      },
+      {
+        "id": 130,
+        "type": "date",
+        "name": "date",
+        "label": "Date",
+        "placeholder": "Pick Date",
+        "required": true,
+        "event.input": "callhandler",
+        "container": "settings",
+        "container-name": "first",
+        "container-active": "true"
+      },
+      {
+        "id": 90,
+        "type": "tags",
+        "name": "tags",
+        "label": "Tags Input",
+        "option": [
+          {
+            "value": null,
+            "label": "Please select an option"
+          },
+          {
+            "value": "js",
+            "label": "Javascript"
+          },
+          {
+            "value": "java",
+            "label": "Java"
+          },
+          {
+            "value": "ruby",
+            "label": "Ruby"
+          },
+          {
+            "value": "php",
+            "label": "PHP",
+            "disabled": true
+          }
+        ],
+        "required": true,
+        "container": "settings",
+        "container-name": "second"
+      },
+      {
+        "id": 100,
+        "type": "tags",
+        "name": "tagsDynamic",
+        "label": "Tags input with Options from url",
+        "url": "https://www.mocky.io/v2/5b507e3a3600003b14dd0e66",
+        "key_value": "value",
+        "key_label": "label",
+        "required": true,
+        "container": "settings",
+        "container-name": "second"
+      },
+      {
+        "type": "hidden",
+        "name": "df"
+      }
+    ]
+  },
+  "validations": {
+    "fields": [
+      {
+        "id": 2,
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "Enter Name",
+        "required": true,
+        "inlineClass": "col-md-6"
+      },
+      {
+        "id": 130,
+        "type": "date",
+        "name": "date",
+        "label": "Date",
+        "placeholder": "Pick Date",
+        "required": true,
+        "event.input": "callhandler"
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Continue",
+        "variant": "primary",
+        "type": "submit",
+        "function": "onSubmit"
+      }
+    ]
+  },
+  "testForm2": {
+    "fields": [
+      {
+        "id": 1,
+        "type": "text",
+        "name": "id",
+        "label": "ID",
+        "sectionName": "1",
+        "rowIndex": "1"
+      },
+      {
+        "type": "swatches",
+        "name": "swatches",
+        "description": "Ac swatches",
+        "label": "Sample swatches",
+        "colors": ["#F64272", "#F6648B", "#F493A7", "#F891A6", "#FFCCD5"],
+        "color": "",
+        "sectionGroup": "first",
+        "rowIndex": "2"
+      },
+      {
+        "id": 1,
+        "type": "text",
+        "name": "id",
+        "label": "ID",
+        "sectionGroup": "third",
+        "sectionName": "1"
+      },
+      {
+        "id": 1,
+        "type": "text",
+        "name": "id",
+        "label": "ID"
+      }
+    ]
+  },
+  "BillingExample": {
+    "fields": [
+      {
+        "type": "html",
+        "html":"<h4>Billing Information</h4>",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "1"
+      },
+      {
+        "type": "text",
+        "name":"cardHolderName",
+        "label":"Card Holder Name",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "2"
+      },
+      {
+        "type": "email",
+        "name":"email",
+        "label":"Email",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "2"
+      },
+      {
+        "type": "text",
+        "name":"exipryMonth",
+        "label":"Exipry Month",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "3"
+      },
+      {
+        "type": "text",
+        "name":"exipryYear",
+        "label":"Exipry Year",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "3"
+      },
+      {
+        "type": "text",
+        "name":"CVV",
+        "label":"CVV",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "3"
+      },
+      {
+        "type": "html",
+        "html":"<h4>Billing Address</h4>",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "4"
+      },
+      {
+        "type": "textarea",
+        "name":"Address1",
+        "label":"Address-1",
+        "rows":"5",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "5"
+      },
+      {
+        "type": "textarea",
+        "name":"Address2",
+        "label":"Address-2",
+        "rows":"3",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "6"
+      },
+      {
+        "type": "text",
+        "name":"city",
+        "label":"city",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "7"
+      },
+      {
+        "type": "dropdown",
+        "name":"selectState",
+        "label":"Select State",
+        "options":[
+          {
+            "value":"ts",
+            "label":"Telangana"
+          },
+          {
+            "value":"ap",
+            "label":"Andra"
+          }
+        ],
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "7"
+      },
+      {
+        "type": "text",
+        "name":"zip",
+        "label":"Zip",
+        "sectionGroup":"first",
+        "sectionName": "1",
+        "rowIndex": "7"
+      },
+      {
+        "type": "html",
+        "html":"<h4>Product</h4>",
+        "sectionGroup":"first",
+        "sectionName": "2",
+        "rowIndex": "1"
+      },
+      {
+        "type": "dropdown",
+        "name":"selectProduct",
+        "label":"Select Product",
+        "options":[
+          {
+            "value":"1",
+            "label":"1"
+          },
+          {
+            "value":"2",
+            "label":"2"
+          }
+        ],
+        "sectionGroup":"first",
+        "sectionName": "2",
+        "rowIndex": "2"
+      },
+      {
+        "type": "text",
+        "name":"discount",
+        "label":"Discount",
+        "sectionGroup":"first",
+        "sectionName": "2",
+        "rowIndex": "8"
+      },
+      {
+        "type": "html",
+        "html":"<h4>Amount Due</h4>",
+        "sectionGroup":"first",
+        "sectionName": "2",
+        "rowIndex": "9"
+      },
+      {
+        "type": "text",
+        "name":"totalDue",
+        "label":"Total Due",
+        "sectionGroup":"first",
+        "sectionName": "2",
+        "rowIndex": "10"
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Save",
+        "variant": "primary",
+        "type": "submit"  
+      }
+    ]
+  }
+}

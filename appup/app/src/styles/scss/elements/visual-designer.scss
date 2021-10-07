@@ -1,0 +1,462 @@
+/*------------------------------------*/
+/*--------- VISUAL DESIGNER ----------*/
+/*------------------------------------*/
+#designer{
+ 	width: 100%;
+    min-height: 930px;
+    height: auto;
+}
+iframe#designer{
+	border: none;
+}
+.ui-widget-content{
+	border: none;
+	background: transparent;
+}
+.ui-widget{
+	font-family: 'Inter-UI-Regular';
+	margin: 0;
+}
+.ui-widget .ui-widget {
+	font-size: 1rem;
+    color:  #7C8EAA;
+    font-weight: 400;
+}
+#nodeui input:focus{
+	outline: none;
+}
+.ui-tabs{
+    background: #F5FAFF;
+    padding: 1.8rem 1.8rem;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-right: 1.9rem;
+    border: none;
+    height: 100%;
+}
+.toolbar_content{
+	margin: 0;
+	background: rgba(245, 250, 255, 0.5);
+    height: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#paintarea{
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.addmorebutton{
+	width: 100%;
+}
+.ui-button-text-only .ui-button-text{
+	padding: 0;
+}
+.ui-draggable {
+    background:  $white;
+    @include border-radius(3px);
+    border-radius:  3px;
+    border: 1px solid $lavender_gray;
+    margin-bottom: 1.6rem;
+    padding: 2.2rem 1rem 0.8rem;
+    min-height: 100px;
+    img {
+	    display:  block;
+	    margin-bottom: 19px;
+	}
+	label {
+	    font-size: 15px;
+	}
+}
+.ui-draggable 
+.ui-tabs-nav{
+	.ui-state-active .btn-outline-secondary:after{
+		@include transform(rotate(0deg));
+	}
+	.btn-outline-secondary{
+	    color: $blue_bg;
+	    width: 99px;
+	    text-align: left;
+	    padding: 0.4rem 0.6rem;
+	    font-size: 0.6rem;
+	    letter-spacing: 0.25px;
+	    margin-bottom: 0.95rem;
+	    margin-right: 0;
+	    margin-left: 0;
+	    display: block;
+	    text-transform: none;
+		&:after{
+	        content: '';
+		    position: relative;
+		    float: right;
+		    top: 0.8rem;
+		    border-style: solid;
+		    border-width: 4px 5px 0 5px;
+		    border-color: #BECDE2 transparent transparent transparent;
+		    @include transform(rotate(180deg));
+		}
+	}
+}
+	
+	
+.ui-tabs .ui-tabs-nav {
+    padding:  0;
+    background:  transparent;
+    border: none;
+    li {
+	    background:  transparent;
+	    border: none;
+	    top: 0;
+	    float: none;
+	    a{
+	    	float: none;
+	    	color: $blue_bg;
+    	    font-size: 10px;
+    		letter-spacing: -0.15px;
+	    }
+	}
+}
+.nodeItem {
+    background: $white;
+    border: 1px solid $lavender_gray;
+    @include border-radius(3px);
+    text-align: center;
+    width: 110px !important;
+    padding-top: 1.9rem;
+    padding-bottom: 0.2rem;
+    display: table;
+    table{
+    	margin: 0;
+    	width: 100%;
+    }
+
+}
+.portLabelLeft {
+    display:  none;
+}
+.portLabelbg{
+	display: inline-block;
+	padding: 0;
+}
+.nodedisplaynamestyle {
+    color: $ship_cove;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    font-family: 'Inter-UI-Regular';
+    font-weight: 400;
+}
+.nodeTable {
+    width: 100%;
+}
+.nodeIconClass{
+    width: 27px;
+    height: 34px;
+}
+.portLabelbg{
+    text-transform: capitalize;
+	&:first-child{
+		.style1{
+			color: $emerald;
+			&:after{
+	    	    content: '';
+			    background: $lavender_gray;
+			    width: 1px;
+			    height: 100%;
+			    top: -1px;
+			    bottom: -4px;
+			    right: -2px;
+			    position: absolute;
+		    }
+		}
+	}
+	&:nth-child(3){
+		.style1{
+			color: $brink_pink;
+		}
+	}
+	.style1{
+	    display: inline-block;
+	    position: relative;
+	    font-size: 10px;
+	    text-transform: capitalize;
+	    font-family: 'Inter-UI-Regular';
+	    font-weight: 400;
+	    padding: 0.6rem 0.7rem 0.8rem;
+	    letter-spacing: 0;
+	    margin-bottom: -3px;
+	}
+}
+.portLabelbgHeight table{
+    height: 21px;
+    margin-top: 1.2rem;
+    border-top: 1px solid $lavender_gray;
+}
+.circleChrome{
+    background: #D2DEED !important;
+    border: none !important;
+}
+.ui-dialog {
+    width: 780px !important;
+    left: 0 !important;
+    position:  relative;
+    right: 0 !important;
+    margin: 0 auto;
+    top: 80px !important;
+    padding: 0;
+    &.ui-resizable{
+    	.ui-tabs .ui-tabs-nav{
+		    padding: 0 0 1.6rem;
+    	}
+    	.ui-tabs .ui-tabs-panel{
+    		padding: 0;
+    	}
+    	.ui-widget-header {
+		    background:  $white;
+		    border-color:  $lavender_gray;
+		    color:  $fiord;
+		    font-size: 12px;
+		    font-weight: 400;
+		}
+		.uicontainer .ui-state-default, .uicontainer .ui-widget-content .ui-state-default {
+		    background:  #fff;
+		    color: #7C8EAA;
+		    text-transform:  uppercase;
+		    font-size:  11px;
+		    width: 120px;
+		    margin-bottom: 1.4rem;
+		    padding: 0.8rem 0;
+		    border-color: $lavender_gray;
+		    font-weight: bold;
+		}
+    }
+}
+.ui-widget-overlay {
+    background: rgba(0, 32, 62, 0.32);
+    width: 100% !important;
+    height: 100% !important;
+    position:  absolute;
+    left:  0;
+    right:  0;
+    top: 0;
+}
+.ui-draggable .ui-dialog-titlebar {
+    background: transparent;
+    border: none;
+    @include border-radius(0);
+    padding: 2.6rem 3.2rem 0rem;
+    margin-bottom: 3rem;
+}
+.ui-dialog .ui-dialog-title {
+    font-size: 1.95rem;
+    margin-left: 0.1rem;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    color: $blue;
+    margin:  0;
+}
+.ui-icon-closethick {
+    background-position:  0;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+    position:  relative;
+    float:  right;
+    margin-top: 0.4rem;
+    margin-right: -0.8rem;
+    &.ui-state-hover{
+    	background-color: transparent;
+	    border: none;
+        margin-top: 0.4rem;
+    	margin-right: -0.8rem;
+    	padding: 1px;
+    }
+    &.ui-state-focus .ui-icon,
+    &.ui-state-hover .ui-icon{
+    	//background-image: url(../css/images/ui-icons_0073ea_256x240.png);
+    	margin: 1px;
+    }
+}
+.ui-dialog .ui-tabs {
+    border-radius: 0;
+    margin-right: 0;
+    padding: 0 0 0 2.1em;
+    background: rgba(26, 140, 255, 0.04);
+    overflow-x: hidden;
+    .ui-tabs-nav{
+    	padding: 0 2.1rem 1.6rem;
+	    background: $white;
+	    border: none;	    
+        margin: 0 -2.3rem 2.2rem;
+	    border-bottom: 1px solid $lavender_gray;
+    	li {
+    	display:  inline-block;
+	        a{
+	        	text-transform: uppercase;
+			    color:  $rock_blue;
+			    font-weight: 400;
+			    padding: .5em 1.32em;
+	    		letter-spacing: 0.35px;
+	        }
+	        &.ui-tabs-selected a{
+	        	color: #2D8DFE;
+	        	outline: none;
+	        	&:after {
+				    content: '';
+				    background:  #2D8DFE;
+				    position:  absolute;
+				    width:  100%;
+				    height:  1px;
+				    bottom: -17px;
+				    left:  -2px;
+				    right:  -2px;
+				}
+	        }
+    	}
+    }
+    .ui-tabs-panel{
+        float: left;
+	    padding: 1em 1rem;
+	    height: 100%;
+	    max-width: 100%;
+	    width: 100%;
+    }
+    	
+}
+.ui-dialog{
+	.catalogtemp{
+		border: 1px solid $lavender_gray;
+    	@include border-radius(3px);
+    	background: $white;
+	    width: 229px;
+    	margin-right: 1.4rem;
+    	max-height: 123px;
+		img{
+			margin-bottom: 1rem;
+		}
+	}
+	ul.column{
+		margin-bottom: 0;
+		padding-left: 0;
+		li{
+			max-height: 140px;
+			margin-bottom: 1.6rem;
+		}
+		&:nth-child(3n+3){
+			.catalogtemp{
+				margin-right: 0;
+			}
+		}
+	}
+	.catalogname{
+	    font-size: 12px;
+	    margin: 12px 0 1px;
+	    color: $blue_bg;
+	}
+	.cataloginfo{
+	    max-height: 65px;
+	    min-height: auto;
+	    margin-top: 0;
+	    overflow: hidden;
+	    height: 30px;
+	    width: 200px;
+	    line-height: 16px;
+	}
+	.buttons-form{
+	    background:  $white;
+	    width:  100%;
+	    position: absolute;
+	    bottom:  0;
+	    top: 100%;
+	    height:  auto;
+	    display: table;
+	    margin-left:  -2.1rem;
+	    padding: 1.6rem 1.3rem 1.5rem;
+	    .btn-primary{
+		    background:  $blue_bg;
+	        border: none;
+		    padding: 1.33rem 0;
+		    letter-spacing: 0.65px;
+		}
+	}
+	
+}
+ul#catalogtemplate:last-child li, 
+ul#catalogtemplate:nth-last-child(2) li, 
+ul#catalogtemplate:nth-last-child(3) li {
+    margin-bottom: 3.2rem;
+}
+.ui-dialog.ui-resizable .ui-dialog-content {
+    padding: 0.5em 2.9em;
+}
+fieldset{
+	 .ui-draggable img{
+    	margin-bottom: 0;
+    }
+}
+#nodeui label{
+	line-height: 0.9;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: $fiord;
+    line-height: 0.8;
+    margin-bottom: 1rem;
+    font-family: 'Inter-UI-Medium';
+}
+#nodeui input{
+	border: 1px solid $lavender_gray;
+	@include border-radius(3px);
+    border-radius: 3px;
+    font-size: 13px;
+    padding: 0.73rem 1.05rem;
+    color: $fiord;
+}
+#nodeui select {
+    -webkit-appearance: menulist;
+    -moz-appearance: none;
+    text-overflow: "";
+    border: 1px solid $lavender_gray;
+    color:  $fiord;
+    @include border-radius(3px);
+    padding: 0.7rem 2.2rem 0.7rem 0.9rem;
+    font-size:  12px;
+    letter-spacing: 0.35px;
+    background: $white;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+    margin-right:  2.5rem;
+    background: $blue_bg;
+    color:  $white;
+    font-size:  11px;
+    border: none;
+    text-align: center;
+    text-transform:  uppercase;
+    font-weight: bold;
+    padding: 1.25rem 0;
+    width:  150px;
+}
+.ui-button-text-icon-primary .ui-button-icon-primary {
+    display:  none;
+}
+.ui-button .ui-button-text {
+    padding: 0;
+}
+.ui-dialog .ui-dialog-buttonpane {
+    padding-bottom: 1.5rem;
+}
+#nodeui th{
+	font-size: 12px;
+	color: $fiord;
+	border-color: $lavender_gray;
+	font-weight: 400;
+}
+.ui-widget textarea{
+	width: 97%;
+	font-family: 'Inter-UI-Regular';
+	font-size: 12px;
+	color: $fiord;
+	border-color: $lavender_gray;
+	@include border-radius(3px);
+}
+
+/*------------------------------------*/
+/*--------- /VISUAL DESIGNER ---------*/
+/*------------------------------------*/

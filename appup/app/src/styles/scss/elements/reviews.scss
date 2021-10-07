@@ -1,0 +1,60 @@
+/*------------------------------------*/
+/*--------------- REVIEWS ------------*/
+/*------------------------------------*/
+.reviews{
+	padding-top:  1.7rem;
+	.comments{
+        border-bottom: 1px solid $light_gray;
+    	margin: 0 -1.6rem 1.5rem;
+    	padding: 0 1.5rem 1.1rem;
+	    .comment{
+	    	position: relative;
+	        margin-bottom: 1.25rem;
+	    	img {
+			    margin-right:  0.8rem;
+			}
+			h5 {
+			    letter-spacing: 0.55px;
+			    color: rgba(77, 89, 104, 0.85);
+	            margin-bottom: 0.4rem;
+    			font-size: 0.85rem;
+			}
+			p{
+			    color: $rock_blue;
+			    letter-spacing: 0;
+			    margin-bottom: 0;
+			    font-size: 0.8125rem;
+			}
+			.stars{
+			    position: absolute;
+			 	right: 0;
+				top: -0.4rem;
+				span{
+				    font-size: 0.5rem;
+    				margin-left: -0.1rem;
+				}
+			}
+			.comment-content{
+			    max-width: 88%;
+			}
+    	} 
+	}
+}
+.modal.plugin-modal .modal-body .reviews{
+	h4{
+     	margin-bottom: 1.7rem;
+	}
+}
+@media(max-width: 767px){
+	.reviews .comments .comment p{
+		font-size: 0.7rem;
+	}
+}
+@media(max-width: 375px){
+	.reviews .comments .comment .comment-content{
+	    max-width: 80.9%;
+	}
+}
+/*------------------------------------*/
+/*-------------- /REVIEWS ------------*/
+/*------------------------------------*/

@@ -1,0 +1,440 @@
+[
+    {
+        "id": "load_form",
+        "triggerName": "test",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "PBXst5oZMTZlN"
+                }
+            },
+            {
+                "id": "PBXst5oZMTZlN",
+                "type": "js",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "JS code",
+                "code": "function(data, ui){\r\nif(window.UIJSON[ui.workflow_params.entity].submit){ui.submit=window.UIJSON[ui.workflow_params.entity].submit;\r\n }\r\n\r\n ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; \r\nui.buttons = window.UIJSON[ui.workflow_params.entity].buttons;\r\n}"
+            }
+        ]
+    },
+    {
+        "id": "transform",
+        "triggerName": "null",
+        "workflow": [
+          {
+            "id": "1",
+            "type": "start",
+            "next": {
+              "success": "PBXHnFkC0oRJi"
+            }
+          },
+          {
+            "id": "PBXHnFkC0oRJi",
+            "type": "ajax",
+            "next": {
+              "failure": "hangup",
+              "success": "PBXwxNGNNN0Uf"
+            },
+            "nodename": "Ajax",
+            "url": "https://jsonplaceholder.typicode.com/posts/1/comments",
+            "method": "get",
+            "jsonp": "false",
+            "data": " ",
+            "var": "response",
+            "data_params": [
+              {
+                "name": "value"
+              }
+            ],
+            "headers": [
+              {
+                "Accept": "text/plain"
+              }
+            ]
+          },
+          {
+            "id": "PBXkDwL9TBdrE",
+            "type": "js",
+            "next": {
+              "success": "hangup"
+            },
+            "nodename": "JS code",
+            "code": "function(data,ui){\r\ndebugger;\r\n}"
+          },
+          {
+            "id": "PBXwxNGNNN0Uf",
+            "type": "transform",
+            "next": {
+              "success": "hangup"
+            },
+            "nodename": "Transform",
+            "transform_data_variable": "response",
+            "transform_data_variable_key": "data",
+            "transform_map_variable": "",
+            "transform_map_variable_key": "",
+            "transform_output_variable": "out",
+            "transform_data": "{\r\n    \"posts\" : [\r\n        {\r\n            \"title\" : \"title1\",\r\n            \"description\": \"description1\",\r\n            \"blog\": \"This is a blog.\",\r\n            \"date\": \"11/4/2013\",\r\n            \"extra\" : {\r\n                \"link\" : \"http://goo.cm\"\r\n            },\r\n            \"list1\":[\r\n                {\r\n                    \"name\":\"mike\"\r\n                }\r\n            ],\r\n            \"list2\":[\r\n                {\r\n                    \"item\": \"thing\"\r\n                }\r\n            ],\r\n            \"clearMe\": \"text\"\r\n        }\r\n    ]\r\n}",
+            "transform_map": "{\r\n    \"list\" : \"data\",\r\n    \"item\": {\r\n        \"id\": \"postId\"\r\n    }\r\n}",
+            "transform_operations": [
+              {
+                "id": "function(val){\nreturn val+\" appended by transform\";\n}"
+              }
+            ]
+          }
+        ]
+    },     
+    {
+        "id": "if_step",
+        "triggerName": "app_loaded",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "PBXTWn4dpIkJx"
+                }
+            },
+            {
+                "id": "PBX9nUDsTk1N9",
+                "type": "alert",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Alert",
+                "title": "sucess",
+                "message": "sucess"
+            },
+            {
+                "id": "PBXdTkBZRwopG",
+                "type": "alert",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Alert",
+                "title": "failure",
+                "message": "failure"
+            },
+            {
+                "id": "PBXTWn4dpIkJx",
+                "type": "js",
+                "next": {
+                    "success": "PBXXOW4sClPGS"
+                },
+                "nodename": "JS code",
+                "code": "function(data,ui) {\r\ndata.var1 = 'hello';\r\ndata.var2 = 20;\r\nreturn data;\r\n}"
+            },
+            {
+                "id": "PBXXOW4sClPGS",
+                "type": "if_condition",
+                "next": {
+                    "success": "PBX9nUDsTk1N9",
+                    "failure": "PBXdTkBZRwopG"
+                },
+                "nodename": "If Condition",
+                "if_type": "strlen",
+                "variable1": "6",
+                "comparator": "!=",
+                "variable2": "{{var1}}"
+            }
+        ]
+    },
+    {
+        "id": "switch_demo",
+        "triggerName": "null",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "PBXkn7OQqT5mv"
+                }
+            },
+            {
+                "id": "PBXkn7OQqT5mv",
+                "type": "js",
+                "next": {
+                    "success": "PBXaEQ5RCzxqn"
+                },
+                "nodename": "JS code",
+                "code": "function(data, ui) {data.var1 = \"two\"; return data;}"
+            },
+            {
+                "id": "PBXF8IHgGweMH",
+                "type": "alert",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Alert",
+                "title": "Two",
+                "message": "alert two"
+            },
+            {
+                "id": "PBXaEQ5RCzxqn",
+                "type": "switch_case",
+                "next": {
+                    "two": "PBXF8IHgGweMH",
+                    "one": "hangup"
+                },
+                "nodename": "Switch Case",
+                "variable": "{{var1}}",
+                "cases": [
+                    {}
+                ]
+            }
+        ]
+    },
+    {
+        "id": "submit",
+        "triggerName": "contacts",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "PBXTnNqtxGyxB"
+                }
+            },
+            {
+                "id": "PBXiMDLM5R5T6",
+                "type": "js",
+                "next": {
+                    "success": "PBXMh946cdKiW"
+                },
+                "nodename": "JS code",
+                "code": "function(data,ui)\r\n{\r\n alert('in');  if(ui.workflow_params.entity)\r\n   {\r\n     data.entity = ui.workflow_params.entity;\r\n   }\r\n   else\r\n   {\r\n    data.entity = '{{route.params.entity}}';\r\n   }\r\n return data;\r\n}"
+            },
+            {
+                "id": "PBXMkqFh2U8cO",
+                "type": "validate",
+                "next": {
+                    "success": "PBXiMDLM5R5T6",
+                    "failure": "hangup"
+                },
+                "nodename": "Validate",
+                "form_id": ""
+            },
+            {
+                "id": "PBXMh946cdKiW",
+                "type": "ajax",
+                "next": {
+                    "failure": "PBXan90hmQk68",
+                    "success": "PBXgEcOx4vJAo"
+                },
+                "nodename": "Ajax",
+                "url": "{{ui_json.server}}/{{#with (lookup ui_json entity)}}{{{post}}}{{/with}}",
+                "method": "post",
+                "data": "{{{form-encoded form}}}",
+                "var": "output",
+                "data_params": [
+                    {
+                        "name": "value"
+                    }
+                ],
+                "headers": [
+                    {
+                        "Accept": "text/plain"
+                    }
+                ]
+            },
+            {
+                "id": "PBXan90hmQk68",
+                "type": "alert",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Alert",
+                "title": "failed",
+                "message": " "
+            },
+            {
+                "id": "PBXgEcOx4vJAo",
+                "type": "alert",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Copy of Alert",
+                "title": "Success",
+                "message": " "
+            },
+            {
+                "id": "PBXTnNqtxGyxB",
+                "type": "alert",
+                "next": {
+                    "success": "PBXMkqFh2U8cO"
+                },
+                "nodename": "Alert",
+                "title": "test from submit handler",
+                "message": " "
+            }
+        ]
+    },
+    {
+        "id": "load_form_with_data",
+        "triggerName": "null",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "PBXJpm1iXpp2C"
+                }
+            },
+            {
+                "id": "PBXJpm1iXpp2C",
+                "type": "js",
+                "next": {
+                    "success": "PBXVE45GCzek7"
+                },
+                "nodename": "JS code",
+                "code": "function(data, ui){ui.formFields=window.UIJSON[ui.workflow_params.entity].fields;ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons;}"
+            },
+            {
+                "id": "PBXVE45GCzek7",
+                "type": "ajax",
+                "next": {
+                    "failure": "hangup",
+                    "success": "PBXhrAhetbaxV"
+                },
+                "nodename": "Ajax",
+                "url": "https://api.myjson.com/bins/19pgo3",
+                "method": "get",
+                "data": " ",
+                "var": "response_data",
+                "data_params": [
+                    {
+                        "name": "value"
+                    }
+                ],
+                "headers": [
+                    {
+                        "Accept": "text/plain"
+                    }
+                ]
+            },
+            {
+                "id": "PBXhrAhetbaxV",
+                "type": "js",
+                "next": {
+                    "success": "PBXnBBrdzN4JZ"
+                },
+                "nodename": "JS code",
+                "code": "function(data, ui){console.log('test'); data.response_data = data.response_data.data;return data;}"
+            },
+            {
+                "id": "PBXnBBrdzN4JZ",
+                "type": "deserialize_form",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Deserialize",
+                "data": "response_data",
+                "form_id": "this"
+            }
+        ]
+    },
+    {
+        "id": "pre_load_entity",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){if(window.UIJSON[ui.workflow_params.entity].submit){ui.submit=window.UIJSON[ui.workflow_params.entity].submit } ui.formFields = window.UIJSON[ui.workflow_params.entity].fields; ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    },{
+        "id": "pre_load_entity_form2",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){debugger; if(window.UIJSON[ui.workflow_params.entity].submit){ui.submit=window.UIJSON[ui.workflow_params.entity].submit } ui.formFields = ui.convert_json(window.UIJSON[ui.workflow_params.entity].fields); ui.buttons = window.UIJSON[ui.workflow_params.entity].buttons}",
+                "next": {
+                    "success": "PBXVE45GCzek7"
+                }
+            },
+            {
+                "id": "PBXVE45GCzek7",
+                "type": "ajax",
+                "next": {
+                    "failure": "hangup",
+                    "success": "PBXhrAhetbaxV"
+                },
+                "nodename": "Ajax",
+                "url": "https://next.json-generator.com/api/json/get/E1VaU9tEu",
+                "method": "get",
+                "data": " ",
+                "var": "response_data",
+                "data_params": [
+                    {
+                        "name": "value"
+                    }
+                ],
+                "headers": [
+                    {
+                        "Accept": "text/plain"
+                    }
+                ]
+            },
+            {
+                "id": "PBXhrAhetbaxV",
+                "type": "js",
+                "next": {
+                    "success": "PBXnBBrdzN4JZ"
+                },
+                "nodename": "JS code",
+                "code": "function(data, ui){ debugger; console.log('test'); data.response_data = data.response_data.data;return data;}"
+            },
+            {
+                "id": "PBXnBBrdzN4JZ",
+                "type": "deserialize_form",
+                "next": {
+                    "success": "hangup"
+                },
+                "nodename": "Deserialize",
+                "data": "response_data",
+                "form_id": "this"
+            }
+        ]
+    },
+    {
+        "id": "callhandler",
+        "workflow": [
+            {
+                "id": "1",
+                "type": "start",
+                "next": {
+                    "success": "js"
+                }
+            },
+            {
+                "id": "js",
+                "type": "js",
+                "code": "function(data, ui){console.log('test from handler')}",
+                "next": {
+                    "success": "exit"
+                }
+            }
+        ]
+    }
+]

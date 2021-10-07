@@ -1,0 +1,174 @@
+{
+    "component": "appup-cms-item",
+    "description": null,
+    "category": "appup-cms-item",
+    "fields": [
+        {
+            "id": "page_template_url_field",
+            "name": "page_template_url",
+            "label": "Page Template URL",
+            "description": null,
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true",
+            "category-name": "",
+            "type": "text"
+        },
+        {
+            "id": "page_item_url_field",
+            "name": "page_item_url",
+            "label": "Page Item URL",
+            "description": null,
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true",
+            "category-name": "",
+            "type": "text"
+        },
+        {
+            "id": "blocks_url_field",
+            "name": "blocks_url",
+            "label": "Blocks URL",
+            "description": null,
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true",
+            "category-name": "",
+            "type": "text"
+        },
+        {
+            "id": "handler_url_field",
+            "name": "handler_url",
+            "label": "Handler URL",
+            "description": null,
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a",
+            "container-active": "true",
+            "category-name": "",
+            "type": "text"
+        },
+        {
+            "id": "handler_url_method_field",
+            "name": "handler_url_method",
+            "label": "handler_url_method",
+            "description": null,
+            "container": "settings",
+            "tab-order": "a",
+            "container-name": "props",
+            "category-name": "",
+            "type": "text"
+        },
+        {
+            "id": "refs_field",
+            "name": "refs",
+            "label": "refs",
+            "description": "Component reference",
+            "type": "text",
+            "container": "settings",
+            "container-name": "props",
+            "tab-order": "a"
+        },
+        {
+            "id": "__event__save_event_field",
+            "type": "grid",
+            "label": "save_event",
+            "name": "__event__save_event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        },
+        {
+            "id": "__event__update_event_field",
+            "type": "grid",
+            "label": "update_event",
+            "name": "__event__update_event",
+            "columns": [
+                {
+                    "key": "name",
+                    "label": "Handler name",
+                    "sortable": true
+                },
+                {
+                    "key": "params",
+                    "label": "Handler params"
+                },
+                {
+                    "key": "actions",
+                    "label": ""
+                }
+            ],
+            "formJson": {
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "name",
+                        "label": "Handler",
+                        "type": "dropdown",
+                        "url": "appdb/_db/HANDLER?fields=ID,IS_SECURE,IS_WRITABLE,NAME&where=OWNER_ID=0 or APPLICATION_ID={{appId}}&IS_SECURE=0",
+                        "option": [
+                            {
+                                "value": "",
+                                "label": "No Handler"
+                            }
+                        ],
+                        "key_value": "NAME",
+                        "key_label": "NAME"
+                    },
+                    {
+                        "id": "params",
+                        "name": "params",
+                        "label": "Handler Params",
+                        "type": "textarea"
+                    }
+                ]
+            },
+            "container": "settings",
+            "container-name": "events",
+            "tab-order": "c"
+        }
+    ]
+}

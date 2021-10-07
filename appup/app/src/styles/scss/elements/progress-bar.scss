@@ -1,0 +1,57 @@
+/*------------------------------------*/
+/*---------- PROGRESS BAR ------------*/
+/*------------------------------------*/
+.progress-bars{
+	position: relative;
+    padding-top: 0.3rem;
+    border-left: 1px solid #E4EDF9;
+    padding-left: 2.1rem;
+	.progress{
+        position: relative;
+	    min-width: 277px;
+	    margin-bottom: 1rem;
+	    height: 8px;
+	    border-radius: 0;
+    	&:before{
+	    	background-color: $alice_blue_bg;
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    content: '';
+		    height: 100%;
+		    z-index: 1;
+    	}
+    	.progress-bar{
+    		z-index: 10;
+    	}
+	}
+	span{
+		position: absolute;
+	    left: 15px;
+	    font-size: 0.7rem;
+	    margin-top: -0.1rem;
+	    color: $rock_blue;
+	    line-height: 8px;
+	}
+}
+@media(max-width: 767px){
+	.progress-bars {
+		padding-left: 0;
+		border-left: 0;
+		.progress{
+		    min-width: 300px;
+		}
+		span{
+			left: -20px;
+		}
+	}
+	
+}
+@media(max-width: 374px){
+	.progress-bars .progress{
+		min-width: 244px;
+	}
+}
+/*------------------------------------*/
+/*---------- /PROGRESS BAR -----------*/
+/*------------------------------------*/

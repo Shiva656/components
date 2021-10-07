@@ -1,0 +1,26 @@
+/*------------------------------------*/
+/*---------- UPLOAD IMAGE ------------*/
+/*------------------------------------*/
+.user-thumbnail{
+	position: relative;
+	display: inline-block;
+    margin-right: 0.1rem;
+	a.remove-button{
+	    position: absolute;
+	    background: $wild_watermelon;
+	    top: -9px;
+	    right: -7px;
+	    font-size: 6px;
+	    border: 2px solid $white;
+	    @include border-radius(50%);
+        width: 19px;
+	    height: 19px;
+	    text-align: center;
+	    line-height: 16px;
+	}
+}
+
+
+/*------------------------------------*/
+/*---------- /UPLOAD IMAGE -----------*/
+/*------------------------------------*/

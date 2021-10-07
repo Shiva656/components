@@ -1,0 +1,43 @@
+/*------------------------------------*/
+/*------- NOTIFICATION DROPDOWN ------*/
+/*------------------------------------*/
+
+.notification-dropdown{
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+	h3.title-dropdown{
+        font-size: 16px;
+	    margin-left: 1.4rem;
+	    color: $fiord;
+	    letter-spacing: -0.15px;
+	    display: inline-block;
+	    padding-top: 0.1rem;
+	}
+
+	span.new-notice-count{
+		margin-right: 0.9rem;
+	    background: $dodger_blue_translucent;
+	    border: 1px solid $light_blue_border_color;
+	    display: inline-block;
+	    vertical-align: -webkit-baseline-middle;
+	    color: $blue;
+	    font-size: 0.9rem;
+	    text-align: center;
+	    padding: 0 0.46rem;
+	    font-weight: 500;
+	    border-radius: 4px;
+	}
+	.dropdown-item{
+		.notification-date{
+	    	font-size: 0.7rem;
+			color: $rock_blue;
+			letter-spacing: 0.65px;
+		}
+	}
+	
+}
+
+/*------------------------------------*/
+/*------- /NOTIFICATION DROPDOWN -----*/
+/*------------------------------------*/
+/**/

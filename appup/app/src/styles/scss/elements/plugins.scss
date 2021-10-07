@@ -1,0 +1,114 @@
+/*------------------------------------*/
+/*-------------- PLUGINS -------------*/
+/*------------------------------------*/
+.plugin{
+    border: 1px solid $light_gray;
+    @include border-radius(4px);
+    padding: 1rem 0.9rem 0rem 0.9rem;
+    min-height: 240px;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    &.installed{
+    	span.icon-check {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    width: 0;
+		    height: 0;
+		    border-style: solid;
+		    border-width: 0 30px 30px 0;
+		    border-color: transparent #73c21e transparent transparent;
+		    &:before{
+	    	    position: relative;
+			    right: -14px;
+			    font-size: 10px;
+			    top: -2px;
+		    }
+		}
+    }
+    img{
+    	display:  block;
+    	margin-bottom: 1rem;
+    }
+    h4{
+    	color: $blue_bg;
+    }
+    .active-installations{
+    	color:  $ship_cove;
+	    font-size: 0.7rem;
+	    line-height: 1.2rem;
+	    letter-spacing: -0.35px;
+    	span{
+    		color:  $christi;
+    	}
+    }
+    .voting{
+   	 	margin-bottom: 1.2rem;
+    	.stars{
+    		margin-top: 0.15rem;
+    		display:  inline-block;
+    		span{
+    			margin-right: 0.13rem;
+    			font-size: 0.8rem;
+    		}
+    	}
+    	span{
+		 	font-size: 0.65rem;
+		    color:  $ship_cove;
+		    letter-spacing: -0.05px;
+	        display: inline-block;
+    		vertical-align: middle;
+    	}
+    }
+    .control{
+	    border-top: 1px solid $lavender_gray;
+	    margin: 0 -15px;
+	    padding: 0.5rem 0;
+	    a{
+    	    color: $periwinkle;
+    		font-size: 0.75rem;
+	    }
+	    &.install{
+	    	a{
+	    		color: $blue;
+	    	}
+	    }
+    }
+}
+.plugins-overview{
+	.plugin{
+		.stars{
+			margin-top: 0;
+		}
+		p{
+			margin-bottom: 1.3rem;
+		}
+		.active-installations{
+			line-height: 1.7rem;
+			span{
+			    color: $blue_bg;
+    			background: $light_blue_border_color;
+			    height: 24px;
+			    display: inline-block;
+			    font-size: 0.75rem;
+			    text-align: center;
+			    border-radius: 3px;
+			    margin-left: 0.3rem;
+			    padding: 0 0.3rem;
+			}
+		}
+		
+
+	}
+	
+}
+@media(max-width: 767px){
+	.plugin .voting .stars span{
+		font-size: 0.6rem;
+	}
+}
+/*------------------------------------*/
+/*-------------- /PLUGINS ------------*/
+/*------------------------------------*/
+/**/

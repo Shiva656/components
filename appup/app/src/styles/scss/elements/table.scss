@@ -1,0 +1,175 @@
+/*------------------------------------*/
+/*-------------- TABLE ---------------*/
+/*------------------------------------*/
+table.table{
+	thead{
+		th{
+			font-size: 0.6875rem;
+		    text-transform: uppercase;
+		    border: 1px solid $lavender_gray;
+		    background: #F7FBFF;
+ 		    padding: 0.9rem 0;
+     		text-align: center;
+		}
+	}
+	tbody{
+		th, td{
+		    padding: 1.6rem 1.55rem;
+		    border: 1px solid $lavender_gray;
+		    text-align: center;
+		}
+	}
+}
+.billing-block  table.table{
+	margin-bottom: 0;
+	width: 100%; 
+  	border-collapse: collapse;
+	thead{
+		th{
+ 		    padding: 0.9rem 4.3rem 1rem 1.5rem;
+     		text-align: left;
+     		&:nth-child(2) {
+			    padding: 0.8rem 3.1rem 1rem 1.5rem;
+			}
+			&:nth-child(3){
+				padding: 0.8rem 0 1rem 1.5rem;
+			    width: 118px;
+			}
+			&:nth-child(4){
+			    padding: 0.8rem 0 1rem 1.5rem;
+    			width: 106px;
+			}
+		}
+	}
+	tbody{
+		th, td{
+			font-size: 0.8125rem;
+		    font-weight: 300;
+		    padding: 0.9rem 0 1.1rem 1.55rem;
+		    letter-spacing: -0.15px;
+		    color: rgba(77, 89, 104, 0.8);
+		    text-align: left;
+		}
+		.status{
+			text-align: center;
+		    width: 70px;
+		    display: inline-block;
+		    margin-top: -0.3rem;
+		    margin-bottom: -0.3rem;
+		    padding: 0.2rem 0;
+		    font-size: 0.7rem;
+		    letter-spacing: 0.05px;
+			&.paid{
+				color: #73C21E;
+				background: rgba(126, 211, 33, 0.1);
+				border: 1px solid rgba(124, 211, 33, 0.1);
+			}	
+			&.pending{
+				color: #FF9902;
+				background: rgba(255, 153, 2, 0.1);
+				border: 1px solid rgba(255, 153, 2, 0.1);
+			}	
+			&.error{
+				color: #FF596E;
+				background: rgba(255, 48, 74, 0.1);
+				border: 1px solid rgba(255, 48, 74, 0.1);
+			}	
+		}
+	}
+}
+.element-block table{
+	margin-bottom: 0;
+}
+.element-block .open-properties{
+	border: 1px solid transparent;
+}
+.element-block .open-properties.show-modal{
+	border: 1px solid $blue;
+}
+@media(max-width: 1199px){
+	.billing-block table.table{
+		tbody{
+			th, td{
+				padding: 1.1rem 0 1.1rem 0.65rem;
+			}
+		}
+		thead th, thead th:nth-child(2),
+		thead th:nth-child(3), thead th:nth-child(4),
+		thead th:last-child{
+			padding: 0.8rem 0.9rem 1rem 0.8rem;
+		}
+	}
+}
+@media(max-width: 767px){
+	table, thead, tbody, th, td, tr{
+		display: block;
+	    text-align: right;
+    	position: relative;
+	}
+	table.table thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	table.table tbody tr{
+		margin-bottom: 1rem;
+	}
+	.billing-block table.table td { 
+		position: relative;
+		padding-left: 50%; 
+		text-align: right;
+	}
+	table.table tbody td:before, table.table tbody th:before{
+		position: absolute;
+	    white-space: nowrap;
+	    text-align: left;
+	    width: 45%;
+	    left: 20px;
+	    color: $fiord;
+	}
+	.element-block table.table tbody td:before{
+		top: 0;
+	    padding-top: 1rem;
+	    bottom: 0;
+	    border-right: 1px solid $lavender_gray;
+	    text-transform: uppercase;
+	    font-size: 0.8rem;
+	}
+ 	.billing-block table.table tbody td:before, .billing-block table.table tbody th:before{ 
+		position: absolute;
+    	top: 17px;
+	    padding-right: 10px;
+	    white-space: nowrap;
+	    text-align: left;
+	    font-weight: bold;
+	}
+	table.table tbody {
+		th, td{
+			border-bottom: none;
+			&:last-child{
+				border: 1px solid $lavender_gray;
+			}
+		}
+	}
+	.billing-block table.table tbody{
+		th, td{
+			padding: 1.1rem 1rem 1.1rem 0.65rem;
+		}
+	}
+	.element-block table.table td:nth-of-type(1):before { content: "Column 1"; }
+	.element-block table.table td:nth-of-type(2):before { content: "Column 2"; }
+	.element-block table.table td:nth-of-type(3):before { content: "Column 3"; }
+	.element-block table.table td:nth-of-type(4):before { content: "Column 4"; }
+	.element-block table.table td:nth-of-type(5):before { content: "Column 5"; }
+	.element-block table.table td:nth-of-type(6):before { content: "Column 6"; }
+	.element-block table.table td:nth-of-type(7):before { content: "Column 7"; }
+	.billing-block table.table th:nth-of-type(1):before { content: "ID"; }
+	.billing-block table.table td:nth-of-type(1):before { content: "Date"; }
+	.billing-block table.table td:nth-of-type(2):before { content: "Payment"; }
+	.billing-block table.table td:nth-of-type(3):before { content: "Amount"; }
+	.billing-block table.table td:nth-of-type(4):before { content: "Recipt"; }
+}
+/*------------------------------------*/
+/*-------------- /TABLE --------------*/
+/*------------------------------------*/
+/**/

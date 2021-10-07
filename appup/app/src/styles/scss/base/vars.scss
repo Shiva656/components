@@ -1,0 +1,47 @@
+/*------------------------------------*/
+/*-------------- VARS ----------------*/
+/*------------------------------------*/
+html, body{
+    height: 100%;
+    margin: 0;
+}
+.page-wrapper{
+    margin-bottom: -64px;
+    min-height: 100%;
+}
+img {
+    max-width:  100%;
+    width:  auto;
+    object-fit: cover;
+}
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+@mixin transition($transition){
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+@mixin transform($transform){
+	-moz-transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+  -webkit-transform: $transform;
+  transform: $transform;
+}
+@mixin opacity($opacity){
+  -webkit-appearance: $opacity;
+  -moz-appearance: $opacity;
+  appearance: $opacity;
+}
+/*------------------------------------*/
+/*-------------- /VARS ---------------*/
+/*------------------------------------*/

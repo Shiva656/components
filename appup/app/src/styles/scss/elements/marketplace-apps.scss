@@ -1,0 +1,71 @@
+/*------------------------------------*/
+/*--------- MARKETPLACE APPS ---------*/
+/*------------------------------------*/
+.marketplace-apps .swiper-container {
+    width: 100%;
+    height: auto;
+    margin-top: 3rem;
+    overflow: visible;
+    &:before {
+	    content: '';
+	    width: 50vw;
+	    height: 100%;
+	    background: #ffffff;
+	    position: absolute;
+	    right: 100%;
+	    z-index: 100;
+	}
+}
+.marketplace-apps .app{
+	border: 1px solid $lavender_gray;
+	@include border-radius(3px);
+    padding: 3rem 1.5rem 1.3rem;
+    width: 100px;
+    img{
+    	margin-bottom: 3.1rem;
+    }
+    h3{
+	    font-size: 0.9rem;
+	    text-transform: uppercase;
+	    letter-spacing: 0.55px;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    span.by{
+    	color: $periwinkle;
+	    font-size: 0.9rem;
+	    letter-spacing: 0.45px;
+	    display: block;
+	    margin-bottom: 1.7rem;
+    }
+    p{
+	    letter-spacing: -0.45px;
+    	margin-bottom: 0.9rem;
+    }
+    .voting{
+    	span{
+		    display: inline-block;
+		 	font-size: 0.6rem;
+		    color: $ship_cove;
+    	}
+    	.stars{
+    		display: inline-block;
+    		span{
+	    		font-size: 0.85rem;
+			    margin-right: 0.05rem;
+			    display: inline-block;
+			    vertical-align: middle;
+			    line-height: 14px;
+    		}
+    	}
+    }
+    .price{
+    	color: $christi;
+	    font-size: 0.95rem;
+		line-height: 26px;
+    }
+}
+
+/*------------------------------------*/
+/*--------- /MARKETPLACE APPS --------*/
+/*------------------------------------*/

@@ -1,0 +1,68 @@
+/*------------------------------------*/
+/*---------- COLLABORATORS -----------*/
+/*------------------------------------*/
+.collaborator {
+    border: 1px solid $lavender_gray;
+    @include border-radius(4px);
+    padding: 0.9rem 0.9rem 0.9rem 1rem;
+    margin-bottom: 1rem;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: relative;
+    .collaborator-avatar{
+        margin-right: 0.6rem;
+    }
+    .collaborator-info{
+    	padding-top: 0.4rem;
+	    h4{
+	    	display: block;
+		    color: $blue_bg;
+		    line-height:  0.7rem;
+	    }
+	    a.user-email, a.user-email:not([href]):not([tabindex]), .invitation-date {
+	    	font-size: 9px;
+		    color:  #7C8EAA;
+	        letter-spacing: 0.55px;
+	    }
+    }
+    .more:not([href]):not([tabindex]){
+	    color: rgba(0, 0, 0, 0.21);
+	    font-size: 1.1rem;
+        letter-spacing: -0.15px;
+        position: absolute;
+        right: 14px;
+        top: calc(100% - 77%);
+    }
+    &.invited h4{
+    	margin-bottom: 0.51rem;
+    }
+    &.add-collaborator{
+	    justify-content: center;
+	    cursor: pointer;
+        border-style: dashed;
+	    h4{
+    	    color: $hawkes_blue;
+		    font-size: 0.8125rem;
+	    }
+    }
+}
+.enter-name {
+    position: absolute;
+    top: 13px;
+    left: 24px;
+    right: 15px;
+    bottom: 17px;
+    display: none;
+    visibility: hidden;
+    background: $white;
+    &.add{
+        visibility: visible;
+        display: block;
+    }
+}
+/*------------------------------------*/
+/*---------- COLLABORATORS -----------*/
+/*------------------------------------*/
+/**/

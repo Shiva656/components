@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Keyshape -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128px" height="128px" viewBox="0 0 128 128">
+    <style>
+@keyframes Oval-7_t { 0% { transform: translate(52px,70px) rotate(0deg) translate(-50px,-70px); } 100% { transform: translate(52px,70px) rotate(-360deg) translate(-50px,-70px); } }
+    </style>
+    <title>Loader</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Loader" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.655012,-1.11157)">
+        <path id="Shape" d="M80.3491,58.592C78.7659,51.198,72.0972,45.4221,64.4676,45.7353C60.1608,45.9121,58.2592,46.6398,54.9147,49.308C55.8185,49.7312,56.7464,50.1496,57.5929,50.5202C60.2765,48.3854,61.0277,48.2765,64.4676,48.2765C71.1797,48.2765,77.0015,53.2809,78.0087,59.9184L78.1577,60.8993L79.1454,60.9917C84.2786,61.4787,88.1488,65.7386,88.1488,70.8989C88.1488,76.387,83.684,80.851,78.1942,80.851C72.8786,80.851,70.2208,80.851,70.2208,80.851C70.2208,80.851,69.5861,81.698,68.3166,83.3921L78.1942,83.3921C85.0841,83.3921,90.69,77.788,90.69,70.8989C90.69,64.7484,86.3081,59.6169,80.3491,58.592Z" stroke="#1A8CFF" fill="#1A8CFF" fill-rule="nonzero"/>
+        <path id="Oval-7" d="M62,69.75L60.25,69.75L63.75,64.75L67.25,69.75L65.5,69.75C65.5,77.8962,58.8962,84.5,50.75,84.5C42.6038,84.5,36,77.8962,36,69.75C36,61.6038,42.6038,55,50.75,55C54.07,55,57.2269,56.1021,59.7946,58.0977L57.6468,60.8612C55.688,59.3388,53.2852,58.5,50.75,58.5C44.5368,58.5,39.5,63.5368,39.5,69.75C39.5,75.9632,44.5368,81,50.75,81C56.9632,81,62,75.9632,62,69.75Z" fill="#1A8CFF" fill-rule="nonzero" transform="translate(52,70) translate(-50,-70)" style="animation: Oval-7_t 2s linear infinite both;"/>
+    </g>
+</svg>

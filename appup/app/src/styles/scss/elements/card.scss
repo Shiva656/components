@@ -1,0 +1,155 @@
+/*------------------------------------*/
+/*--------------- CARD ---------------*/
+/*------------------------------------*/
+.card{
+	//background-image: url(../images/card.png);
+	min-height: 203px;
+	background-repeat: no-repeat;
+	border: none;
+    padding: 5.6rem 2rem 0;
+    display: block;		
+    position: relative;
+    .card-holder h4, &:hover .hover{
+    	display: block;
+    }
+    .card-number, .card-holder h4, .expires .date span,
+    .hover a{
+    	color: $white;
+    }
+	.card-number{
+		margin-bottom: 0.9rem;
+		span{
+		    padding-right: 2.1rem;
+		    letter-spacing: -0.75px;
+			font-size: 1.1rem;
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
+	.card-holder{
+		h4{
+		    font-size: 0.9375rem;
+		    margin-top: 0.1rem;
+		}
+	}
+	.card-holder, .expires{
+		span{
+			color: $solitude;
+		    font-size: 0.4rem;
+    		letter-spacing: 2.15px;
+	    	text-transform: uppercase;
+		}
+	}
+	.expires{
+		padding-right: 0.7rem;
+		.date{
+			margin-top: -0.1rem;
+		    margin-right: 0.1rem;
+			span{
+				font-size: 0.9rem;
+    			display: inline-block;
+    			margin: 0 -2px;
+    			letter-spacing: 0;
+			}
+		}
+	}
+	.hover{
+		position: absolute;
+		left: 0;
+		right: 0.2rem;
+		top: 0;
+		bottom: 0.1rem;
+		background: rgba(26, 140, 255, 0.7);
+		display: none;
+		text-align: center;
+	    padding-top: calc(100% - 72%);
+	    @include border-radius(5px);
+        max-height: 202px;
+		a{
+			margin: 0 0.5rem;
+		    font-size:  0.8rem;
+		    font-weight:  bold;
+		    letter-spacing: 0.15px;
+		    span{
+		    	font-size:  1rem;
+    			margin-right: 0.3rem;
+		    }
+		    &:hover{
+		    	text-decoration: none;
+		    }
+		}
+	}
+	
+	   	
+}
+@media(max-width: 1199px){
+	.card{
+		background-size: 100%;
+		padding: 4.5rem 1.2rem 0;
+		min-height: 166px;
+		.card-number{
+			span{
+			    font-size: 1rem;
+    			padding-right: 1.8rem;
+			}
+		}
+		.card-holder h4{
+			font-size: 0.8rem;
+		}
+		.expires{
+			padding-right: 0.5rem;
+		}
+		.hover{
+		    right: 0;
+		    bottom: 0;
+		    max-height: 166px;
+		}
+
+	}
+}
+@media(max-width: 991px){
+	.card .hover{
+	    padding-top: calc(100% - 75%);
+	}
+}
+@media(max-width: 767px){
+	.card{
+		min-height: 234px;
+		padding-top: 6.5rem;
+		.card-number{
+		    padding-bottom: 1.8rem;
+		    display: flex;
+		    justify-content: space-around;
+		}
+		.hover{
+			min-height: 232px;
+			padding-top: calc(100% - 72%);
+		}
+	}
+}
+@media(max-width: 424px){
+	.card{
+    	min-height: 204px;
+		.card-number{
+		    margin-bottom: 0;
+    		padding-bottom: 1rem;
+		}
+		.hover{
+			min-height: 201px;
+		}
+	}
+}
+@media (max-width: 374px){
+	.card{
+		min-height: 174px;
+		padding-top: 4.5rem;
+		.hover{
+			min-height: 166px;
+		}
+	}
+}
+/*------------------------------------*/
+/*--------------- /CARD --------------*/
+/*------------------------------------*/
+/**/

@@ -1,0 +1,53 @@
+/*------------------------------------*/
+/*--------- PROPERTIES MODAL ---------*/
+/*------------------------------------*/
+.properties-modal{
+	position: absolute;
+    top: 80px;
+    right: 24px;
+    background: $white;
+    width: 408px;
+    max-width: calc(100% - 48px);
+    box-shadow: 0 4px 34px 0 rgba(210, 222, 237, 0.3);
+    border: 1px solid $light_gray;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s;
+    z-index: 10;
+    border-radius: 4px;
+	&.active{
+	    opacity: 1;
+    	visibility: visible;
+	}
+	.modal-header{
+		padding: 1.3rem 1.4rem;
+		h5{
+			text-transform: uppercase;
+		    color:  $acadia;
+	        font-size: 0.75rem;
+		    font-weight:  600;
+		}
+		.close-properties{
+		    margin-right: 0.3rem;
+    		font-size: 0.9rem;
+    		margin-top: -0.1rem;
+    		&:hover{
+    			text-decoration: none;
+    		}
+		}
+	}
+	.modal-body{
+		padding: 1.4rem;
+		p{
+			letter-spacing: 0.05px;
+		    font-size: 0.75rem;
+		    line-height: 19px;
+		    padding-right: 0.7rem;
+		    margin-bottom: 2.7rem;
+		}
+	}
+}
+
+/*------------------------------------*/
+/*--------- PROPERTIES MODAL ---------*/
+/*------------------------------------*/

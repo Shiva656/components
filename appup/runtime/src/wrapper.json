@@ -1,0 +1,17 @@
+{
+    "appup-input-tag": {
+        "packageName": "vue-input-tag",
+        "cdnUrls": [
+            "https://unpkg.com/vue-input-tag@2.0.4/dist/vueInputTag.umd.min.js"
+        ],
+        "importName": "vueInputTag"
+    },
+    "appup-multiselect2": {
+        "packageName": "vue-multiselect",
+        "cdnUrls": [
+            "https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css",
+            "https://unpkg.com/vue-multiselect@2.1.0"
+        ],
+        "importName": "VueMultiselect"
+    }
+}

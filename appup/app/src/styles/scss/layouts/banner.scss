@@ -1,0 +1,56 @@
+/*------------------------------------*/
+/*------------- BANNER ---------------*/
+/*------------------------------------*/
+section.banner{
+	//background: url(../images/banner-bg.png);
+    padding: 10.5rem 0 0;
+    height: 800px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+	h1{
+        font-size: 2.322222rem;
+    	letter-spacing: -0.2px;
+    	color: $fiord;
+   	 	margin-bottom: 1.1rem;
+	}
+	p{
+	 	max-width: 71%;
+	    letter-spacing: -0.05px;
+	    font-size: 0.95rem;
+        margin: 0 auto 11rem;
+	    line-height: 25px;
+	    color: $fiord;
+	}
+}
+@media(max-width: 1439px){
+	section.banner{
+		height: 600px;
+	}
+}
+@media(max-width: 1199px){
+	section.banner{
+		height: 500px;
+	}
+}
+@media(max-width: 991px){
+	section.banner{
+		height: 400px;
+	}
+}
+@media(max-width: 767px){
+	section.banner{
+	    padding-top: 8rem;
+	    min-height: 340px;
+	    background-size: 100% 100%;
+	    h1{
+	    	font-size: 1.822222rem;
+		}
+		p{
+			width: 100%;
+		}
+	}
+}
+/*------------------------------------*/
+/*------------- /BANNER --------------*/
+/*------------------------------------*/
+/**/

@@ -1,0 +1,87 @@
+/*------------------------------------*/
+/*---------- ELEMENTS MODAL ----------*/
+/*------------------------------------*/
+.open-components {
+    background: #1A8CFF;
+    border-radius: 2px;
+    color: #FFFFFF;
+    width: 44px;
+    height: 44px;
+    position: fixed;
+    left: 30px;
+    top: calc(100% - 50%);
+    text-align: center;
+    line-height: 44px;
+    font-size: 25px;
+    text-decoration: none;
+    z-index: 10;
+    &:hover {
+        text-decoration: none;
+        color:#fff;
+    }
+    @media (max-width: 1024px) {
+        bottom: 30px;
+    }
+}
+.close-components {
+    position: absolute;
+    right: 15px;
+    top: 19px;
+    font-size: 16px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.elements-modal {
+    position: absolute;
+    top: 80px;
+    left: 24px;
+    background: $white;
+    width: 408px;
+    max-width: calc(100% - 48px);
+    box-shadow: 0 4px 34px 0 rgba(210, 222, 237, 0.3);
+    border: 1px solid $light_gray;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s;
+    z-index: 10;
+    border-radius: 4px;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .tab-content {
+        padding: 0 23px;
+        p {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.element {
+    padding-bottom: 100%;
+    border: 1px solid #E4EDF9;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    & > span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -120%);
+        font-size: 24px;
+    }
+    h5 {
+        position: absolute;
+        bottom: 29%;
+        text-align: center;
+        width: 100%;
+        left: 0;
+        color: #8BA2BE;
+        font-size: 12px;
+        font-family: 'Inter-UI-Regular';
+    }
+}
+
+/*------------------------------------*/
+/*---------- /ELEMENTS MODAL ---------*/
+/*------------------------------------*/

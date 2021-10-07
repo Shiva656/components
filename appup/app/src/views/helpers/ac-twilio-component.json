@@ -1,0 +1,58 @@
+ {
+        "component": "ac-twilio",
+        "description": null,
+        "category": "ac-twilio",
+        "fields": [
+            {
+                "type": "html",
+                "html": "<h4>GENERAL</h4>",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true"
+            },
+            {
+                "id": "phone-number_field",
+                "name": "phone-number",
+                "label": "phoneNumber",
+                "description": "Number to be Dialled",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a",
+                "container-active": "true",
+                "category-name": "1_General",
+                "type": "text"
+            },
+            {
+                "id": "with-call-music_field",
+                "name": "with-call-music",
+                "label": "phoneNumber",
+                "description": "Number to be Dialled for music",
+                "container": "settings",
+                "tab-order": "a",
+                "container-name": "props",
+                "category-name": "1_General",
+                "type": "radio",
+                "option": [
+                    {
+                        "label": "Yes",
+                        "value": true
+                    },
+                    {
+                        "label": "No",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "refs_field",
+                "name": "refs",
+                "label": "refs",
+                "description": "Component reference",
+                "type": "text",
+                "container": "settings",
+                "container-name": "props",
+                "tab-order": "a"
+            }
+        ]
+    }
